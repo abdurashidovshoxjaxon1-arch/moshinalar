@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoElite Premium | Avtosalon</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">Auto<span>Elite</span></div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#" onclick="showPage('home')">Asosiy</a></li>
+        <li><a href="#" onclick="showPage('models')">Modellar</a></li>
+        <li><a href="#" onclick="showPage('about')">Biz haqimizda</a></li>
+        <li><a href="#" onclick="showPage('contact')">Aloqa</a></li>
+        <li>
+          <a href="#" onclick="showPage('register')" class="reg-btn"
+            >Ro'yxatdan o'tish</a
+          >
+        </li>
+      </ul>
+      <div class="burger" id="burger">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+
+    <section id="home-page" class="page active">
+      <div class="hero">
+        <div class="hero-content">
+          <h1>Kelajak moshinalari hoziroq</h1>
+          <p>O'zbekistondagi eng premium avtosalonga xush kelibsiz.</p>
+          <button class="btn-cta" onclick="showPage('models')">
+            Katalogga o'tish
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="models-page" class="page">
+      <h2 class="title">Bizning Avtopark</h2>
+      <div class="car-grid" id="car-list"></div>
+    </section>
+
+    <section id="about-page" class="page">
+      <div class="container about-container">
+        <h2>Biz haqimizda</h2>
+        <p>
+          AutoElite - 2015-yildan buyon dunyoning eng yetakchi moshina
+          brendlarini yetkazib beradi. Bizning maqsadimiz — sifat va ishonch.
+        </p>
+        <div class="about-stats">
+          <div>
+            <h3>1000+</h3>
+            <p>Mijozlar</p>
+          </div>
+          <div>
+            <h3>50+</h3>
+            <p>Modellar</p>
+          </div>
+          <div>
+            <h3>9 oy</h3>
+            <p>Kafolat</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact-page" class="page">
+      <div class="container">
+        <h2 class="title">Biz bilan bog'laning</h2>
+        <div class="contact-box">
+          <p>
+            <i class="fas fa-map-marker-alt"></i> Toshkent sh., Amir Temur
+            ko'chasi
+          </p>
+          <p><i class="fas fa-phone"></i> +998 90 123 45 67</p>
+          <p><i class="fas fa-envelope"></i> info@autoelite.uz</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="register-page" class="page">
+      <div class="form-wrapper">
+        <div class="reg-card">
+          <h2>Profil yaratish</h2>
+          <form id="reg-form">
+            <input type="text" placeholder="Ismingiz" required />
+            <input type="email" placeholder="Email" required />
+            <input type="password" placeholder="Parol" required />
+            <button type="submit">Yuborish</button>
+          </form>
+          <div id="success-msg" class="msg-hide">
+            Muvaffaqiyatli ro'yxatdan o'tdingiz!
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

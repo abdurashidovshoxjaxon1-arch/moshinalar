@@ -1,0 +1,201 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --primary: #c0392b;
+  --dark: #121212;
+  --gray: #2c3e50;
+  --light: #ecf0f1;
+}
+
+body {
+  background: var(--light);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 8%;
+  background: var(--dark);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.logo span {
+  color: var(--primary);
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  align-items: center;
+}
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 14px;
+}
+.nav-links a:hover {
+  color: var(--primary);
+}
+.reg-btn {
+  background: var(--primary);
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+/* Sahifalar */
+.page {
+  display: none;
+  min-height: 90vh;
+}
+.page.active {
+  display: block;
+  animation: fadeIn 0.6s ease;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero */
+.hero {
+  height: 85vh;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+.btn-cta {
+  padding: 15px 35px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+.btn-cta:hover {
+  transform: scale(1.1);
+}
+
+/* Car Grid */
+.title {
+  text-align: center;
+  margin: 40px 0;
+  font-size: 30px;
+}
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 0 8% 50px;
+}
+.car-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.car-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.car-info {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Form */
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
+}
+.reg-card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: var(--dark);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.msg-hide {
+  display: none;
+  color: green;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* Responsive (Mobile) */
+@media (max-width: 768px) {
+  .burger {
+    display: block;
+    font-size: 25px;
+    cursor: pointer;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: var(--dark);
+    padding: 20px;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .about-stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
