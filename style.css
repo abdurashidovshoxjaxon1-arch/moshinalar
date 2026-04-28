@@ -173,7 +173,122 @@ button[type="submit"] {
   margin-top: 15px;
   font-weight: bold;
 }
+/* ABOUT PAGE STYLES */
+.about-hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
 
+.about-hero h2 {
+    font-size: 32px;
+    color: var(--dark);
+    margin-bottom: 15px;
+}
+
+.about-hero p {
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Statistika kartochkalari */
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.stat-card {
+    background: var(--dark);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.stat-card:hover {
+    background: var(--primary);
+    transform: translateY(-5px);
+}
+
+.stat-card i {
+    font-size: 40px;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.stat-card h3 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+/* Batafsil qism */
+.about-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    line-height: 1.6;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h3 {
+    margin-bottom: 15px;
+    color: var(--primary);
+    font-size: 24px;
+}
+
+.about-text p {
+    margin-bottom: 25px;
+    color: #444;
+}
+
+.about-list {
+    list-style: none;
+}
+
+.about-list li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.about-list i {
+    color: var(--primary);
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Mobil moslashuvchanlik */
+@media (max-width: 850px) {
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .about-image {
+        order: -1; /* Rasm matndan tepaga chiqadi */
+    }
+}
 /* Responsive (Mobile) */
 @media (max-width: 768px) {
   .burger {
