@@ -102,3 +102,24 @@ document.getElementById("reg-form").addEventListener("submit", function (e) {
     showPage("home");
   }, 2000);
 });
+document
+  .getElementById("contact-direct-form")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Simulyatsiya qilingan xabar yuborish
+    const btn = this.querySelector(".btn-send");
+    const originalText = btn.innerHTML;
+
+    btn.innerHTML = "Yuborilmoqda...";
+    btn.disabled = true;
+
+    setTimeout(() => {
+      alert(
+        "Xabaringiz muvaffaqiyatli yuborildi! Tez orada mutaxassislarimiz bog'lanishadi.",
+      );
+      btn.innerHTML = originalText;
+      btn.disabled = false;
+      this.reset();
+    }, 1500);
+  });
