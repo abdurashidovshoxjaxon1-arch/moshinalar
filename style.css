@@ -18,7 +18,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -79,7 +78,6 @@ body {
   }
 }
 
-/* Hero */
 .hero {
   height: 85vh;
   background:
@@ -108,7 +106,6 @@ body {
   transform: scale(1.1);
 }
 
-/* Car Grid */
 .title {
   text-align: center;
   margin: 40px 0;
@@ -135,8 +132,6 @@ body {
   padding: 20px;
   text-align: center;
 }
-
-/* Form */
 .form-wrapper {
   display: flex;
   justify-content: center;
@@ -173,7 +168,7 @@ button[type="submit"] {
   margin-top: 15px;
   font-weight: bold;
 }
-/* ABOUT PAGE STYLES */
+
 .about-hero {
   text-align: center;
   padding: 60px 20px;
@@ -194,7 +189,6 @@ button[type="submit"] {
   margin: 0 auto;
 }
 
-/* Statistika kartochkalari */
 .about-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -279,17 +273,15 @@ button[type="submit"] {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Mobil moslashuvchanlik */
 @media (max-width: 850px) {
   .about-content {
     flex-direction: column;
   }
 
   .about-image {
-    order: -1; /* Rasm matndan tepaga chiqadi */
+    order: -1;
   }
 }
-/* CONTACT PAGE STYLES */
 .contact-wrapper {
   display: flex;
   gap: 40px;
@@ -333,7 +325,6 @@ button[type="submit"] {
   font-size: 14px;
 }
 
-/* Ijtimoiy tarmoqlar */
 .social-links {
   display: flex;
   gap: 15px;
@@ -358,7 +349,6 @@ button[type="submit"] {
   transform: translateY(-3px);
 }
 
-/* Form stili */
 .contact-form {
   flex: 1.5;
   background: white;
@@ -415,7 +405,6 @@ button[type="submit"] {
   margin-bottom: 50px;
 }
 
-/* Mobil moslashuv */
 @media (max-width: 850px) {
   .contact-wrapper {
     flex-direction: column;
@@ -425,7 +414,6 @@ button[type="submit"] {
     gap: 0;
   }
 }
-/* Responsive (Mobile) */
 @media (max-width: 768px) {
   .burger {
     display: block;

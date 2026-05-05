@@ -1,4 +1,3 @@
-// 1. Sahifalarni almashtirish funksiyasi
 function showPage(pageId) {
   document.querySelectorAll(".page").forEach((page) => {
     page.classList.remove("active");
@@ -8,12 +7,10 @@ function showPage(pageId) {
   window.scrollTo(0, 0);
 }
 
-// 2. Mobil menyu (Burger)
 document.getElementById("burger").addEventListener("click", () => {
   document.getElementById("nav-links").classList.toggle("active");
 });
 
-// 3. Ko'proq moshinalar ro'yxati (12 ta)
 const carData = [
   {
     name: "BMW M5 CS",
@@ -43,7 +40,7 @@ const carData = [
   {
     name: "Lamborghini Urus",
     price: "$230,000",
-    img: "https://images.unsplash.com/photo-1582010905429-bef463482aa2?w=500",
+    img: "https://www.topgear.com/sites/default/files/2024/10/1-Lamborghini-Urus-SE-review-2024.jpg",
   },
   {
     name: "Ferrari Roma",
@@ -77,7 +74,6 @@ const carData = [
   },
 ];
 
-// Moshinalarni chiqarish
 const carList = document.getElementById("car-list");
 carData.forEach((car) => {
   carList.innerHTML += `
@@ -91,7 +87,6 @@ carData.forEach((car) => {
     `;
 });
 
-// 4. Registratsiya formasi
 document.getElementById("reg-form").addEventListener("submit", function (e) {
   e.preventDefault();
   const msg = document.getElementById("success-msg");
@@ -107,7 +102,6 @@ document
   .addEventListener("submit", function (e) {
     e.preventDefault();
 
-    // Simulyatsiya qilingan xabar yuborish
     const btn = this.querySelector(".btn-send");
     const originalText = btn.innerHTML;
 
