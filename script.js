@@ -1,119 +1,125 @@
+let cart = [];
+
+window.onload = () => {
+  setTimeout(() => {
+    document.getElementById("loader").style.opacity = "0";
+    setTimeout(
+      () => (document.getElementById("loader").style.display = "none"),
+      1000,
+    );
+    reveal();
+  }, 2000);
+};
+
 function showPage(pageId) {
-  document.querySelectorAll(".page").forEach((page) => {
-    page.classList.remove("active");
-  });
+  document
+    .querySelectorAll(".page")
+    .forEach((p) => p.classList.remove("active"));
   document.getElementById(pageId + "-page").classList.add("active");
-  document.getElementById("nav-links").classList.remove("active"); // Mobil menyuni yopish
+  if (pageId === "cart") renderCartItems();
   window.scrollTo(0, 0);
+  setTimeout(reveal, 100);
 }
 
-document.getElementById("burger").addEventListener("click", () => {
-  document.getElementById("nav-links").classList.toggle("active");
-});
+function addToCart(id, name, price, img) {
+  cart.push({ id, name, price, img });
+  updateCartCount();
+  alert(name + " savatga qo'shildi!");
+}
 
-const carData = [
-  {
-    name: "BMW M5 CS",
-    price: "$142,000",
-    img: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=500",
-  },
-  {
-    name: "Mercedes G63",
-    price: "$185,000",
-    img: "https://images.unsplash.com/photo-1520031441872-265e4ff70366?w=500",
-  },
-  {
-    name: "Tesla Model X",
-    price: "$110,000",
-    img: "https://images.unsplash.com/photo-1536700503339-1e4b06520771?w=500",
-  },
-  {
-    name: "Audi RS6",
-    price: "$120,000",
-    img: "https://cdn.motor1.com/images/mgl/Wpyro/s1/audi-rs6-avant-by-wheelsandmore-lead-image.jpg",
-  },
-  {
-    name: "Porsche 911",
-    price: "$135,000",
-    img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500",
-  },
-  {
-    name: "Lamborghini Urus",
-    price: "$230,000",
-    img: "https://www.topgear.com/sites/default/files/2024/10/1-Lamborghini-Urus-SE-review-2024.jpg",
-  },
-  {
-    name: "Ferrari Roma",
-    price: "$220,000",
-    img: "https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=500",
-  },
-  {
-    name: "Rolls Royce Cullinan",
-    price: "$350,000",
-    img: "https://cdn.bmwblog.com/wp-content/uploads/2022/04/Rolls-Royce-Cullinan-Keyvany-Hayula-6.jpg",
-  },
-  {
-    name: "Range Rover",
-    price: "$105,000",
-    img: "https://images.unsplash.com/photo-1606611013016-969c19ba27bb?w=500",
-  },
-  {
-    name: "Ford Mustang GT",
-    price: "$55,000",
-    img: "https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?w=500",
-  },
-  {
-    name: "Nissan GTR",
-    price: "$115,000",
-    img: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=500",
-  },
-  {
-    name: "Toyota Supra",
-    price: "$60,000",
-    img: "https://hips.hearstapps.com/hmg-prod/images/2026-toyota-gr-supra-mkv-final-edition-106-67ed5d3eedce8.jpg?crop=1.00xw:0.855xh;0,0.0775xh&resize=1200:*",
-  },
-];
+function updateCartCount() {
+  document.getElementById("cart-count").innerText = cart.length;
+}
 
-const carList = document.getElementById("car-list");
-carData.forEach((car) => {
-  carList.innerHTML += `
-        <div class="car-card">
-            <img src="${car.img}" alt="${car.name}">
-            <div class="car-info">
-                <h3>${car.name}</h3>
-                <p style="color:red; font-weight:bold">${car.price}</p>
-            </div>
-        </div>
-    `;
-});
-
-document.getElementById("reg-form").addEventListener("submit", function (e) {
-  e.preventDefault();
-  const msg = document.getElementById("success-msg");
-  msg.style.display = "block";
-  setTimeout(() => {
-    msg.style.display = "none";
-    this.reset();
-    showPage("home");
-  }, 2000);
-});
-document
-  .getElementById("contact-direct-form")
-  .addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const btn = this.querySelector(".btn-send");
-    const originalText = btn.innerHTML;
-
-    btn.innerHTML = "Yuborilmoqda...";
-    btn.disabled = true;
-
-    setTimeout(() => {
-      alert(
-        "Xabaringiz muvaffaqiyatli yuborildi! Tez orada mutaxassislarimiz bog'lanishadi.",
-      );
-      btn.innerHTML = originalText;
-      btn.disabled = false;
-      this.reset();
-    }, 1500);
+function renderCartItems() {
+  const container = document.getElementById("cart-items-container");
+  const totalEl = document.getElementById("total-price");
+  container.innerHTML = cart.length === 0 ? "<h3>Savat bo'sh</h3>" : "";
+  let total = 0;
+  cart.forEach((item, index) => {
+    total += item.price;
+    container.innerHTML += `
+            <div class="cart-item" style="display:flex; align-items:center; justify-content:space-between; background:var(--card-bg); padding:15px; margin-bottom:10px; border-radius:10px;">
+                <img src="${item.img}" style="width:80px; border-radius:5px;">
+                <h4>${item.name}</h4>
+                <p>$${item.price.toLocaleString()}</p>
+                <button onclick="removeFromCart(${index})" style="color:red; background:none; border:none; cursor:pointer;"><i class="fas fa-trash"></i></button>
+            </div>`;
   });
+  totalEl.innerText = "$" + total.toLocaleString();
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  updateCartCount();
+  renderCartItems();
+}
+
+function checkout() {
+  if (cart.length === 0) return alert("Savat bo'sh!");
+  alert("Xarid muvaffaqiyatli yakunlandi!");
+  cart = [];
+  updateCartCount();
+  showPage("home");
+}
+
+document.querySelectorAll(".acc-header").forEach((header) => {
+  header.onclick = () => {
+    const item = header.parentElement;
+    item.classList.toggle("active");
+    const icon = header.querySelector("i");
+    icon.classList.toggle("fa-plus");
+    icon.classList.toggle("fa-minus");
+  };
+});
+
+function reveal() {
+  document.querySelectorAll(".reveal").forEach((el) => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 50) {
+      el.classList.add("active");
+      if (el.id === "stats-section") startCounters();
+    }
+  });
+}
+
+function startCounters() {
+  document.querySelectorAll(".counter").forEach((counter) => {
+    if (counter.innerText !== "0") return;
+    const target = +counter.getAttribute("data-target");
+    const update = () => {
+      const c = +counter.innerText;
+      const inc = target / 50;
+      if (c < target) {
+        counter.innerText = Math.ceil(c + inc);
+        setTimeout(update, 30);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    update();
+  });
+}
+document.querySelectorAll(".acc-header").forEach((header) => {
+  header.addEventListener("click", () => {
+    const item = header.parentElement;
+    item.classList.toggle("active");
+
+    const icon = header.querySelector("i");
+    if (item.classList.contains("active")) {
+      icon.classList.replace("fa-plus", "fa-minus");
+    } else {
+      icon.classList.replace("fa-minus", "fa-plus");
+    }
+  });
+});
+
+document.querySelector(".reg-btn").addEventListener("click", () => {
+  if (window.innerWidth <= 768) {
+    document.getElementById("nav-links").classList.remove("active");
+  }
+});
+window.addEventListener("scroll", reveal);
+document.getElementById("theme-toggle").onclick = () =>
+  document.body.classList.toggle("dark-theme");
+document.getElementById("burger").onclick = () =>
+  document.getElementById("nav-links").classList.toggle("active");

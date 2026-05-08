@@ -3,203 +3,599 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AutoElite Premium | Avtosalon</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>AutoElite Premium</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div id="loader">
+      <div class="loader-content">
+        <i class="fas fa-car-side car-anim"></i>
+        <h1>Auto<span>Elite</span></h1>
+        <p>Premium olamiga yo'l olinmoqda...</p>
+      </div>
+    </div>
+
     <nav class="navbar">
-      <div class="logo">Auto<span>Elite</span></div>
+      <div class="logo" onclick="showPage('home')">Auto<span>Elite</span></div>
       <ul class="nav-links" id="nav-links">
         <li><a href="#" onclick="showPage('home')">Asosiy</a></li>
         <li><a href="#" onclick="showPage('models')">Modellar</a></li>
         <li><a href="#" onclick="showPage('about')">Biz haqimizda</a></li>
         <li><a href="#" onclick="showPage('contact')">Aloqa</a></li>
         <li>
+          <div class="cart-icon" onclick="showPage('cart')">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count">0</span>
+          </div>
+        </li>
+        <li>
+          <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+        </li>
+        <li>
           <a href="#" onclick="showPage('register')" class="reg-btn"
-            >Ro'yxatdan o'tish</a
+            >A'zo bo'lish</a
           >
         </li>
       </ul>
-      <div class="burger" id="burger">
-        <i class="fas fa-bars"></i>
-      </div>
+      <div class="burger" id="burger"><i class="fas fa-bars"></i></div>
     </nav>
 
     <section id="home-page" class="page active">
       <div class="hero">
         <div class="hero-content">
-          <h1>Kelajak moshinalari hoziroq</h1>
-          <p>O'zbekistondagi eng premium avtosalonga xush kelibsiz.</p>
-          <button class="btn-cta" onclick="showPage('models')">
+          <h1 class="reveal">Muvaffaqiyatli insonlar tanlovi</h1>
+          <p class="reveal">
+            16 ta eng sara premium avtomobillar va eksklyuziv servis.
+          </p>
+          <button class="btn-cta reveal" onclick="showPage('models')">
             Katalogga o'tish
           </button>
+        </div>
+      </div>
+
+      <section id="stats-section" class="stats-container reveal">
+        <div class="stat-box">
+          <h2 class="counter" data-target="1500">0</h2>
+          <p>Sotilgan mashinalar</p>
+        </div>
+        <div class="stat-box">
+          <h2 class="counter" data-target="12">0</h2>
+          <p>Yillik tajriba</p>
+        </div>
+        <div class="stat-box">
+          <h2 class="counter" data-target="100">0</h2>
+          <p>Mijoz mamnuniyati (%)</p>
+        </div>
+      </section>
+
+      <div class="testimonials reveal">
+        <h2 class="title">Mijozlarimiz fikri</h2>
+        <div class="testimonial-slider">
+          <div class="t-card">
+            <p>
+              "AutoElite dan olingan G63 hayotimni o'zgartirdi. Xizmat
+              ko'rsatish darajasi juda yuqori!"
+            </p>
+            <h4>- Jasur Rahimov</h4>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="models-page" class="page">
-      <h2 class="title">Bizning Avtopark</h2>
-      <div class="car-grid" id="car-list"></div>
+      <h2 class="title reveal">Bizning Avtopark</h2>
+      <div class="car-grid">
+        <div class="car-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=500"
+          />
+          <div class="car-info">
+            <h3>BMW M5 CS</h3>
+            <p>$142,000</p>
+            <button
+              class="btn-cta"
+              onclick="
+                addToCart(
+                  1,
+                  'BMW M5 CS',
+                  142000,
+                  'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=500',
+                )
+              "
+            >
+              Savatga
+            </button>
+          </div>
+        </div>
+        <div class="car-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1520031441872-265e4ff70366?w=500"
+          />
+          <div class="car-info">
+            <h3>Mercedes G63</h3>
+            <p>$185,000</p>
+            <button
+              class="btn-cta"
+              onclick="
+                addToCart(
+                  2,
+                  'Mercedes G63',
+                  185000,
+                  'https://images.unsplash.com/photo-1520031441872-265e4ff70366?w=500',
+                )
+              "
+            >
+              Savatga
+            </button>
+          </div>
+        </div>
+        <div class="car-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=500"
+          />
+          <div class="car-info">
+            <h3>Tesla Model S</h3>
+            <p>$110,000</p>
+            <button
+              class="btn-cta"
+              onclick="
+                addToCart(
+                  3,
+                  'Tesla Model S',
+                  110000,
+                  'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=500',
+                )
+              "
+            >
+              Savatga
+            </button>
+          </div>
+        </div>
+        <div class="car-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500"
+          />
+          <div class="car-info">
+            <h3>Porsche 911</h3>
+            <p>$170,000</p>
+            <button
+              class="btn-cta"
+              onclick="
+                addToCart(
+                  4,
+                  'Porsche 911',
+                  170000,
+                  'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500',
+                )
+              "
+            >
+              Savatga
+            </button>
+          </div>
+        </div>
+        <div class="car-card reveal">
+          <img
+            src="https://repost.uz/storage/uploads/1963-1687776333-avto11-post-material.jpeg"
+          />
+          <div class="car-info">
+            <h3>Lamborghini Urus</h3>
+            <p>$230,000</p>
+            <button
+              class="btn-cta"
+              onclick="
+                addToCart(
+                  5,
+                  'Lamborghini Urus',
+                  230000,
+                  'https://repost.uz/storage/uploads/1963-1687776333-avto11-post-material.jpeg',
+                )
+              "
+            >
+              Savatga
+            </button>
+          </div>
+        </div>
+        <div class="car-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1606152421802-db97b9c7a11b?w=500"
+          />
+          <div class="car-info">
+            <h3>Audi RS7</h3>
+            <p>$130,000</p>
+            <button
+              class="btn-cta"
+              onclick="
+                addToCart(
+                  6,
+                  'Audi RS7',
+                  130000,
+                  'https://images.unsplash.com/photo-1606152421802-db97b9c7a11b?w=500',
+                )
+              "
+            >
+              Savatga
+            </button>
+          </div>
+        </div>
+        <div class="car-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1506015391300-4802dc74de2e?w=500"
+          />
+          <div class="car-info">
+            <h3>Range Rover SV</h3>
+            <p>$160,000</p>
+            <button
+              class="btn-cta"
+              onclick="
+                addToCart(
+                  7,
+                  'Range Rover SV',
+                  160000,
+                  'https://images.unsplash.com/photo-1506015391300-4802dc74de2e?w=500',
+                )
+              "
+            >
+              Savatga
+            </button>
+          </div>
+        </div>
+        <div class="car-card reveal">
+          <img
+            src="https://avatars.mds.yandex.net/get-verba/997355/2a0000018fddefa66bb289c982cbdb21b84d/cattouch"
+          />
+          <div class="car-info">
+            <h3>Rolls Royce</h3>
+            <p>$450,000</p>
+            <button
+              class="btn-cta"
+              onclick="
+                addToCart(
+                  8,
+                  'Rolls Royce',
+                  450000,
+                  'https://avatars.mds.yandex.net/get-verba/997355/2a0000018fddefa66bb289c982cbdb21b84d/cattouch',
+                )
+              "
+            >
+              Savatga
+            </button>
+          </div>
+        </div>
+        <div class="car-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=500"
+          />
+          <div class="car-info">
+            <h3>Bentley GT</h3>
+            <p>$225,000</p>
+            <button
+              class="btn-cta"
+              onclick="
+                addToCart(
+                  9,
+                  'Bentley GT',
+                  225000,
+                  'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=500',
+                )
+              "
+            >
+              Savatga
+            </button>
+          </div>
+        </div>
+        <div class="car-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=500"
+          />
+          <div class="car-info">
+            <h3>Ferrari F8</h3>
+            <p>$285,000</p>
+            <button
+              class="btn-cta"
+              onclick="
+                addToCart(
+                  10,
+                  'Ferrari F8',
+                  285000,
+                  'https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=500',
+                )
+              "
+            >
+              Savatga
+            </button>
+          </div>
+        </div>
+        <div class="car-card reveal">
+          <img
+            src="https://www.thecollection.com/wp-content/uploads/2025/06/4-1024x543.png"
+          />
+          <div class="car-info">
+            <h3>Aston Martin</h3>
+            <p>$210,000</p>
+            <button
+              class="btn-cta"
+              onclick="
+                addToCart(
+                  11,
+                  'Aston Martin',
+                  210000,
+                  'https://www.thecollection.com/wp-content/uploads/2025/06/4-1024x543.png',
+                )
+              "
+            >
+              Savatga
+            </button>
+          </div>
+        </div>
+        <div class="car-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1621135802920-133df287f89c?w=500"
+          />
+          <div class="car-info">
+            <h3>McLaren 720S</h3>
+            <p>$295,000</p>
+            <button
+              class="btn-cta"
+              onclick="
+                addToCart(
+                  12,
+                  'McLaren 720S',
+                  295000,
+                  'https://images.unsplash.com/photo-1621135802920-133df287f89c?w=500',
+                )
+              "
+            >
+              Savatga
+            </button>
+          </div>
+        </div>
+        <div class="car-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1600712242805-5f78671b24da?w=500"
+          />
+          <div class="car-info">
+            <h3>Bugatti Chiron</h3>
+            <p>$3,000,000</p>
+            <button
+              class="btn-cta"
+              onclick="
+                addToCart(
+                  13,
+                  'Bugatti Chiron',
+                  3000000,
+                  'https://images.unsplash.com/photo-1600712242805-5f78671b24da?w=500',
+                )
+              "
+            >
+              Savatga
+            </button>
+          </div>
+        </div>
+        <div class="car-card reveal">
+          <img
+            src="https://autopremiumgroup.ru/m/_versions/catalog/autos/2024/cadillac_escalade_v_2024_vnedorozhnik_5dv/esv/1blackraven_v_esv_cadillac2024_image_series.jpg"
+          />
+          <div class="car-info">
+            <h3>Escalade V</h3>
+            <p>$115,000</p>
+            <button
+              class="btn-cta"
+              onclick="
+                addToCart(
+                  14,
+                  'Escalade V',
+                  115000,
+                  'https://autopremiumgroup.ru/m/_versions/catalog/autos/2024/cadillac_escalade_v_2024_vnedorozhnik_5dv/esv/1blackraven_v_esv_cadillac2024_image_series.jpg',
+                )
+              "
+            >
+              Savatga
+            </button>
+          </div>
+        </div>
+        <div class="car-card reveal">
+          <img
+            src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=500"
+          />
+          <div class="car-info">
+            <h3>Maserati MC20</h3>
+            <p>$215,000</p>
+            <button
+              class="btn-cta"
+              onclick="
+                addToCart(
+                  15,
+                  'Maserati MC20',
+                  215000,
+                  'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=500',
+                )
+              "
+            >
+              Savatga
+            </button>
+          </div>
+        </div>
+        <div class="car-card reveal">
+          <img
+            src="https://d36dyyw8x5qpnf.cloudfront.net/photos_new/2024-11-01/lexus-lx600-7seater-462011.png"
+          />
+          <div class="car-info">
+            <h3>Lexus LX600</h3>
+            <p>$135,000</p>
+            <button
+              class="btn-cta"
+              onclick="
+                addToCart(
+                  16,
+                  'Lexus LX600',
+                  135000,
+                  'https://images.unsplash.com/photo-1635338006001-447a16089851?w=500',
+                )
+              "
+            >
+              Savatga
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="about-page" class="page">
-      <div class="about-hero">
-        <h2>AutoElite - Sizning Ishonchli Hamkoringiz</h2>
-        <p>
-          2015-yildan buyon O'zbekiston bozorida premium avtomobillar yetkazib
-          beruvchi yetakchi salon.
-        </p>
-      </div>
+      <div class="about-container">
+        <div class="about-hero reveal">
+          <h1>AutoElite — Ishonch va Hashamat</h1>
+          <p>12 yillik tajribaga ega premium avtodiler.</p>
+        </div>
 
-      <div class="about-stats">
-        <div class="stat-card">
-          <i class="fas fa-calendar-alt"></i>
-          <h3>10+</h3>
-          <p>Yillik Tajriba</p>
+        <div class="about-content reveal">
+          <div class="about-text">
+            <h3>Bizning Maqsadimiz</h3>
+            <p>
+              Mijozlarimizga jahon darajasidagi xizmat va eng eksklyuziv
+              avtomobillarni taqdim etish.
+            </p>
+            <ul class="about-features">
+              <li>
+                <i class="fas fa-check-circle"></i> To'g'ridan-to'g'ri yetkazib
+                berish
+              </li>
+              <li><i class="fas fa-check-circle"></i> 5 yillik kafolat</li>
+              <li><i class="fas fa-check-circle"></i> VIP servis xizmati</li>
+            </ul>
+          </div>
+          <div class="about-img">
+            <img
+              src="https://images.unsplash.com/photo-1562519819-016930ada31b?w=600"
+              alt="Salon"
+            />
+          </div>
         </div>
-        <div class="stat-card">
-          <i class="fas fa-users"></i>
-          <h3>5,000+</h3>
-          <p>Mamnun Mijozlar</p>
-        </div>
-        <div class="stat-card">
-          <i class="fas fa-handshake"></i>
-          <h3>15+</h3>
-          <p>Global Hamkorlar</p>
-        </div>
-        <div class="stat-card">
-          <i class="fas fa-trophy"></i>
-          <h3>25+</h3>
-          <p>Xalqaro Mukofotlar</p>
-        </div>
-      </div>
 
-      <div class="about-content">
-        <div class="about-text">
-          <h3>Bizning Missiyamiz</h3>
-          <p>
-            Bizning maqsadimiz — har bir mijozga nafaqat transport vositasi,
-            balki uning turmush tarziga mos keladigan ishonch, qulaylik va
-            xavfsizlikni taqdim etishdir. Biz har bir moshinani qat'iy sifat
-            nazoratidan o'tkazamiz.
-          </p>
-
-          <h3>Nega Aynan Biz?</h3>
-          <ul class="about-list">
-            <li>
-              <i class="fas fa-check-circle"></i> To'g'ridan-to'g'ri zavoddan
-              yetkazib berish
-            </li>
-            <li>
-              <i class="fas fa-check-circle"></i> 9 oylik eksklyuziv kafolat
-            </li>
-            <li>
-              <i class="fas fa-check-circle"></i> 24/7 texnik yordam xizmati
-            </li>
-            <li>
-              <i class="fas fa-check-circle"></i> Moslashuvchan to'lov tizimlari
-              va kredit
-            </li>
-          </ul>
-        </div>
-        <div class="about-image">
-          <img
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600"
-            alt="Bizning Ofis"
-          />
+        <div class="faq-section reveal">
+          <h2 class="title">Tez-tez beriladigan savollar</h2>
+          <div class="accordion">
+            <div class="acc-item">
+              <div class="acc-header">
+                Kredit bormi? <i class="fas fa-plus"></i>
+              </div>
+              <div class="acc-body">
+                <p>
+                  Ha, yillik 12% dan boshlanadigan avtokredit xizmati mavjud.
+                </p>
+              </div>
+            </div>
+            <div class="acc-item">
+              <div class="acc-header">
+                Mashinalar bojxonadan o'tganmi? <i class="fas fa-plus"></i>
+              </div>
+              <div class="acc-body">
+                <p>
+                  Barcha avtomobillar to'liq bojxona rasmiylashtiruvidan o'tgan.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
+    <section id="cart-page" class="page">
+      <h2 class="title">Savatingiz</h2>
+      <div id="cart-items-container" class="reveal"></div>
+      <div class="cart-summary reveal">
+        <h3>Jami: <span id="total-price">$0</span></h3>
+        <button class="btn-cta" onclick="checkout()">Xaridni yakunlash</button>
+      </div>
+    </section>
     <section id="contact-page" class="page">
-      <h2 class="title">Biz bilan bog'laning</h2>
-
-      <div class="contact-wrapper">
+      <h2 class="title reveal">Biz bilan bog'laning</h2>
+      <div class="contact-wrapper reveal">
         <div class="contact-info">
-          <div class="info-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <div>
-              <h4>Manzil:</h4>
-              <p>Toshkent sh., Yunusobod tumani, Amir Temur ko'chasi 107-uy</p>
-            </div>
-          </div>
-
-          <div class="info-item">
+          <div class="c-item">
             <i class="fas fa-phone-alt"></i>
             <div>
-              <h4>Telefon:</h4>
-              <p>+998 71 123 45 67</p>
-              <p>+998 90 987 65 43</p>
+              <h4>Telefon</h4>
+              <p>+998 71 200 00 00</p>
             </div>
           </div>
-
-          <div class="info-item">
+          <div class="c-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <h4>Manzil</h4>
+              <p>Toshkent sh., Yunusobod tumani, 4-kvartal</p>
+            </div>
+          </div>
+          <div class="c-item">
             <i class="fas fa-envelope"></i>
             <div>
-              <h4>Email:</h4>
+              <h4>Email</h4>
               <p>info@autoelite.uz</p>
-              <p>sales@autoelite.uz</p>
             </div>
-          </div>
-
-          <div class="info-item">
-            <i class="fas fa-clock"></i>
-            <div>
-              <h4>Ish vaqti:</h4>
-              <p>Dush - Shan: 09:00 - 20:00</p>
-              <p>Yakshanba: 10:00 - 18:00</p>
-            </div>
-          </div>
-
-          <div class="social-links">
-            <a href="#"><i class="fab fa-telegram"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
           </div>
         </div>
 
-        <div class="contact-form">
-          <form id="contact-direct-form">
-            <h3>Xabar qoldiring</h3>
-            <div class="input-row">
-              <input type="text" placeholder="Ismingiz" required />
-              <input type="email" placeholder="Emailingiz" required />
-            </div>
-            <input type="text" placeholder="Mavzu" />
-            <textarea
-              rows="5"
-              placeholder="Xabaringizni yozing..."
-              required
-            ></textarea>
-            <button type="submit" class="btn-send">
-              Yuborish <i class="fas fa-paper-plane"></i>
-            </button>
-          </form>
-        </div>
+        <form
+          class="contact-form"
+          onsubmit="
+            event.preventDefault();
+            alert('Xabaringiz yuborildi! Tez orada bog\'lanamiz.');
+            this.reset();
+          "
+        >
+          <input type="text" placeholder="Ismingiz" required />
+          <input type="email" placeholder="Email manzilingiz" required />
+          <textarea placeholder="Xabaringiz..." rows="5" required></textarea>
+          <button type="submit" class="btn-cta">Xabarni yuborish</button>
+        </form>
       </div>
     </section>
-
     <section id="register-page" class="page">
-      <div class="form-wrapper">
-        <div class="reg-card">
-          <h2>Profil yaratish</h2>
-          <form id="reg-form">
-            <input type="text" placeholder="Ismingiz" required />
-            <input type="email" placeholder="Email" required />
-            <input type="password" placeholder="Parol" required />
-            <button type="submit">Yuborish</button>
-          </form>
-          <div id="success-msg" class="msg-hide">
-            Muvaffaqiyatli ro'yxatdan o'tdingiz!
+      <div class="auth-container reveal">
+        <h2 class="title">A'zo bo'lish</h2>
+        <p style="text-align: center; margin-bottom: 20px">
+          Eksklyuziv takliflardan birinchilardan bo'lib xabardor bo'ling.
+        </p>
+        <form
+          class="auth-form"
+          onsubmit="
+            event.preventDefault();
+            alert('Muvaffaqiyatli ro\'yxatdan o\'tdingiz!');
+            showPage('home');
+          "
+        >
+          <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Foydalanuvchi nomi" required />
           </div>
-        </div>
+          <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Email" required />
+          </div>
+          <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Parol" required />
+          </div>
+          <button type="submit" class="btn-cta">Ro'yxatdan o'tish</button>
+        </form>
       </div>
     </section>
+    <footer class="main-footer">
+      <div class="logo">Auto<span>Elite</span></div>
+      <div class="socials">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-telegram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+      <p>&copy; 2024 AutoElite Premium. Barcha huquqlar himoyalangan.</p>
+    </footer>
 
     <script src="script.js"></script>
   </body>
