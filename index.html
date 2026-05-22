@@ -3,602 +3,833 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>war1pvc_elite</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
+    <title>AUTO CITY</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div id="loader">
-      <div class="loader-content">
-        <i class="fas fa-car-side car-anim"></i>
-        <h1>war1pvc_elite</h1>
-        <p>Premium olamiga yo'l olinmoqda...</p>
+      <div class="loaderText">
+        <span>A</span>
+        <span>U</span>
+        <span>T</span>
+        <span>O</span>
+
+        <span class="space"></span>
+
+        <span>C</span>
+        <span>I</span>
+        <span>T</span>
+        <span>Y</span>
       </div>
     </div>
 
-    <nav class="navbar">
-      <div class="logo" onclick="showPage('home')">
-        war1pvc<span>Elite</span>
-      </div>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#" onclick="showPage('home')">Asosiy</a></li>
-        <li><a href="#" onclick="showPage('models')">Modellar</a></li>
-        <li><a href="#" onclick="showPage('about')">Biz haqimizda</a></li>
-        <li><a href="#" onclick="showPage('contact')">Aloqa</a></li>
-        <li>
-          <div class="cart-icon" onclick="showPage('cart')">
-            <i class="fas fa-shopping-cart"></i>
-            <span id="cart-count">0</span>
-          </div>
-        </li>
-        <li>
-          <button id="theme-toggle"><i class="fas fa-moon"></i></button>
-        </li>
-        <li>
-          <a href="#" onclick="showPage('register')" class="reg-btn"
-            >A'zo bo'lish</a
-          >
-        </li>
-      </ul>
-      <div class="burger" id="burger"><i class="fas fa-bars"></i></div>
-    </nav>
+    <header>
+      <div class="logo">AUTO CITY</div>
 
-    <section id="home-page" class="page active">
-      <div class="hero">
-        <div class="hero-content">
-          <h1 class="reveal">Muvaffaqiyatli insonlar tanlovi</h1>
-          <p class="reveal">
-            eng sara premium avtomobillar va eksklyuziv servis.
+      <nav>
+        <a href="#home">Bosh sahifa</a>
+        <a href="#cars">Mashinalar</a>
+        <a href="#services">Xizmatlar</a>
+        <a href="#brands">Brendlar</a>
+        <a href="#gallery">Galereya</a>
+        <a href="#reviews">Sharhlar</a>
+        <a href="#contact">Aloqa</a>
+      </nav>
+
+      <div class="right">
+        <div id="favoriteBtn">❤️ <span id="favoriteCount">0</span></div>
+
+        <div class="cart" id="cartBtn">🛒 <span id="cartCount">0</span></div>
+      </div>
+    </header>
+
+    <section class="hero" id="home">
+      <h1>PREMIUM AUTO SALON</h1>
+
+      <p>Orzuingizdagi avtomobilni toping</p>
+
+      <button id="scrollBtn">Mashinalarni ko'rish</button>
+    </section>
+
+    <section class="searchArea">
+      <input id="search" placeholder="Mashina qidirish" />
+
+      <select id="filter">
+        <option value="all">Hammasi</option>
+
+        <option value="BMW">BMW</option>
+
+        <option value="Mercedes">Mercedes</option>
+
+        <option value="Audi">Audi</option>
+
+        <option value="Tesla">Tesla</option>
+
+        <option value="Ferrari">Ferrari</option>
+      </select>
+    </section>
+
+    <h1 class="title" id="cars">Mashinalar</h1>
+
+    <section class="cars">
+      <div class="card" data-brand="BMW">
+        <img
+          src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800"
+        />
+        <h2>BMW M4</h2>
+        <p>120000$</p>
+        <p>2025 | Sport</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button>
+          <button class="add">Savat+</button>
+          <button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card" data-brand="Mercedes">
+        <img
+          src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800"
+        />
+        <h2>Mercedes AMG</h2>
+        <p>150000$</p>
+        <p>2026 | Premium</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button>
+          <button class="add">Savat+</button>
+          <button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card" data-brand="Audi">
+        <img
+          src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800"
+        />
+        <h2>Audi RS7</h2>
+        <p>130000$</p>
+        <p>2025 | Turbo</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button>
+          <button class="add">Savat+</button>
+          <button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card" data-brand="Tesla">
+        <img
+          src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=800"
+        />
+        <h2>Tesla Model X</h2>
+        <p>100000$</p>
+        <p>Elektr</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button>
+          <button class="add">Savat+</button>
+          <button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card" data-brand="Ferrari">
+        <img
+          src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800"
+        />
+        <h2>Ferrari F8</h2>
+        <p>500000$</p>
+        <p>V8 Turbo</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button>
+          <button class="add">Savat+</button>
+          <button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card" data-brand="Porsche">
+        <img
+          src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=800"
+        />
+        <h2>Porsche 911</h2>
+        <p>250000$</p>
+        <p>Sport</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button>
+          <button class="add">Savat+</button>
+          <button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card" data-brand="BMW">
+        <img
+          src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800"
+        />
+        <h2>BMW X7</h2>
+        <p>170000$</p>
+        <p>SUV</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button>
+          <button class="add">Savat+</button>
+          <button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card" data-brand="Toyota">
+        <img
+          src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=800"
+        />
+        <h2>Toyota Supra</h2>
+        <p>110000$</p>
+        <p>Sport</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button>
+          <button class="add">Savat+</button>
+          <button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card" data-brand="Lamborghini">
+        <img
+          src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=800"
+        />
+        <h2>Lamborghini Huracan</h2>
+        <p>700000$</p>
+        <p>V10</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button>
+          <button class="add">Savat+</button>
+          <button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card" data-brand="Chevrolet">
+        <img
+          src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800"
+        />
+        <h2>Chevrolet Camaro</h2>
+        <p>95000$</p>
+        <p>Muscle</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button>
+          <button class="add">Savat+</button>
+          <button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=800"
+        />
+        <h2>Mustang GT</h2>
+        <p>100000$</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button
+          ><button class="add">Savat+</button
+          ><button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=800"
+        />
+        <h2>Audi Q8</h2>
+        <p>150000$</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button
+          ><button class="add">Savat+</button
+          ><button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://images.unsplash.com/photo-1502161254066-6c74afbf07aa?w=800"
+        />
+        <h2>Tesla Model S</h2>
+        <p>115000$</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button
+          ><button class="add">Savat+</button
+          ><button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800"
+        />
+        <h2>BMW i8</h2>
+        <p>180000$</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button
+          ><button class="add">Savat+</button
+          ><button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://images.unsplash.com/photo-1493238792000-8113da705763?w=800"
+        />
+        <h2>Mercedes G63</h2>
+        <p>300000$</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button
+          ><button class="add">Savat+</button
+          ><button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?w=800"
+        />
+        <h2>Ferrari SF90</h2>
+        <p>850000$</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button
+          ><button class="add">Savat+</button
+          ><button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://images.unsplash.com/photo-1504215680853-026ed2a45def?w=800"
+        />
+        <h2>Bugatti Chiron</h2>
+        <p>2500000$</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button
+          ><button class="add">Savat+</button
+          ><button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800"
+        />
+        <h2>Rolls Royce</h2>
+        <p>600000$</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button
+          ><button class="add">Savat+</button
+          ><button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800"
+        />
+        <h2>Range Rover</h2>
+        <p>190000$</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button
+          ><button class="add">Savat+</button
+          ><button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://images.unsplash.com/photo-1485291571150-772bcfc10da5?w=800"
+        />
+        <h2>McLaren</h2>
+        <p>800000$</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button
+          ><button class="add">Savat+</button
+          ><button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+      <div class="card" data-brand="Bugatti">
+        <img
+          src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=800"
+        />
+
+        <h2>Bugatti Chiron</h2>
+
+        <p>2500000$</p>
+
+        <p>2026 | W16 | Hypercar</p>
+
+        <div class="buttons">
+          <button class="buy">Sotib olish</button>
+
+          <button class="add">Savat+</button>
+
+          <button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+    </section>
+    <section id="services">
+      <h1 class="title">Bizning Xizmatlar</h1>
+
+      <div class="boxWrap">
+        <div class="box">
+          <h2>Premium Avtomobillar</h2>
+          <p>
+            Eng yangi va premium avtomobillar. Har bir mashina to'liq
+            tekshiruvdan o'tgan.
           </p>
-          <button class="btn-cta reveal" onclick="showPage('models')">
-            Katalogga o'tish
-          </button>
         </div>
-      </div>
 
-      <section id="stats-section" class="stats-container reveal">
-        <div class="stat-box">
-          <h2 class="counter" data-target="1500">0</h2>
-          <p>Sotilgan mashinalar</p>
+        <div class="box">
+          <h2>24/7 Yordam</h2>
+          <p>Kun-u tun mijozlarga xizmat ko'rsatamiz va yordam beramiz.</p>
         </div>
-        <div class="stat-box">
-          <h2 class="counter" data-target="12">0</h2>
-          <p>Yillik tajriba</p>
-        </div>
-        <div class="stat-box">
-          <h2 class="counter" data-target="100">0</h2>
-          <p>Mijoz mamnuniyati (%)</p>
-        </div>
-      </section>
 
-      <div class="testimonials reveal">
-        <h2 class="title">Mijozlarimiz fikri</h2>
-        <div class="testimonial-slider">
-          <div class="t-card">
-            <p>
-              "AutoElite dan olingan G63 hayotimni o'zgartirdi. Xizmat
-              ko'rsatish darajasi juda yuqori!"
-            </p>
-            <h4>- Jasur Rahimov</h4>
-          </div>
+        <div class="box">
+          <h2>Test Drive</h2>
+          <p>Sotib olishdan oldin mashinani sinab ko'rish imkoniyati.</p>
         </div>
-      </div>
-    </section>
 
-    <section id="models-page" class="page">
-      <h2 class="title reveal">Bizning Avtopark</h2>
-      <div class="car-grid">
-        <div class="car-card reveal">
-          <img
-            src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=500"
-          />
-          <div class="car-info">
-            <h3>BMW M5 CS</h3>
-            <p>$142,000</p>
-            <button
-              class="btn-cta"
-              onclick="
-                addToCart(
-                  1,
-                  'BMW M5 CS',
-                  142000,
-                  'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=500',
-                )
-              "
-            >
-              Savatga
-            </button>
-          </div>
+        <div class="box">
+          <h2>Kredit Xizmati</h2>
+          <p>12 oydan 60 oygacha qulay to'lov imkoniyati.</p>
         </div>
-        <div class="car-card reveal">
-          <img
-            src="https://images.unsplash.com/photo-1520031441872-265e4ff70366?w=500"
-          />
-          <div class="car-info">
-            <h3>Mercedes G63</h3>
-            <p>$185,000</p>
-            <button
-              class="btn-cta"
-              onclick="
-                addToCart(
-                  2,
-                  'Mercedes G63',
-                  185000,
-                  'https://images.unsplash.com/photo-1520031441872-265e4ff70366?w=500',
-                )
-              "
-            >
-              Savatga
-            </button>
-          </div>
+
+        <div class="box">
+          <h2>Sug'urta</h2>
+          <p>Mashinalar uchun maxsus himoya va sug'urta paketlari.</p>
         </div>
-        <div class="car-card reveal">
-          <img
-            src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=500"
-          />
-          <div class="car-info">
-            <h3>Tesla Model S</h3>
-            <p>$110,000</p>
-            <button
-              class="btn-cta"
-              onclick="
-                addToCart(
-                  3,
-                  'Tesla Model S',
-                  110000,
-                  'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=500',
-                )
-              "
-            >
-              Savatga
-            </button>
-          </div>
+
+        <div class="box">
+          <h2>Yetkazib Berish</h2>
+          <p>O'zbekiston bo'ylab tez va xavfsiz yetkazib berish.</p>
         </div>
-        <div class="car-card reveal">
-          <img
-            src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500"
-          />
-          <div class="car-info">
-            <h3>Porsche 911</h3>
-            <p>$170,000</p>
-            <button
-              class="btn-cta"
-              onclick="
-                addToCart(
-                  4,
-                  'Porsche 911',
-                  170000,
-                  'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500',
-                )
-              "
-            >
-              Savatga
-            </button>
-          </div>
+
+        <div class="box">
+          <h2>Servis Markazi</h2>
+          <p>Bepul texnik xizmat va original ehtiyot qismlar.</p>
         </div>
-        <div class="car-card reveal">
-          <img
-            src="https://repost.uz/storage/uploads/1963-1687776333-avto11-post-material.jpeg"
-          />
-          <div class="car-info">
-            <h3>Lamborghini Urus</h3>
-            <p>$230,000</p>
-            <button
-              class="btn-cta"
-              onclick="
-                addToCart(
-                  5,
-                  'Lamborghini Urus',
-                  230000,
-                  'https://repost.uz/storage/uploads/1963-1687776333-avto11-post-material.jpeg',
-                )
-              "
-            >
-              Savatga
-            </button>
-          </div>
-        </div>
-        <div class="car-card reveal">
-          <img
-            src="https://images.unsplash.com/photo-1606152421802-db97b9c7a11b?w=500"
-          />
-          <div class="car-info">
-            <h3>Audi RS7</h3>
-            <p>$130,000</p>
-            <button
-              class="btn-cta"
-              onclick="
-                addToCart(
-                  6,
-                  'Audi RS7',
-                  130000,
-                  'https://images.unsplash.com/photo-1606152421802-db97b9c7a11b?w=500',
-                )
-              "
-            >
-              Savatga
-            </button>
-          </div>
-        </div>
-        <div class="car-card reveal">
-          <img
-            src="https://images.unsplash.com/photo-1506015391300-4802dc74de2e?w=500"
-          />
-          <div class="car-info">
-            <h3>Range Rover SV</h3>
-            <p>$160,000</p>
-            <button
-              class="btn-cta"
-              onclick="
-                addToCart(
-                  7,
-                  'Range Rover SV',
-                  160000,
-                  'https://images.unsplash.com/photo-1506015391300-4802dc74de2e?w=500',
-                )
-              "
-            >
-              Savatga
-            </button>
-          </div>
-        </div>
-        <div class="car-card reveal">
-          <img
-            src="https://avatars.mds.yandex.net/get-verba/997355/2a0000018fddefa66bb289c982cbdb21b84d/cattouch"
-          />
-          <div class="car-info">
-            <h3>Rolls Royce</h3>
-            <p>$450,000</p>
-            <button
-              class="btn-cta"
-              onclick="
-                addToCart(
-                  8,
-                  'Rolls Royce',
-                  450000,
-                  'https://avatars.mds.yandex.net/get-verba/997355/2a0000018fddefa66bb289c982cbdb21b84d/cattouch',
-                )
-              "
-            >
-              Savatga
-            </button>
-          </div>
-        </div>
-        <div class="car-card reveal">
-          <img
-            src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=500"
-          />
-          <div class="car-info">
-            <h3>Bentley GT</h3>
-            <p>$225,000</p>
-            <button
-              class="btn-cta"
-              onclick="
-                addToCart(
-                  9,
-                  'Bentley GT',
-                  225000,
-                  'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=500',
-                )
-              "
-            >
-              Savatga
-            </button>
-          </div>
-        </div>
-        <div class="car-card reveal">
-          <img
-            src="https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=500"
-          />
-          <div class="car-info">
-            <h3>Ferrari F8</h3>
-            <p>$285,000</p>
-            <button
-              class="btn-cta"
-              onclick="
-                addToCart(
-                  10,
-                  'Ferrari F8',
-                  285000,
-                  'https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=500',
-                )
-              "
-            >
-              Savatga
-            </button>
-          </div>
-        </div>
-        <div class="car-card reveal">
-          <img
-            src="https://www.thecollection.com/wp-content/uploads/2025/06/4-1024x543.png"
-          />
-          <div class="car-info">
-            <h3>Aston Martin</h3>
-            <p>$210,000</p>
-            <button
-              class="btn-cta"
-              onclick="
-                addToCart(
-                  11,
-                  'Aston Martin',
-                  210000,
-                  'https://www.thecollection.com/wp-content/uploads/2025/06/4-1024x543.png',
-                )
-              "
-            >
-              Savatga
-            </button>
-          </div>
-        </div>
-        <div class="car-card reveal">
-          <img
-            src="https://images.unsplash.com/photo-1621135802920-133df287f89c?w=500"
-          />
-          <div class="car-info">
-            <h3>McLaren 720S</h3>
-            <p>$295,000</p>
-            <button
-              class="btn-cta"
-              onclick="
-                addToCart(
-                  12,
-                  'McLaren 720S',
-                  295000,
-                  'https://images.unsplash.com/photo-1621135802920-133df287f89c?w=500',
-                )
-              "
-            >
-              Savatga
-            </button>
-          </div>
-        </div>
-        <div class="car-card reveal">
-          <img
-            src="https://images.unsplash.com/photo-1600712242805-5f78671b24da?w=500"
-          />
-          <div class="car-info">
-            <h3>Bugatti Chiron</h3>
-            <p>$3,000,000</p>
-            <button
-              class="btn-cta"
-              onclick="
-                addToCart(
-                  13,
-                  'Bugatti Chiron',
-                  3000000,
-                  'https://images.unsplash.com/photo-1600712242805-5f78671b24da?w=500',
-                )
-              "
-            >
-              Savatga
-            </button>
-          </div>
-        </div>
-        <div class="car-card reveal">
-          <img
-            src="https://autopremiumgroup.ru/m/_versions/catalog/autos/2024/cadillac_escalade_v_2024_vnedorozhnik_5dv/esv/1blackraven_v_esv_cadillac2024_image_series.jpg"
-          />
-          <div class="car-info">
-            <h3>Escalade V</h3>
-            <p>$115,000</p>
-            <button
-              class="btn-cta"
-              onclick="
-                addToCart(
-                  14,
-                  'Escalade V',
-                  115000,
-                  'https://autopremiumgroup.ru/m/_versions/catalog/autos/2024/cadillac_escalade_v_2024_vnedorozhnik_5dv/esv/1blackraven_v_esv_cadillac2024_image_series.jpg',
-                )
-              "
-            >
-              Savatga
-            </button>
-          </div>
-        </div>
-        <div class="car-card reveal">
-          <img
-            src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=500"
-          />
-          <div class="car-info">
-            <h3>Maserati MC20</h3>
-            <p>$215,000</p>
-            <button
-              class="btn-cta"
-              onclick="
-                addToCart(
-                  15,
-                  'Maserati MC20',
-                  215000,
-                  'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=500',
-                )
-              "
-            >
-              Savatga
-            </button>
-          </div>
-        </div>
-        <div class="car-card reveal">
-          <img
-            src="https://d36dyyw8x5qpnf.cloudfront.net/photos_new/2024-11-01/lexus-lx600-7seater-462011.png"
-          />
-          <div class="car-info">
-            <h3>Lexus LX600</h3>
-            <p>$135,000</p>
-            <button
-              class="btn-cta"
-              onclick="
-                addToCart(
-                  16,
-                  'Lexus LX600',
-                  135000,
-                  'https://images.unsplash.com/photo-1635338006001-447a16089851?w=500',
-                )
-              "
-            >
-              Savatga
-            </button>
-          </div>
+
+        <div class="box">
+          <h2>VIP Mijoz</h2>
+          <p>Doimiy mijozlar uchun maxsus chegirmalar va bonuslar.</p>
         </div>
       </div>
     </section>
 
-    <section id="about-page" class="page">
-      <div class="about-container">
-        <div class="about-hero reveal">
-          <h1>AutoElite — Ishonch va Hashamat</h1>
-          <p>12 yillik tajribaga ega premium avtodiler.</p>
+    <section id="brands">
+      <h1 class="title">Mashhur Brendlar</h1>
+
+      <div class="boxWrap">
+        <div class="box">
+          <h2>BMW</h2>
+          <p>Germaniya premium avtomobillari</p>
         </div>
 
-        <div class="about-content reveal">
-          <div class="about-text">
-            <h3>Bizning Maqsadimiz</h3>
-            <p>
-              Mijozlarimizga jahon darajasidagi xizmat va eng eksklyuziv
-              avtomobillarni taqdim etish.
-            </p>
-            <ul class="about-features">
-              <li>
-                <i class="fas fa-check-circle"></i> To'g'ridan-to'g'ri yetkazib
-                berish
-              </li>
-              <li><i class="fas fa-check-circle"></i> 5 yillik kafolat</li>
-              <li><i class="fas fa-check-circle"></i> VIP servis xizmati</li>
-            </ul>
-          </div>
-          <div class="about-img">
-            <img
-              src="https://images.unsplash.com/photo-1562519819-016930ada31b?w=600"
-              alt="Salon"
-            />
-          </div>
+        <div class="box">
+          <h2>Mercedes</h2>
+          <p>Hashamat va yuqori sifat</p>
         </div>
 
-        <div class="faq-section reveal">
-          <h2 class="title">Tez-tez beriladigan savollar</h2>
-          <div class="accordion">
-            <div class="acc-item">
-              <div class="acc-header">
-                Kredit bormi? <i class="fas fa-plus"></i>
-              </div>
-              <div class="acc-body">
-                <p>
-                  Ha, yillik 12% dan boshlanadigan avtokredit xizmati mavjud.
-                </p>
-              </div>
-            </div>
-            <div class="acc-item">
-              <div class="acc-header">
-                Mashinalar bojxonadan o'tganmi? <i class="fas fa-plus"></i>
-              </div>
-              <div class="acc-body">
-                <p>
-                  Barcha avtomobillar to'liq bojxona rasmiylashtiruvidan o'tgan.
-                </p>
-              </div>
-            </div>
-          </div>
+        <div class="box">
+          <h2>Audi</h2>
+          <p>Zamonaviy texnologiyalar</p>
+        </div>
+
+        <div class="box">
+          <h2>Tesla</h2>
+          <p>Elektr avtomobillar kelajagi</p>
+        </div>
+
+        <div class="box">
+          <h2>Ferrari</h2>
+          <p>Sport avtomobillar afsonasi</p>
+        </div>
+
+        <div class="box">
+          <h2>Lamborghini</h2>
+          <p>Tezlik va dizayn birlashuvi</p>
+        </div>
+
+        <div class="box">
+          <h2>Porsche</h2>
+          <p>Sport va qulaylik uyg'unligi</p>
+        </div>
+
+        <div class="box">
+          <h2>Toyota</h2>
+          <p>Ishonchli va iqtisodiy avtomobillar</p>
         </div>
       </div>
     </section>
 
-    <section id="cart-page" class="page">
-      <h2 class="title">Savatingiz</h2>
-      <div id="cart-items-container" class="reveal"></div>
-      <div class="cart-summary reveal">
-        <h3>Jami: <span id="total-price">$0</span></h3>
-        <button class="btn-cta" onclick="checkout()">Xaridni yakunlash</button>
-      </div>
-    </section>
-    <section id="contact-page" class="page">
-      <h2 class="title reveal">Biz bilan bog'laning</h2>
-      <div class="contact-wrapper reveal">
-        <div class="contact-info">
-          <div class="c-item">
-            <i class="fas fa-phone-alt"></i>
-            <div>
-              <h4>Telefon</h4>
-              <p>+998 33 600 62 12</p>
-            </div>
-          </div>
-          <div class="c-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <div>
-              <h4>Manzil</h4>
-              <p>Toshkent sh., Yashnobod tumani, 120-kvartal</p>
-            </div>
-          </div>
-          <div class="c-item">
-            <i class="fas fa-envelope"></i>
-            <div>
-              <h4>Email</h4>
-              <p>info@war1pvc_elite.uz</p>
-            </div>
-          </div>
+    <section id="gallery">
+      <h1 class="title">Avtomobil Galereyasi</h1>
+
+      <div class="cars">
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800"
+          />
+          <h2>BMW M4</h2>
         </div>
 
-        <form
-          class="contact-form"
-          onsubmit="
-            event.preventDefault();
-            alert('Xabaringiz yuborildi! Tez orada bog\'lanamiz.');
-            this.reset();
-          "
-        >
-          <input type="text" placeholder="Ismingiz" required />
-          <input type="email" placeholder="Email manzilingiz" required />
-          <textarea placeholder="Xabaringiz..." rows="5" required></textarea>
-          <button type="submit" class="btn-cta">Xabarni yuborish</button>
-        </form>
-      </div>
-    </section>
-    <section id="register-page" class="page">
-      <div class="auth-container reveal">
-        <h2 class="title">A'zo bo'lish</h2>
-        <p style="text-align: center; margin-bottom: 20px">
-          Eksklyuziv takliflardan birinchilardan bo'lib xabardor bo'ling.
-        </p>
-        <form
-          class="auth-form"
-          onsubmit="
-            event.preventDefault();
-            alert('Muvaffaqiyatli ro\'yxatdan o\'tdingiz!');
-            showPage('home');
-          "
-        >
-          <div class="input-group">
-            <i class="fas fa-user"></i>
-            <input type="text" placeholder="Foydalanuvchi nomi" required />
-          </div>
-          <div class="input-group">
-            <i class="fas fa-envelope"></i>
-            <input type="email" placeholder="Email" required />
-          </div>
-          <div class="input-group">
-            <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Parol" required />
-          </div>
-          <button type="submit" class="btn-cta">Ro'yxatdan o'tish</button>
-        </form>
-      </div>
-    </section>
-    <footer class="main-footer">
-      <div class="logo">war1pvc<span>Elite</span></div>
-      <div class="socials">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-telegram"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-      </div>
-      <p>&copy; 2026 war1pvc_elite Premium. Barcha huquqlar himoyalangan.</p>
-    </footer>
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800"
+          />
+          <h2>Mercedes AMG</h2>
+        </div>
 
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800"
+          />
+          <h2>Audi RS7</h2>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=800"
+          />
+          <h2>Tesla Model X</h2>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800"
+          />
+          <h2>Ferrari F8</h2>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=800"
+          />
+          <h2>Porsche 911</h2>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=800"
+          />
+          <h2>Toyota Supra</h2>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800"
+          />
+          <h2>BMW X7</h2>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800"
+          />
+          <h2>Chevrolet Camaro</h2>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=800"
+          />
+          <h2>Lamborghini Huracan</h2>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1493238792000-8113da705763?w=800"
+          />
+          <h2>Mercedes G63</h2>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800"
+          />
+          <h2>BMW i8</h2>
+        </div>
+      </div>
+    </section>
+    <section id="topCars">
+      <h1 class="title">Eng Ko'p Sotilgan Mashinalar</h1>
+
+      <div class="boxWrap">
+        <div class="box">
+          <img
+            src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800"
+          />
+
+          <h2>BMW M4</h2>
+
+          <p>2026 yildagi eng mashhur sport avtomobil</p>
+
+          <h3>1200+ sotilgan</h3>
+        </div>
+
+        <div class="box">
+          <img
+            src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800"
+          />
+
+          <h2>Mercedes AMG</h2>
+
+          <p>Premium va qulay sedan</p>
+
+          <h3>980+ sotilgan</h3>
+        </div>
+
+        <div class="box">
+          <img
+            src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800"
+          />
+
+          <h2>Audi RS7</h2>
+
+          <p>Yuqori tezlik va dizayn</p>
+
+          <h3>860+ sotilgan</h3>
+        </div>
+
+        <div class="box">
+          <img
+            src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=800"
+          />
+
+          <h2>Tesla Model X</h2>
+
+          <p>Elektr avtomobil kelajagi</p>
+
+          <h3>750+ sotilgan</h3>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews">
+      <h1 class="title">Mijozlar Fikrlari</h1>
+
+      <div class="boxWrap">
+        <div class="box">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" />
+
+          <h2>Jasur</h2>
+
+          <h4>BMW M4 xaridori</h4>
+
+          <p>
+            Auto City orqali BMW M4 oldim. Xizmat juda zo'r va tez ishlashdi.
+          </p>
+
+          ⭐ ⭐ ⭐ ⭐ ⭐
+        </div>
+
+        <div class="box">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" />
+
+          <h2>Madina</h2>
+
+          <h4>Mercedes AMG xaridori</h4>
+
+          <p>
+            Mashinalar sifati juda yaxshi ekan. Xodimlar juda hurmat bilan
+            gaplashadi.
+          </p>
+
+          ⭐ ⭐ ⭐ ⭐ ⭐
+        </div>
+
+        <div class="box">
+          <img src="https://randomuser.me/api/portraits/men/68.jpg" />
+
+          <h2>Aziz</h2>
+
+          <h4>Audi RS7 xaridori</h4>
+
+          <p>Sayt dizayni ham yoqdi. Buyurtma qilish juda oson.</p>
+
+          ⭐ ⭐ ⭐ ⭐ ⭐
+        </div>
+      </div>
+    </section>
+    <section id="why">
+      <h1 class="title">Nega Aynan AUTO CITY?</h1>
+
+      <div class="boxWrap">
+        <div class="box">
+          <h2>🚗 500+ Mashinalar</h2>
+
+          <p>
+            Sport, premium, SUV va elektr avtomobillarning katta tanlovi mavjud.
+          </p>
+        </div>
+
+        <div class="box">
+          <h2>💰 Eng Yaxshi Narx</h2>
+
+          <p>Bozordagi eng qulay narx va maxsus chegirmalar.</p>
+        </div>
+
+        <div class="box">
+          <h2>⚡ Tez Rasmiylashtirish</h2>
+
+          <p>Mashinani xarid qilish va hujjatlarni tez tayyorlash.</p>
+        </div>
+
+        <div class="box">
+          <h2>🔒 Ishonch Kafolati</h2>
+
+          <p>Har bir avtomobil to'liq tekshiruvdan o'tadi.</p>
+        </div>
+
+        <div class="box">
+          <h2>🌍 Yetkazib Berish</h2>
+
+          <p>O'zbekiston bo'ylab tez va xavfsiz yetkazib berish.</p>
+        </div>
+
+        <div class="box">
+          <h2>⭐ Premium Xizmat</h2>
+
+          <p>Mijozlarga yuqori darajadagi xizmat ko'rsatamiz.</p>
+        </div>
+      </div>
+    </section>
+    <section id="contact">
+      <h1 class="title">Aloqa</h1>
+
+      <div class="contact">
+        <input placeholder="Ism" />
+
+        <input placeholder="Telefon" />
+
+        <textarea placeholder="Xabar"></textarea>
+
+        <button>Yuborish</button>
+      </div>
+    </section>
+    <section id="location">
+      <h1 class="title">Bizning Lokatsiya</h1>
+
+      <div class="locationWrap">
+        <div class="locationInfo">
+          <h2>AUTO CITY</h2>
+
+          <p>📍 Toshkent, Chilonzor tumani</p>
+
+          <p>📞 +998 90 123 45 67</p>
+
+          <p>📧 autocity@gmail.com</p>
+
+          <p>🕒 Dushanba - Yakshanba: 09:00 - 21:00</p>
+
+          <button id="locationBtn">Lokatsiyani ko'rish</button>
+        </div>
+
+        <div class="map">
+          <iframe
+            src="https://www.google.com/maps?q=Tashkent&output=embed"
+            width="100%"
+            height="350"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          >
+          </iframe>
+        </div>
+      </div>
+    </section>
+    <div class="modal" id="modal">
+      <div class="modalBox">
+        <img id="modalImg" />
+
+        <h2 id="modalTitle"></h2>
+
+        <p id="modalPrice"></p>
+
+        <button id="close">Yopish</button>
+      </div>
+    </div>
+    <section id="formSection">
+      <h1 class="title">Ro'yxatdan o'tish</h1>
+
+      <div class="mainForm">
+        <div class="leftForm">
+          <h2>Auto City ga xush kelibsiz</h2>
+
+          <p>
+            Yangi mashinalar, chegirmalar va maxsus takliflarni olish uchun
+            ro'yxatdan o'ting.
+          </p>
+
+          <img
+            src="https://cdn.myportfolio.com/8b47359d-caf7-4fda-a718-003adff6f65d/8837f1b8-77ed-495e-b091-8fad5784dbbc_rw_1920.jpg?h=6a70f74fcf58cf0afb5db49dbec8ef05"
+          />
+        </div>
+
+        <div class="rightForm">
+          <input id="fullname" type="text" placeholder="Ism" />
+
+          <input id="phone" type="number" placeholder="Telefon" />
+
+          <input id="email" type="email" placeholder="Email" />
+
+          <input id="password" type="password" placeholder="Parol" />
+
+          <select id="carSelect">
+            <option>Mashina tanlang</option>
+
+            <option>BMW</option>
+
+            <option>Mercedes</option>
+
+            <option>Audi</option>
+
+            <option>Ferrari</option>
+
+            <option>Tesla</option>
+          </select>
+
+          <textarea id="message" placeholder="Xabar yozing"></textarea>
+
+          <button id="sendBtn">Jo'natish</button>
+        </div>
+      </div>
+    </section>
+    <div class="cartModal" id="cartModal">
+      <div class="cartBox">
+        <h2>Savat</h2>
+
+        <div id="cartItems">Savat bo'sh</div>
+
+        <h3>Jami: <span id="total">0</span> $</h3>
+
+        <button id="closeCart">Yopish</button>
+      </div>
+    </div>
+    <div class="cartModal" id="favModal">
+      <div class="cartBox">
+        <h2>Sevimli Mashinalar ❤️</h2>
+
+        <div id="favItems">Hozircha bo'sh</div>
+
+        <button id="closeFav">Yopish</button>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
