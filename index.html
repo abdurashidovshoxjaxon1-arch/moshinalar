@@ -26,20 +26,30 @@
     <header>
       <div class="logo">AUTO CITY</div>
 
-      <nav>
-        <a href="#home">Bosh sahifa</a>
+      <div class="menuBtn" id="menuBtn">☰</div>
+
+      <nav id="nav">
+        <a href="#home">Home</a>
         <a href="#cars">Mashinalar</a>
-        <a href="#services">Xizmatlar</a>
-        <a href="#brands">Brendlar</a>
         <a href="#gallery">Galereya</a>
         <a href="#reviews">Sharhlar</a>
         <a href="#contact">Aloqa</a>
+        <a href="#location">Lokatsiya</a>
       </nav>
-
       <div class="right">
         <div id="favoriteBtn">❤️ <span id="favoriteCount">0</span></div>
 
+        <div class="cartModal" id="favModal">
+          <div class="cartBox">
+            <h2>Sevimli Mashinalar ❤️</h2>
+
+            <div id="favItems">Hozircha bo'sh</div>
+
+            <button id="closeFav">Yopish</button>
+          </div>
+        </div>
         <div class="cart" id="cartBtn">🛒 <span id="cartCount">0</span></div>
+        <button id="themeBtn">🌙</button>
       </div>
     </header>
 
@@ -709,17 +719,71 @@
         </div>
       </div>
     </section>
+    <section id="stats">
+      <h1 class="title">AUTO CITY Statistikasi</h1>
+
+      <div class="statsWrap">
+        <div class="statBox">
+          <h2>500+</h2>
+          <p>Sotilgan Mashinalar</p>
+        </div>
+
+        <div class="statBox">
+          <h2>10K+</h2>
+          <p>Mamnun Mijozlar</p>
+        </div>
+
+        <div class="statBox">
+          <h2>50+</h2>
+          <p>Mashina Brendlari</p>
+        </div>
+
+        <div class="statBox">
+          <h2>24/7</h2>
+          <p>Mijoz Xizmati</p>
+        </div>
+      </div>
+    </section>
     <section id="contact">
-      <h1 class="title">Aloqa</h1>
+      <h1 class="title">Biz bilan bog'laning</h1>
 
-      <div class="contact">
-        <input placeholder="Ism" />
+      <div class="contactContainer">
+        <div class="contactInfo">
+          <h2>AUTO CITY</h2>
 
-        <input placeholder="Telefon" />
+          <p>📍 Toshkent, Chilonzor tumani</p>
 
-        <textarea placeholder="Xabar"></textarea>
+          <p>📞 +998 90 123 45 67</p>
 
-        <button>Yuborish</button>
+          <p>📧 autocity@gmail.com</p>
+
+          <p>🕒 Dushanba - Yakshanba: 09:00 - 21:00</p>
+
+          <div class="socials">
+            <a href="#">Telegram</a>
+
+            <a href="#">Instagram</a>
+
+            <a href="#">YouTube</a>
+
+            <a href="#">Facebook</a>
+          </div>
+        </div>
+
+        <div class="contactForm">
+          <input id="name" type="text" placeholder="Ismingiz" />
+
+          <input id="phoneContact" type="number" placeholder="Telefon" />
+
+          <input id="emailContact" type="email" placeholder="Email" />
+
+          <textarea
+            id="messageContact"
+            placeholder="Xabaringizni yozing"
+          ></textarea>
+
+          <button id="contactBtn">Xabar yuborish</button>
+        </div>
       </div>
     </section>
     <section id="location">

@@ -198,82 +198,132 @@ document.querySelectorAll(".add").forEach((btn) => {
     renderCart();
   };
 });
-
-function renderCart() {
-  cartItems.innerHTML = "";
-
-  let sum = 0;
-
-  products.forEach((item) => {
-    sum += item.price;
-
-    cartItems.innerHTML += `
-
-<div class="cartItem">
-
-<p>${item.name}</p>
-
-<p>${item.price}$</p>
-
-</div>
-
-`;
-  });
-
-  total.innerHTML = sum;
-}
-
-cartBtn.onclick = () => {
-  cartModal.style.display = "flex";
-};
-
-closeCart.onclick = () => {
-  cartModal.style.display = "none";
-};
-window.addEventListener("load", () => {
-  let loader = document.querySelector("#loader");
-
-  setTimeout(() => {
-    loader.style.opacity = "0";
-
-    setTimeout(() => {
-      loader.style.display = "none";
-    }, 1000);
-  }, 3000);
-});
 let favoriteCount = 0;
 
-let favoriteBtn = document.querySelector("#favoriteCount");
+let favoriteBtn = document.querySelector("#favoriteBtn");
+
+let favoriteNumber = document.querySelector("#favoriteCount");
+
+let favModal = document.querySelector("#favModal");
+
+let closeFav = document.querySelector("#closeFav");
+
+let favItems = document.querySelector("#favItems");
+
+let favCars = [];
 
 document.querySelectorAll(".fav").forEach((btn) => {
-  btn.onclick = () => {
+  btn.onclick = (e) => {
+    let card = e.target.closest(".card");
+
+    let carName = card.querySelector("h2").innerText;
+
     if (!btn.classList.contains("active")) {
       btn.classList.add("active");
 
       btn.innerHTML = "❤️";
 
       favoriteCount++;
+
+      favCars.push(carName);
     } else {
       btn.classList.remove("active");
 
       btn.innerHTML = "🤍";
 
       favoriteCount--;
+
+      favCars = favCars.filter((item) => item !== carName);
     }
 
-    favoriteBtn.innerHTML = favoriteCount;
+    favoriteNumber.innerHTML = favoriteCount;
+
+    showFavCars();
   };
 });
-document.addEventListener("DOMContentLoaded", () => {
-  let loader = document.querySelector("#loader");
 
-  setTimeout(() => {
-    loader.style.opacity = "0";
+function showFavCars() {
+  if (favCars.length == 0) {
+    favItems.innerHTML = "Hozircha sevimli mashina yo'q";
 
-    loader.style.visibility = "hidden";
+    return;
+  }
 
-    setTimeout(() => {
-      loader.style.display = "none";
-    }, 1000);
-  }, 3000);
+  favItems.innerHTML = "";
+
+  favCars.forEach((car) => {
+    favItems.innerHTML += `
+
+<div class="cartItem">
+
+<p>${car}</p>
+
+</div>
+
+`;
+  });
+}
+
+favoriteBtn.onclick = () => {
+  favModal.style.display = "flex";
+};
+
+closeFav.onclick = () => {
+  favModal.style.display = "none";
+};
+let contactBtn = document.querySelector("#contactBtn");
+
+if (contactBtn) {
+  contactBtn.onclick = () => {
+    let name = document.querySelector("#name");
+
+    let phone = document.querySelector("#phoneContact");
+
+    let email = document.querySelector("#emailContact");
+
+    if (name.value == "" || phone.value == "" || email.value == "") {
+      alert("Iltimos formani to'ldiring");
+
+      return;
+    }
+
+    alert("Xabaringiz muvaffaqiyatli yuborildi");
+
+    name.value = "";
+    phone.value = "";
+    email.value = "";
+    messageContact.value = "";
+  };
+}
+let menuBtn = document.querySelector("#menuBtn");
+
+let nav = document.querySelector("#nav");
+
+menuBtn.onclick = () => {
+  nav.classList.toggle("active");
+};
+let statBox = document.querySelectorAll(".statBox");
+
+window.addEventListener("scroll", () => {
+  statBox.forEach((box) => {
+    let top = box.getBoundingClientRect().top;
+
+    if (top < 600) {
+      box.style.opacity = "1";
+      box.style.transform = "translateY(0)";
+    }
+  });
 });
+let themeBtn = document.querySelector("#themeBtn");
+
+if (themeBtn) {
+  themeBtn.onclick = () => {
+    document.body.classList.toggle("lightMode");
+
+    if (document.body.classList.contains("lightMode")) {
+      themeBtn.innerHTML = "☀️";
+    } else {
+      themeBtn.innerHTML = "🌙";
+    }
+  };
+}
