@@ -964,6 +964,7 @@ button:hover {
 }
 
 .lightMode .card p,
+.lightMode .card h2,
 .lightMode .box p {
   color: #444;
 }
