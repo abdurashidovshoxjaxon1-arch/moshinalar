@@ -24,34 +24,63 @@
     </div>
 
     <header>
-      <div class="logo">AUTO CITY</div>
+      <div
+        class="logo"
+        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+        style="cursor: pointer"
+      >
+        AUTO CITY
+      </div>
 
       <div class="menuBtn" id="menuBtn">☰</div>
 
       <nav id="nav">
         <a href="#home">Home</a>
         <a href="#cars">Mashinalar</a>
+        <a href="#chegirmalar">Aksiyalar</a>
         <a href="#gallery">Galereya</a>
+        <a href="#videoGallery">Video</a>
         <a href="#reviews">Sharhlar</a>
         <a href="#contact">Aloqa</a>
         <a href="#location">Lokatsiya</a>
+        <a href="#" id="loginBtn">🔐 Login</a>
       </nav>
       <div class="right">
         <div id="favoriteBtn">❤️ <span id="favoriteCount">0</span></div>
-
-        <div class="cartModal" id="favModal">
-          <div class="cartBox">
-            <h2>Sevimli Mashinalar ❤️</h2>
-
-            <div id="favItems">Hozircha bo'sh</div>
-
-            <button id="closeFav">Yopish</button>
-          </div>
-        </div>
         <div class="cart" id="cartBtn">🛒 <span id="cartCount">0</span></div>
         <button id="themeBtn">🌙</button>
       </div>
     </header>
+
+    <!-- LOGIN MODAL -->
+    <div class="modal" id="loginModal">
+      <div class="modalBox loginBox">
+        <h2>🔐 Kirish</h2>
+        <p class="loginSubtitle">Auto City ga xush kelibsiz!</p>
+        <div class="loginForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="📧 Email manzilingiz"
+          />
+          <input type="password" id="loginPassword" placeholder="🔒 Parol" />
+          <button id="loginSubmit">Kirish</button>
+          <p class="loginSwitch">
+            Akkauntingiz yo'qmi? <span id="toRegister">Ro'yxatdan o'ting</span>
+          </p>
+        </div>
+        <div class="registerForm" style="display: none">
+          <input type="text" id="regName" placeholder="👤 Ismingiz" />
+          <input type="email" id="regEmail" placeholder="📧 Email" />
+          <input type="password" id="regPassword" placeholder="🔒 Parol" />
+          <button id="registerSubmit">Ro'yxatdan o'tish</button>
+          <p class="loginSwitch">
+            Akkaunting bormi? <span id="toLogin">Kirish</span>
+          </p>
+        </div>
+        <button id="closeLogin">✕</button>
+      </div>
+    </div>
 
     <section class="hero" id="home">
       <h1>PREMIUM AUTO SALON</h1>
@@ -84,10 +113,15 @@
     <section class="cars">
       <div class="card" data-brand="BMW">
         <img
-          src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800"
+          src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800"
         />
-        <h2>BMW M4</h2>
-        <p>120000$</p>
+        <h2
+          data-desc="BMW M4 — yuqori samarali sport sedan. Keskin burchaklar va aggressive dizayn bilan ajralib turadi."
+          data-specs="Dvigatel: 3.0L Twin-Turbo | Quvvat: 503 l.s. | 0-100: 3.9s | Tezlik: 290 km/h"
+        >
+          BMW M4
+        </h2>
+        <p>120,000$</p>
         <p>2025 | Sport</p>
         <div class="buttons">
           <button class="buy">Sotib olish</button>
@@ -99,10 +133,15 @@
 
       <div class="card" data-brand="Mercedes">
         <img
-          src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800"
+          src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800"
         />
-        <h2>Mercedes AMG</h2>
-        <p>150000$</p>
+        <h2
+          data-desc="Mercedes-AMG GT — premium sport avtomobil. Hashamat va tezlikni birlashtirgan noyob model."
+          data-specs="Dvigatel: 4.0L V8 Biturbo | Quvvat: 630 l.s. | 0-100: 3.5s | Tezlik: 315 km/h"
+        >
+          Mercedes AMG
+        </h2>
+        <p>150,000$</p>
         <p>2026 | Premium</p>
         <div class="buttons">
           <button class="buy">Sotib olish</button>
@@ -114,10 +153,15 @@
 
       <div class="card" data-brand="Audi">
         <img
-          src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800"
+          src="https://imgd.aeplcdn.com/664x374/n/cw/ec/48342/rs7-sportback-exterior-right-front-three-quarter-3.jpeg?q=80"
         />
-        <h2>Audi RS7</h2>
-        <p>130000$</p>
+        <h2
+          data-desc="Audi RS7 — biznes va sport uyg'unligi. Keng salon va ajoyib sport xususiyatlari."
+          data-specs="Dvigatel: 4.0L TFSI | Quvvat: 600 l.s. | 0-100: 3.6s | Tezlik: 305 km/h"
+        >
+          Audi RS7
+        </h2>
+        <p>130,000$</p>
         <p>2025 | Turbo</p>
         <div class="buttons">
           <button class="buy">Sotib olish</button>
@@ -129,11 +173,16 @@
 
       <div class="card" data-brand="Tesla">
         <img
-          src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=800"
+          src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=800"
         />
-        <h2>Tesla Model X</h2>
-        <p>100000$</p>
-        <p>Elektr</p>
+        <h2
+          data-desc="Tesla Model X — kelajak SUV. To'liq elektr, falcon wing eshiklar va autopilot."
+          data-specs="Motor: Dual Motor AWD | Quvvat: 670 l.s. | 0-100: 3.8s | Quvur: 547 km"
+        >
+          Tesla Model X
+        </h2>
+        <p>100,000$</p>
+        <p>2025 | Elektr</p>
         <div class="buttons">
           <button class="buy">Sotib olish</button>
           <button class="add">Savat+</button>
@@ -144,11 +193,16 @@
 
       <div class="card" data-brand="Ferrari">
         <img
-          src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800"
+          src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800"
         />
-        <h2>Ferrari F8</h2>
-        <p>500000$</p>
-        <p>V8 Turbo</p>
+        <h2
+          data-desc="Ferrari F8 Tributo — italyan muhandisligining cho'qqisi. Eng yuqori darajali sport avtomobil."
+          data-specs="Dvigatel: 3.9L V8 Turbo | Quvvat: 720 l.s. | 0-100: 2.9s | Tezlik: 340 km/h"
+        >
+          Ferrari F8
+        </h2>
+        <p>500,000$</p>
+        <p>2024 | V8 Turbo</p>
         <div class="buttons">
           <button class="buy">Sotib olish</button>
           <button class="add">Savat+</button>
@@ -159,11 +213,16 @@
 
       <div class="card" data-brand="Porsche">
         <img
-          src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=800"
+          src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=800"
         />
-        <h2>Porsche 911</h2>
-        <p>250000$</p>
-        <p>Sport</p>
+        <h2
+          data-desc="Porsche 911 — legenda. 60 yildan ortiq tarix, har doim sport avtomobillar standarti."
+          data-specs="Dvigatel: 3.0L Flat-6 Turbo | Quvvat: 450 l.s. | 0-100: 4.0s | Tezlik: 308 km/h"
+        >
+          Porsche 911
+        </h2>
+        <p>250,000$</p>
+        <p>2025 | Sport</p>
         <div class="buttons">
           <button class="buy">Sotib olish</button>
           <button class="add">Savat+</button>
@@ -174,11 +233,16 @@
 
       <div class="card" data-brand="BMW">
         <img
-          src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800"
+          src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800"
         />
-        <h2>BMW X7</h2>
-        <p>170000$</p>
-        <p>SUV</p>
+        <h2
+          data-desc="BMW X7 — flagman SUV. 7 o'rinli keng salon, premium ichki dizayn va kuchli dvigatel."
+          data-specs="Dvigatel: 4.4L V8 | Quvvat: 530 l.s. | 0-100: 4.7s | Tezlik: 250 km/h"
+        >
+          BMW X7
+        </h2>
+        <p>170,000$</p>
+        <p>2025 | SUV</p>
         <div class="buttons">
           <button class="buy">Sotib olish</button>
           <button class="add">Savat+</button>
@@ -189,11 +253,16 @@
 
       <div class="card" data-brand="Toyota">
         <img
-          src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=800"
+          src="https://images.unsplash.com/photo-1632245889029-e406faaa34cd?w=800"
         />
-        <h2>Toyota Supra</h2>
-        <p>110000$</p>
-        <p>Sport</p>
+        <h2
+          data-desc="Toyota Supra — yapon sport legenda. Engil vazni va kuchli dvigateli bilan mashhur."
+          data-specs="Dvigatel: 3.0L Inline-6 Turbo | Quvvat: 387 l.s. | 0-100: 4.3s | Tezlik: 250 km/h"
+        >
+          Toyota Supra
+        </h2>
+        <p>110,000$</p>
+        <p>2024 | Sport</p>
         <div class="buttons">
           <button class="buy">Sotib olish</button>
           <button class="add">Savat+</button>
@@ -204,11 +273,16 @@
 
       <div class="card" data-brand="Lamborghini">
         <img
-          src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=800"
+          src="https://images.unsplash.com/photo-1523983388277-336a66bf9bcd?w=800"
         />
-        <h2>Lamborghini Huracan</h2>
-        <p>700000$</p>
-        <p>V10</p>
+        <h2
+          data-desc="Lamborghini Huracan — italyan supercar. Agressiv dizayn va V10 dvigateli bilan hayratlanarli."
+          data-specs="Dvigatel: 5.2L V10 | Quvvat: 640 l.s. | 0-100: 2.9s | Tezlik: 325 km/h"
+        >
+          Lamborghini Huracan
+        </h2>
+        <p>700,000$</p>
+        <p>2025 | V10</p>
         <div class="buttons">
           <button class="buy">Sotib olish</button>
           <button class="add">Savat+</button>
@@ -219,11 +293,16 @@
 
       <div class="card" data-brand="Chevrolet">
         <img
-          src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800"
+          src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800"
         />
-        <h2>Chevrolet Camaro</h2>
-        <p>95000$</p>
-        <p>Muscle</p>
+        <h2
+          data-desc="Chevrolet Camaro — amerikan muscle car. Kuchli V8 dvigateli va klassik dizayni bilan ikonik."
+          data-specs="Dvigatel: 6.2L V8 | Quvvat: 455 l.s. | 0-100: 4.0s | Tezlik: 290 km/h"
+        >
+          Chevrolet Camaro
+        </h2>
+        <p>95,000$</p>
+        <p>2024 | Muscle</p>
         <div class="buttons">
           <button class="buy">Sotib olish</button>
           <button class="add">Savat+</button>
@@ -232,161 +311,201 @@
         </div>
       </div>
 
-      <div class="card">
+      <div class="card" data-brand="Ford">
         <img
-          src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=800"
+          src="https://images.unsplash.com/photo-1547744152-14d985cb937f?w=800"
         />
-        <h2>Mustang GT</h2>
-        <p>100000$</p>
-        <div class="buttons">
-          <button class="buy">Sotib olish</button
-          ><button class="add">Savat+</button
-          ><button class="view">Ko'rish</button>
-          <button class="fav">🤍</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img
-          src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=800"
-        />
-        <h2>Audi Q8</h2>
-        <p>150000$</p>
-        <div class="buttons">
-          <button class="buy">Sotib olish</button
-          ><button class="add">Savat+</button
-          ><button class="view">Ko'rish</button>
-          <button class="fav">🤍</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img
-          src="https://images.unsplash.com/photo-1502161254066-6c74afbf07aa?w=800"
-        />
-        <h2>Tesla Model S</h2>
-        <p>115000$</p>
-        <div class="buttons">
-          <button class="buy">Sotib olish</button
-          ><button class="add">Savat+</button
-          ><button class="view">Ko'rish</button>
-          <button class="fav">🤍</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img
-          src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800"
-        />
-        <h2>BMW i8</h2>
-        <p>180000$</p>
-        <div class="buttons">
-          <button class="buy">Sotib olish</button
-          ><button class="add">Savat+</button
-          ><button class="view">Ko'rish</button>
-          <button class="fav">🤍</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img
-          src="https://images.unsplash.com/photo-1493238792000-8113da705763?w=800"
-        />
-        <h2>Mercedes G63</h2>
-        <p>300000$</p>
-        <div class="buttons">
-          <button class="buy">Sotib olish</button
-          ><button class="add">Savat+</button
-          ><button class="view">Ko'rish</button>
-          <button class="fav">🤍</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img
-          src="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?w=800"
-        />
-        <h2>Ferrari SF90</h2>
-        <p>850000$</p>
-        <div class="buttons">
-          <button class="buy">Sotib olish</button
-          ><button class="add">Savat+</button
-          ><button class="view">Ko'rish</button>
-          <button class="fav">🤍</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img
-          src="https://images.unsplash.com/photo-1504215680853-026ed2a45def?w=800"
-        />
-        <h2>Bugatti Chiron</h2>
-        <p>2500000$</p>
-        <div class="buttons">
-          <button class="buy">Sotib olish</button
-          ><button class="add">Savat+</button
-          ><button class="view">Ko'rish</button>
-          <button class="fav">🤍</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img
-          src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800"
-        />
-        <h2>Rolls Royce</h2>
-        <p>600000$</p>
-        <div class="buttons">
-          <button class="buy">Sotib olish</button
-          ><button class="add">Savat+</button
-          ><button class="view">Ko'rish</button>
-          <button class="fav">🤍</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img
-          src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800"
-        />
-        <h2>Range Rover</h2>
-        <p>190000$</p>
-        <div class="buttons">
-          <button class="buy">Sotib olish</button
-          ><button class="add">Savat+</button
-          ><button class="view">Ko'rish</button>
-          <button class="fav">🤍</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img
-          src="https://images.unsplash.com/photo-1485291571150-772bcfc10da5?w=800"
-        />
-        <h2>McLaren</h2>
-        <p>800000$</p>
-        <div class="buttons">
-          <button class="buy">Sotib olish</button
-          ><button class="add">Savat+</button
-          ><button class="view">Ko'rish</button>
-          <button class="fav">🤍</button>
-        </div>
-      </div>
-      <div class="card" data-brand="Bugatti">
-        <img
-          src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=800"
-        />
-
-        <h2>Bugatti Chiron</h2>
-
-        <p>2500000$</p>
-
-        <p>2026 | W16 | Hypercar</p>
-
+        <h2
+          data-desc="Ford Mustang GT — amerikan orzusi. Klassik pony car dizayni va kuchli V8 dvigateli."
+          data-specs="Dvigatel: 5.0L V8 Coyote | Quvvat: 450 l.s. | 0-100: 4.4s | Tezlik: 270 km/h"
+        >
+          Mustang GT
+        </h2>
+        <p>100,000$</p>
+        <p>2025 | Muscle</p>
         <div class="buttons">
           <button class="buy">Sotib olish</button>
-
           <button class="add">Savat+</button>
+          <button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
 
+      <div class="card" data-brand="Audi">
+        <img
+          src="https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w=800"
+        />
+        <h2
+          data-desc="Audi Q8 — premium fastback SUV. Sport dizayn va qulay salon uyg'unligi."
+          data-specs="Dvigatel: 3.0L TFSI | Quvvat: 340 l.s. | 0-100: 5.6s | Tezlik: 250 km/h"
+        >
+          Audi Q8
+        </h2>
+        <p>150,000$</p>
+        <p>2025 | SUV</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button>
+          <button class="add">Savat+</button>
+          <button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card" data-brand="Tesla">
+        <img
+          src="https://images.unsplash.com/photo-1536700503339-1e4b06520771?w=800"
+        />
+        <h2
+          data-desc="Tesla Model S — elektr sedan. Eng uzoq quvurli elektromobil, autopilot va ajoyib tezlanish."
+          data-specs="Motor: Tri Motor AWD | Quvvat: 1020 l.s. | 0-100: 2.1s | Quvur: 637 km"
+        >
+          Tesla Model S
+        </h2>
+        <p>115,000$</p>
+        <p>2025 | Elektr</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button>
+          <button class="add">Savat+</button>
+          <button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card" data-brand="BMW">
+        <img
+          src="https://images.unsplash.com/photo-1556189250-72ba954cfc2b?w=800"
+        />
+        <h2
+          data-desc="BMW i8 — gibrid supercar. Kelajakdan kelgan dizayn va ekologik gibrid texnologiyasi."
+          data-specs="Dvigatel: 1.5L Turbo + Elektr | Quvvat: 374 l.s. | 0-100: 4.4s | Tezlik: 250 km/h"
+        >
+          BMW i8
+        </h2>
+        <p>180,000$</p>
+        <p>2024 | Gibrid</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button>
+          <button class="add">Savat+</button>
+          <button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card" data-brand="Mercedes">
+        <img
+          src="https://images.unsplash.com/photo-1600712242805-5f78671b24da?w=800"
+        />
+        <h2
+          data-desc="Mercedes-AMG G63 — legendar G-Class. Yo'l tanlamaydigan kuch va hashamat kombinatsiyasi."
+          data-specs="Dvigatel: 4.0L V8 Biturbo | Quvvat: 585 l.s. | 0-100: 4.5s | Tezlik: 240 km/h"
+        >
+          Mercedes G63
+        </h2>
+        <p>300,000$</p>
+        <p>2026 | SUV</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button>
+          <button class="add">Savat+</button>
+          <button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card" data-brand="Ferrari">
+        <img
+          src="https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=800"
+        />
+        <h2
+          data-desc="Ferrari SF90 Stradale — F1 texnologiyasi yo'lda. Gibrid supercar, eng kuchli Ferrari."
+          data-specs="Dvigatel: 4.0L V8 + 3 Elektr Motor | Quvvat: 1000 l.s. | 0-100: 2.5s | Tezlik: 340 km/h"
+        >
+          Ferrari SF90
+        </h2>
+        <p>850,000$</p>
+        <p>2025 | Gibrid Supercar</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button>
+          <button class="add">Savat+</button>
+          <button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card" data-brand="Bugatti">
+        <img
+          src="https://images.unsplash.com/photo-1566473965997-3de9c817e938?w=800"
+        />
+        <h2
+          data-desc="Bugatti Chiron — dunyo eng tez avtomobili. Har bir detal qo'lda ishlanib, mukammal qilingan."
+          data-specs="Dvigatel: 8.0L W16 Quad-Turbo | Quvvat: 1500 l.s. | 0-100: 2.4s | Tezlik: 420 km/h"
+        >
+          Bugatti Chiron
+        </h2>
+        <p>2,500,000$</p>
+        <p>2026 | W16 Hypercar</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button>
+          <button class="add">Savat+</button>
+          <button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card" data-brand="RollsRoyce">
+        <img
+          src="https://images.unsplash.com/photo-1631295868223-63265b40d9e4?w=800"
+        />
+        <h2
+          data-desc="Rolls-Royce Ghost — hashamat cho'qqisi. Qo'lda yasalgan ichki bezak va eng yumshoq yurish."
+          data-specs="Dvigatel: 6.75L V12 | Quvvat: 563 l.s. | 0-100: 4.8s | Tezlik: 250 km/h"
+        >
+          Rolls Royce
+        </h2>
+        <p>600,000$</p>
+        <p>2026 | Luxury</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button>
+          <button class="add">Savat+</button>
+          <button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card" data-brand="RangeRover">
+        <img
+          src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800"
+        />
+        <h2
+          data-desc="Range Rover Sport — britaniya premium SUV. Har qanday yo'lda hashamat va quvvat."
+          data-specs="Dvigatel: 3.0L Inline-6 | Quvvat: 395 l.s. | 0-100: 5.3s | Tezlik: 250 km/h"
+        >
+          Range Rover
+        </h2>
+        <p>190,000$</p>
+        <p>2025 | SUV</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button>
+          <button class="add">Savat+</button>
+          <button class="view">Ko'rish</button>
+          <button class="fav">🤍</button>
+        </div>
+      </div>
+
+      <div class="card" data-brand="McLaren">
+        <img
+          src="https://images.unsplash.com/photo-1621135802920-133df287f89c?w=800"
+        />
+        <h2
+          data-desc="McLaren 720S — F1 texnologiyasi asosidagi supercar. Karbon tana va ajoyib aerodinamika."
+          data-specs="Dvigatel: 4.0L V8 Twin-Turbo | Quvvat: 720 l.s. | 0-100: 2.9s | Tezlik: 341 km/h"
+        >
+          McLaren 720S
+        </h2>
+        <p>800,000$</p>
+        <p>2025 | Supercar</p>
+        <div class="buttons">
+          <button class="buy">Sotib olish</button>
+          <button class="add">Savat+</button>
           <button class="view">Ko'rish</button>
           <button class="fav">🤍</button>
         </div>
@@ -493,84 +612,84 @@
       <div class="cars">
         <div class="card">
           <img
-            src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800"
+            src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800"
           />
           <h2>BMW M4</h2>
         </div>
 
         <div class="card">
           <img
-            src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800"
+            src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800"
           />
           <h2>Mercedes AMG</h2>
         </div>
 
         <div class="card">
           <img
-            src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800"
+            src="https://imgd.aeplcdn.com/664x374/n/cw/ec/48342/rs7-sportback-exterior-right-front-three-quarter-3.jpeg?q=80"
           />
           <h2>Audi RS7</h2>
         </div>
 
         <div class="card">
           <img
-            src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=800"
+            src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=800"
           />
           <h2>Tesla Model X</h2>
         </div>
 
         <div class="card">
           <img
-            src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800"
+            src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800"
           />
           <h2>Ferrari F8</h2>
         </div>
 
         <div class="card">
           <img
-            src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=800"
+            src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=800"
           />
           <h2>Porsche 911</h2>
         </div>
 
         <div class="card">
           <img
-            src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=800"
+            src="https://images.unsplash.com/photo-1632245889029-e406faaa34cd?w=800"
           />
           <h2>Toyota Supra</h2>
         </div>
 
         <div class="card">
           <img
-            src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800"
+            src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800"
           />
           <h2>BMW X7</h2>
         </div>
 
         <div class="card">
           <img
-            src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800"
+            src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800"
           />
           <h2>Chevrolet Camaro</h2>
         </div>
 
         <div class="card">
           <img
-            src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=800"
+            src="https://images.unsplash.com/photo-1523983388277-336a66bf9bcd?w=800"
           />
           <h2>Lamborghini Huracan</h2>
         </div>
 
         <div class="card">
           <img
-            src="https://images.unsplash.com/photo-1493238792000-8113da705763?w=800"
+            src="https://images.unsplash.com/photo-1600712242805-5f78671b24da?w=800"
           />
           <h2>Mercedes G63</h2>
         </div>
 
         <div class="card">
           <img
-            src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800"
+            src="https://images.unsplash.com/photo-1556189250-72ba954cfc2b?w=800"
           />
           <h2>BMW i8</h2>
         </div>
@@ -582,7 +701,7 @@
       <div class="boxWrap">
         <div class="box">
           <img
-            src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800"
+            src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800"
           />
 
           <h2>BMW M4</h2>
@@ -594,7 +713,7 @@
 
         <div class="box">
           <img
-            src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800"
+            src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800"
           />
 
           <h2>Mercedes AMG</h2>
@@ -606,7 +725,7 @@
 
         <div class="box">
           <img
-            src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800"
+            src="https://imgd.aeplcdn.com/664x374/n/cw/ec/48342/rs7-sportback-exterior-right-front-three-quarter-3.jpeg?q=80"
           />
 
           <h2>Audi RS7</h2>
@@ -618,7 +737,7 @@
 
         <div class="box">
           <img
-            src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=800"
+            src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=800"
           />
 
           <h2>Tesla Model X</h2>
@@ -629,90 +748,7 @@
         </div>
       </div>
     </section>
-    <section id="faqSection">
-      <h1 class="title">Ko'p So'raladigan Savollar</h1>
-      <p class="faqSubtitle">Sizda savol bormi? Biz javob beramiz!</p>
-      <div class="faqList">
-        <div class="faqItem">
-          <div class="faqQuestion">
-            <span>Mashinani qanday sotib olishim mumkin?</span>
-            <span class="faqIcon">+</span>
-          </div>
-          <div class="faqAnswer">
-            <p>
-              Saytdagi mashinani tanlang, "Sotib olish" tugmasini bosing yoki
-              biz bilan bog'laning. Menejerlarimiz siz bilan 24 soat ichida
-              aloqaga chiqadi.
-            </p>
-          </div>
-        </div>
 
-        <div class="faqItem">
-          <div class="faqQuestion">
-            <span>To'lov qanday amalga oshiriladi?</span>
-            <span class="faqIcon">+</span>
-          </div>
-          <div class="faqAnswer">
-            <p>
-              Naqd pul, bank o'tkazmasi yoki kredit orqali to'lov qilish mumkin.
-              Kredit uchun bank hamkorlarimiz bilan ishlashga yordam beramiz.
-            </p>
-          </div>
-        </div>
-
-        <div class="faqItem">
-          <div class="faqQuestion">
-            <span>Mashinada kafolat bormi?</span>
-            <span class="faqIcon">+</span>
-          </div>
-          <div class="faqAnswer">
-            <p>
-              Ha, barcha yangi mashinalar zavod kafolati bilan keladi.
-              Ishlatilgan mashinalar uchun 6 oylik servis kafolatimiz mavjud.
-            </p>
-          </div>
-        </div>
-
-        <div class="faqItem">
-          <div class="faqQuestion">
-            <span>Test drive qilish mumkinmi?</span>
-            <span class="faqIcon">+</span>
-          </div>
-          <div class="faqAnswer">
-            <p>
-              Albatta! Istalgan mashinani test drive qilishingiz mumkin. Buning
-              uchun bizga qo'ng'iroq qiling yoki saytda ro'yxatdan o'ting.
-            </p>
-          </div>
-        </div>
-
-        <div class="faqItem">
-          <div class="faqQuestion">
-            <span>Eski mashinamni almashtirishim mumkinmi?</span>
-            <span class="faqIcon">+</span>
-          </div>
-          <div class="faqAnswer">
-            <p>
-              Ha, trade-in xizmati mavjud. Eski mashinangizni baholaymiz va
-              yangi mashina narxidan chegirma sifatida hisoblaymiz.
-            </p>
-          </div>
-        </div>
-
-        <div class="faqItem">
-          <div class="faqQuestion">
-            <span>Yetkazib berish xizmati bormi?</span>
-            <span class="faqIcon">+</span>
-          </div>
-          <div class="faqAnswer">
-            <p>
-              Ha, Toshkent shahar bo'ylab bepul yetkazib berish xizmatimiz bor.
-              Viloyatlarga yetkazish uchun alohida narxlar amal qiladi.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
     <section id="reviews">
       <h1 class="title">Mijozlar Fikrlari</h1>
 
@@ -802,6 +838,171 @@
         </div>
       </div>
     </section>
+    <!-- CHEGIRMALAR SECTION -->
+    <section id="chegirmalar">
+      <h1 class="title">🔥 Aksiyalar va Chegirmalar</h1>
+      <p class="faqSubtitle">Cheklangan vaqt! Fursatni boy bermang</p>
+      <div class="saleWrap">
+        <div class="saleCard">
+          <div class="saleBadge">-15%</div>
+          <img
+            src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800"
+          />
+          <div class="saleInfo">
+            <h2>BMW M4</h2>
+            <div class="salePrices">
+              <span class="oldPrice">140,000$</span>
+              <span class="newPrice">120,000$</span>
+            </div>
+            <div class="saleTimer" data-end="2026-07-01">
+              ⏳ <span class="timerText"></span>
+            </div>
+            <button class="saleBuy">Sotib olish</button>
+          </div>
+        </div>
+
+        <div class="saleCard hot">
+          <div class="saleBadge">-20%</div>
+          <div class="hotLabel">🔥 Eng issiq</div>
+          <img
+            src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800"
+          />
+          <div class="saleInfo">
+            <h2>Ferrari F8</h2>
+            <div class="salePrices">
+              <span class="oldPrice">625,000$</span>
+              <span class="newPrice">500,000$</span>
+            </div>
+            <div class="saleTimer" data-end="2026-06-20">
+              ⏳ <span class="timerText"></span>
+            </div>
+            <button class="saleBuy">Sotib olish</button>
+          </div>
+        </div>
+
+        <div class="saleCard">
+          <div class="saleBadge">-10%</div>
+          <img
+            src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=800"
+          />
+          <div class="saleInfo">
+            <h2>Porsche 911</h2>
+            <div class="salePrices">
+              <span class="oldPrice">278,000$</span>
+              <span class="newPrice">250,000$</span>
+            </div>
+            <div class="saleTimer" data-end="2026-06-30">
+              ⏳ <span class="timerText"></span>
+            </div>
+            <button class="saleBuy">Sotib olish</button>
+          </div>
+        </div>
+
+        <div class="saleCard">
+          <div class="saleBadge">-25%</div>
+          <img
+            src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800"
+          />
+          <div class="saleInfo">
+            <h2>Mercedes AMG</h2>
+            <div class="salePrices">
+              <span class="oldPrice">200,000$</span>
+              <span class="newPrice">150,000$</span>
+            </div>
+            <div class="saleTimer" data-end="2026-06-25">
+              ⏳ <span class="timerText"></span>
+            </div>
+            <button class="saleBuy">Sotib olish</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO GALEREYA SECTION -->
+    <section id="videoGallery">
+      <h1 class="title">🎬 Video Galereya</h1>
+      <p class="faqSubtitle">Mashinalarni harakatda tomosha qiling</p>
+      <div class="videoWrap">
+        <div class="videoCard">
+          <div
+            class="videoThumb"
+            data-video="https://www.youtube.com/embed/E7OLBAfSLp0?si=4LD1aSh8_p8SzZGS&autoplay=1&rel=0"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800"
+            />
+            <div class="playBtn">▶</div>
+          </div>
+          <h3>BMW M4 — Test Drive</h3>
+          <p>Sport sedan eng yaxshi sinovdan o'tdi</p>
+        </div>
+
+        <div class="videoCard">
+          <div
+            class="videoThumb"
+            data-video="https://www.youtube.com/embed/0TxFP98sku8?si=YFxwdXTIEYvxXyF7&autoplay=1&rel=0"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800"
+            />
+            <div class="playBtn">▶</div>
+          </div>
+          <h3>Ferrari F8 — Full Review</h3>
+          <p>Italyan supercarning to'liq sharhi</p>
+        </div>
+
+        <div class="videoCard">
+          <div
+            class="videoThumb"
+            data-video="https://www.youtube.com/embed/l6T9xIeZTds?autoplay=1&rel=0"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=800"
+            />
+            <div class="playBtn">▶</div>
+          </div>
+          <h3>Tesla Model X — Elektr Kelajak</h3>
+          <p>Elektr avtomobillar yangi davri</p>
+        </div>
+
+        <div class="videoCard">
+          <div
+            class="videoThumb"
+            data-video="https://www.youtube.com/embed/7pg1hhW5qhM?si=uKdjd6uFjQlRDS2N&autoplay=1&rel=0"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1566473965997-3de9c817e938?w=800"
+            />
+            <div class="playBtn">▶</div>
+          </div>
+          <h3>Bugatti Chiron — 420 km/h</h3>
+          <p>Dunyoning eng tez mashinasi</p>
+        </div>
+      </div>
+
+      <!-- Video modal -->
+      <div class="modal" id="videoModal">
+        <div class="videoModalBox">
+          <button id="closeVideo">✕</button>
+          <iframe
+            id="videoFrame"
+            src=""
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+      </div>
+    </section>
+
     <section id="stats">
       <h1 class="title">AUTO CITY Statistikasi</h1>
 
@@ -903,14 +1104,113 @@
     <div class="modal" id="modal">
       <div class="modalBox">
         <img id="modalImg" />
-
-        <h2 id="modalTitle"></h2>
-
-        <p id="modalPrice"></p>
-
-        <button id="close">Yopish</button>
+        <div class="modalHeader">
+          <h2 id="modalTitle"></h2>
+          <span id="modalBadge"></span>
+        </div>
+        <div class="modalPrice">
+          <span id="modalPriceText"></span>
+          <span class="modalRating">⭐ 4.9 / 5.0</span>
+        </div>
+        <p id="modalDesc"></p>
+        <div class="modalSpecsTitle">⚙️ Texnik xususiyatlar</div>
+        <div id="modalSpecs"></div>
+        <div class="modalExtra">
+          <div class="modalExtraItem">🛡 Kafolat: <strong>3 yil</strong></div>
+          <div class="modalExtraItem">🚗 Yetkazish: <strong>Bepul</strong></div>
+          <div class="modalExtraItem">🔄 Trade-in: <strong>Mavjud</strong></div>
+          <div class="modalExtraItem">💳 Kredit: <strong>0%</strong></div>
+        </div>
+        <div class="modalBtns">
+          <button id="close">❌ Yopish</button>
+          <button id="modalBuyBtn">🛒 Sotib olish</button>
+        </div>
       </div>
     </div>
+    <section id="faqSection">
+      <h1 class="title">Ko'p So'raladigan Savollar</h1>
+      <p class="faqSubtitle">Sizda savol bormi? Biz javob beramiz!</p>
+      <div class="faqList">
+        <div class="faqItem">
+          <div class="faqQuestion">
+            <span>Mashinani qanday sotib olishim mumkin?</span>
+            <span class="faqIcon">+</span>
+          </div>
+          <div class="faqAnswer">
+            <p>
+              Saytdagi mashinani tanlang, "Sotib olish" tugmasini bosing yoki
+              biz bilan bog'laning. Menejerlarimiz siz bilan 24 soat ichida
+              aloqaga chiqadi.
+            </p>
+          </div>
+        </div>
+
+        <div class="faqItem">
+          <div class="faqQuestion">
+            <span>To'lov qanday amalga oshiriladi?</span>
+            <span class="faqIcon">+</span>
+          </div>
+          <div class="faqAnswer">
+            <p>
+              Naqd pul, bank o'tkazmasi yoki kredit orqali to'lov qilish mumkin.
+              Kredit uchun bank hamkorlarimiz bilan ishlashga yordam beramiz.
+            </p>
+          </div>
+        </div>
+
+        <div class="faqItem">
+          <div class="faqQuestion">
+            <span>Mashinada kafolat bormi?</span>
+            <span class="faqIcon">+</span>
+          </div>
+          <div class="faqAnswer">
+            <p>
+              Ha, barcha yangi mashinalar zavod kafolati bilan keladi.
+              Ishlatilgan mashinalar uchun 6 oylik servis kafolatimiz mavjud.
+            </p>
+          </div>
+        </div>
+
+        <div class="faqItem">
+          <div class="faqQuestion">
+            <span>Test drive qilish mumkinmi?</span>
+            <span class="faqIcon">+</span>
+          </div>
+          <div class="faqAnswer">
+            <p>
+              Albatta! Istalgan mashinani test drive qilishingiz mumkin. Buning
+              uchun bizga qo'ng'iroq qiling yoki saytda ro'yxatdan o'ting.
+            </p>
+          </div>
+        </div>
+
+        <div class="faqItem">
+          <div class="faqQuestion">
+            <span>Eski mashinamni almashtirishim mumkinmi?</span>
+            <span class="faqIcon">+</span>
+          </div>
+          <div class="faqAnswer">
+            <p>
+              Ha, trade-in xizmati mavjud. Eski mashinangizni baholaymiz va
+              yangi mashina narxidan chegirma sifatida hisoblaymiz.
+            </p>
+          </div>
+        </div>
+
+        <div class="faqItem">
+          <div class="faqQuestion">
+            <span>Yetkazib berish xizmati bormi?</span>
+            <span class="faqIcon">+</span>
+          </div>
+          <div class="faqAnswer">
+            <p>
+              Ha, Toshkent shahar bo'ylab bepul yetkazib berish xizmatimiz bor.
+              Viloyatlarga yetkazish uchun alohida narxlar amal qiladi.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
     <section id="formSection">
       <h1 class="title">Ro'yxatdan o'tish</h1>
 
@@ -977,6 +1277,6 @@
         <button id="closeFav">Yopish</button>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>

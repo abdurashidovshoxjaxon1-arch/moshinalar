@@ -12,7 +12,6 @@ body {
   overflow-x: hidden;
 }
 
-/* HEADER */
 header {
   position: sticky;
   top: 0;
@@ -74,7 +73,6 @@ nav a:hover::after {
   cursor: pointer;
 }
 
-/* HERO */
 .hero {
   height: 100vh;
   background:
@@ -109,7 +107,6 @@ nav a:hover::after {
   }
 }
 
-/* BUTTONS */
 button {
   border: none;
   padding: 14px 25px;
@@ -122,7 +119,6 @@ button:hover {
   transform: scale(1.08);
 }
 
-/* SEARCH */
 .searchArea {
   width: 90%;
   margin: 50px auto;
@@ -138,16 +134,14 @@ button:hover {
   border-radius: 10px;
 }
 
-/* TITLE */
 .title {
   text-align: center;
   font-size: 45px;
   margin: 80px 0;
 }
 
-/* CARDS */
 .cars {
-  width: 100%;
+  width: 90%;
   margin: 80px auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -155,7 +149,7 @@ button:hover {
 }
 
 .card {
-  width: 352px;
+  width: 340px;
   background: linear-gradient(145deg, #1a1a1a, #242424);
   padding: 18px;
   border-radius: 25px;
@@ -250,7 +244,6 @@ button:hover {
   letter-spacing: 1px;
 }
 
-/* BOX GRID */
 .boxWrap {
   width: 90%;
   margin: auto;
@@ -290,7 +283,6 @@ button:hover {
   transform: translateY(-10px) scale(1.04);
 }
 
-/* CONTACT */
 .contact {
   width: 90%;
   margin: auto;
@@ -311,7 +303,6 @@ button:hover {
   resize: none;
 }
 
-/* MODAL */
 .modal {
   position: fixed;
   top: 0;
@@ -327,22 +318,143 @@ button:hover {
 
 .modalBox {
   background: #1d1d1d;
-  width: 500px;
+  width: 560px;
   max-width: 95%;
+  max-height: 92vh;
+  overflow-y: auto;
   padding: 30px;
-  border-radius: 20px;
-  text-align: center;
+  border-radius: 24px;
+  text-align: left;
 }
 
 .modalBox img {
   width: 100%;
-  height: 250px;
+  height: 260px;
   object-fit: cover;
-  border-radius: 15px;
-  margin-bottom: 15px;
+  border-radius: 18px;
+  margin-bottom: 18px;
 }
 
-/* PROGRESS BAR */
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.modalHeader h2 {
+  font-size: 26px;
+  color: white;
+}
+
+#modalBadge {
+  background: #f0c040;
+  color: #000;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.modalPrice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+#modalPriceText {
+  font-size: 22px;
+  font-weight: bold;
+  color: #f0c040;
+}
+
+.modalRating {
+  font-size: 14px;
+  color: #ccc;
+}
+
+#modalDesc {
+  color: #bbb;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.modalSpecsTitle {
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+#modalSpecs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+#modalSpecs span {
+  background: #2a2a2a;
+  border: 1px solid #f0c040;
+  color: #f0c040;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.modalExtra {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.modalExtraItem {
+  background: #2a2a2a;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #ccc;
+}
+
+.modalExtraItem strong {
+  color: white;
+}
+
+.modalBtns {
+  display: flex;
+  gap: 12px;
+}
+
+.modalBtns button {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.modalBtns button:first-child {
+  background: #333;
+  color: white;
+}
+
+.modalBtns button:last-child {
+  background: #f0c040;
+  color: #000;
+}
+
+.modalBtns button:hover {
+  transform: scale(1.05);
+}
+
 .progress {
   position: fixed;
   top: 0;
@@ -353,7 +465,6 @@ button:hover {
   z-index: 99999;
 }
 
-/* FORM */
 .mainForm {
   width: 90%;
   margin: 80px auto;
@@ -427,7 +538,6 @@ button:hover {
   font-weight: bold;
 }
 
-/* LOCATION */
 .locationWrap {
   width: 90%;
   margin: 80px auto;
@@ -470,7 +580,6 @@ button:hover {
   margin-top: 20px;
 }
 
-/* CART */
 .cart {
   cursor: pointer;
   font-size: 25px;
@@ -508,7 +617,6 @@ button:hover {
   border-radius: 10px;
 }
 
-/* GALLERY */
 #gallery .card {
   padding: 12px;
   text-align: center;
@@ -529,7 +637,6 @@ button:hover {
   font-size: 22px;
 }
 
-/* TOP CARS */
 #topCars .box {
   text-align: center;
   overflow: hidden;
@@ -559,7 +666,6 @@ button:hover {
   margin-top: 15px;
 }
 
-/* LOADER */
 #loader {
   position: fixed;
   top: 0;
@@ -652,7 +758,6 @@ button:hover {
   }
 }
 
-/* CONTACT CONTAINER */
 .contactContainer {
   width: 90%;
   margin: 80px auto;
@@ -747,7 +852,6 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* REVIEWS */
 #reviews .box {
   text-align: center;
   padding: 30px;
@@ -775,7 +879,6 @@ button:hover {
   margin-bottom: 15px;
 }
 
-/* WHY */
 #why .box {
   min-height: 230px;
   text-align: center;
@@ -795,7 +898,6 @@ button:hover {
   color: #d7d7d7;
 }
 
-/* FAVORITE */
 #favoriteBtn {
   font-size: 25px;
   cursor: pointer;
@@ -819,7 +921,6 @@ button:hover {
   transform: scale(1.1);
 }
 
-/* STATS */
 .statsWrap {
   width: 90%;
   margin: 80px auto;
@@ -850,7 +951,6 @@ button:hover {
   color: #ddd;
 }
 
-/* THEME */
 #themeBtn {
   padding: 10px 15px;
   border: none;
@@ -904,7 +1004,6 @@ button:hover {
   }
 }
 
-/* FAQ */
 #faqSection {
   padding: 80px 40px;
   background: #0a0a0a;
@@ -987,7 +1086,6 @@ button:hover {
   margin: 0;
 }
 
-/* ===== MEDIA QUERIES ===== */
 @media (max-width: 768px) {
   header {
     position: relative;
@@ -1125,5 +1223,375 @@ button:hover {
   .faqQuestion {
     font-size: 14px;
     padding: 14px 16px;
+  }
+}
+
+#loginBtn {
+  background: #f0c040;
+  color: #000 !important;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+#loginBtn:hover {
+  background: #d4a800;
+  transform: scale(1.05);
+}
+
+#loginBtn::after {
+  display: none !important;
+}
+
+.loginBox {
+  width: 420px !important;
+  text-align: center;
+  padding: 40px !important;
+  position: relative;
+}
+
+.loginBox h2 {
+  font-size: 28px;
+  margin-bottom: 6px;
+  color: white;
+}
+
+.loginSubtitle {
+  color: #aaa;
+  font-size: 14px;
+  margin-bottom: 28px !important;
+}
+
+.loginForm,
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.loginForm input,
+.registerForm input {
+  padding: 14px 18px;
+  border: none;
+  border-radius: 12px;
+  background: #2a2a2a;
+  color: white;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.loginForm input:focus,
+.registerForm input:focus {
+  box-shadow: 0 0 15px #f0c040;
+}
+
+.loginForm button,
+.registerForm button {
+  padding: 14px;
+  background: #f0c040;
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 4px;
+}
+
+.loginForm button:hover,
+.registerForm button:hover {
+  transform: scale(1.04);
+  background: #d4a800;
+}
+
+.loginSwitch {
+  color: #aaa !important;
+  font-size: 13px;
+  margin-top: 4px !important;
+}
+
+.loginSwitch span {
+  color: #f0c040;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.loginSwitch span:hover {
+  text-decoration: underline;
+}
+
+#closeLogin {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: 0.2s;
+}
+
+#closeLogin:hover {
+  color: white;
+  transform: scale(1.2);
+}
+
+#chegirmalar {
+  padding: 80px 40px;
+  background: #0a0a0a;
+}
+
+.saleWrap {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.saleCard {
+  background: linear-gradient(145deg, #1a1a1a, #222);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #2a2a2a;
+  transition: 0.4s;
+}
+
+.saleCard:hover {
+  transform: translateY(-10px);
+  border-color: #f0c040;
+  box-shadow: 0 15px 40px rgba(240, 192, 64, 0.2);
+}
+
+.saleCard.hot {
+  border-color: #ff4444;
+  box-shadow: 0 0 20px rgba(255, 68, 68, 0.2);
+}
+
+.saleCard.hot:hover {
+  box-shadow: 0 15px 40px rgba(255, 68, 68, 0.3);
+}
+
+.saleBadge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #f0c040;
+  color: #000;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  z-index: 2;
+}
+
+.hotLabel {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: #ff4444;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 5px 12px;
+  border-radius: 20px;
+  z-index: 2;
+}
+
+.saleCard img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.saleCard:hover img {
+  transform: scale(1.06);
+}
+
+.saleInfo {
+  padding: 20px;
+}
+
+.saleInfo h2 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.salePrices {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.oldPrice {
+  color: #777;
+  text-decoration: line-through;
+  font-size: 16px;
+}
+
+.newPrice {
+  color: #f0c040;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.saleTimer {
+  color: #aaa;
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+.timerText {
+  color: #ff4444;
+  font-weight: bold;
+}
+
+.saleBuy {
+  width: 100%;
+  padding: 12px;
+  background: #f0c040;
+  color: #000;
+  font-weight: bold;
+  font-size: 15px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.saleBuy:hover {
+  background: #d4a800;
+  transform: scale(1.03);
+}
+
+#videoGallery {
+  padding: 80px 40px;
+  background: #080808;
+}
+
+.videoWrap {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.videoCard {
+  background: #111;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid #222;
+  transition: 0.4s;
+}
+
+.videoCard:hover {
+  transform: translateY(-8px);
+  border-color: #f0c040;
+}
+
+.videoThumb {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.videoThumb img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.videoCard:hover .videoThumb img {
+  transform: scale(1.08);
+}
+
+.playBtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: rgba(240, 192, 64, 0.9);
+  color: #000;
+  font-size: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  padding-left: 4px;
+}
+
+.videoCard:hover .playBtn {
+  transform: translate(-50%, -50%) scale(1.15);
+  background: #f0c040;
+}
+
+.videoCard h3 {
+  font-size: 18px;
+  padding: 16px 16px 6px;
+}
+
+.videoCard p {
+  color: #aaa;
+  font-size: 13px;
+  padding: 0 16px 16px;
+}
+
+.videoModalBox {
+  background: #111;
+  width: 800px;
+  max-width: 95%;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.videoModalBox iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+  display: block;
+}
+
+#closeVideo {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#closeVideo:hover {
+  background: #f0c040;
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  #chegirmalar,
+  #videoGallery {
+    padding: 50px 16px;
+  }
+  .videoModalBox iframe {
+    height: 240px;
   }
 }
