@@ -516,3 +516,8 @@ if (videoModal) {
     }
   };
 }
+document.querySelectorAll(".blogBtn").forEach((btn) => {
+  btn.onclick = () => {
+    alert("Blog sahifasi tez orada ishga tushadi!");
+  };
+});
