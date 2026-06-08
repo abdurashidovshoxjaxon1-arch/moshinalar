@@ -71,13 +71,13 @@ function renderCart() {
         <img src="${product.img}" alt="${product.name}" style="width:80px;height:60px;object-fit:cover;border-radius:8px;">
         <div style="flex:1;">
           <p style="font-weight:bold;margin:0 0 4px;">${product.name}</p>
-          <p style="color:#f0c040;margin:0;">${product.price.toLocaleString()} so'm</p>
+          <p style="color:#f0c040;margin:0;">${product.price.toLocaleString()},000 $</p>
         </div>
         <button onclick="removeFromCart(${index})" style="background:red;color:white;border:none;padding:6px 10px;border-radius:6px;cursor:pointer;font-size:18px;">🗑</button>
       </div>
     `;
   });
-  total.innerHTML = "Jami: " + sum.toLocaleString() + " so'm";
+  total.innerHTML = +sum.toLocaleString() + ",000";
 }
 
 window.removeFromCart = function (index) {
@@ -521,3 +521,91 @@ document.querySelectorAll(".blogBtn").forEach((btn) => {
     alert("Blog sahifasi tez orada ishga tushadi!");
   };
 });
+if (cartBtn)
+  cartBtn.onclick = () => {
+    cartModal.style.display = "flex";
+  };
+if (closeCart)
+  closeCart.onclick = () => {
+    cartModal.style.display = "none";
+  };
+if (cartModal)
+  cartModal.onclick = (e) => {
+    if (e.target == cartModal) cartModal.style.display = "none";
+  };
+
+let checkoutModal = document.querySelector("#checkoutModal");
+let checkoutBtn = document.querySelector("#checkoutBtn");
+let closeCheckout = document.querySelector("#closeCheckout");
+let confirmOrder = document.querySelector("#confirmOrder");
+
+if (checkoutBtn) {
+  checkoutBtn.onclick = () => {
+    if (products.length === 0) {
+      alert("Savat bo'sh!");
+      return;
+    }
+    let sum = products.reduce((a, p) => a + p.price, 0);
+    document.querySelector("#checkoutSummary").innerHTML = `
+      <div class="checkoutSummaryBox">
+        <div class="checkoutRow"><span>Mahsulotlar soni</span><span>${products.length} ta</span></div>
+        <div class="checkoutRow"><span>Jami summa</span><span style="color:#f0c040;font-weight:bold;">${sum.toLocaleString()} ,000$</span></div>
+        <div class="checkoutRow"><span>Yetkazish</span><span style="color:green;">Bepul 🚚</span></div>
+      </div>
+    `;
+    cartModal.style.display = "none";
+    checkoutModal.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  };
+}
+
+if (closeCheckout) {
+  closeCheckout.onclick = () => {
+    checkoutModal.style.display = "none";
+    document.body.style.overflow = "";
+  };
+}
+
+if (checkoutModal) {
+  checkoutModal.onclick = (e) => {
+    if (e.target == checkoutModal) {
+      checkoutModal.style.display = "none";
+      document.body.style.overflow = "";
+    }
+  };
+}
+
+if (confirmOrder) {
+  confirmOrder.onclick = () => {
+    let name = document.querySelector("#checkoutName").value.trim();
+    let phone = document.querySelector("#checkoutPhone").value.trim();
+    let address = document.querySelector("#checkoutAddress").value.trim();
+    let payment = document.querySelector("#checkoutPayment").value;
+
+    if (!name || !phone || !address || !payment) {
+      alert("Iltimos barcha maydonlarni to'ldiring!");
+      return;
+    }
+
+    confirmOrder.innerHTML = "Yuborilmoqda...";
+
+    setTimeout(() => {
+      checkoutModal.style.display = "none";
+      document.body.style.overflow = "";
+      products = [];
+      count = 0;
+      cart.innerHTML = 0;
+      renderCart();
+
+      document.querySelector("#checkoutName").value = "";
+      document.querySelector("#checkoutPhone").value = "";
+      document.querySelector("#checkoutAddress").value = "";
+      document.querySelector("#checkoutPayment").value = "";
+      confirmOrder.innerHTML = "🚀 Buyurtmani tasdiqlash";
+
+      alert(
+        `✅ Buyurtma qabul qilindi!\n\nIsm: ${name}\nTelefon: ${phone}\nManzil: ${address}\n\nTez orada siz bilan bog'lanamiz!`,
+      );
+    }, 1500);
+  };
+}

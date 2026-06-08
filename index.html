@@ -52,7 +52,6 @@
       </div>
     </header>
 
-    <!-- LOGIN MODAL -->
     <div class="modal" id="loginModal">
       <div class="modalBox loginBox">
         <h2>🔐 Kirish</h2>
@@ -1384,13 +1383,46 @@
     </section>
     <div class="cartModal" id="cartModal">
       <div class="cartBox">
-        <h2>Savat</h2>
-
+        <h2>🛒 Savat</h2>
         <div id="cartItems">Savat bo'sh</div>
+        <h3>Jami: <span id="total">0</span></h3>
+        <div class="cartBtns">
+          <button id="closeCart">Yopish</button>
+          <button id="checkoutBtn">✅ Sotib olish</button>
+        </div>
+      </div>
+    </div>
 
-        <h3>Jami: <span id="total">0</span> $</h3>
-
-        <button id="closeCart">Yopish</button>
+    <div class="modal" id="checkoutModal">
+      <div class="modalBox checkoutBox">
+        <button id="closeCheckout">✕</button>
+        <h2>📋 Shaxsni tasdiqlash</h2>
+        <p class="checkoutSubtitle">Ma'lumotlaringizni kiriting</p>
+        <div class="checkoutForm">
+          <input
+            type="text"
+            id="checkoutName"
+            placeholder="👤 To'liq ismingiz"
+          />
+          <input
+            type="tel"
+            id="checkoutPhone"
+            placeholder="📞 Telefon raqamingiz"
+          />
+          <input
+            type="text"
+            id="checkoutAddress"
+            placeholder="🏠 Manzilingiz"
+          />
+          <select id="checkoutPayment">
+            <option value="">💳 To'lov usulini tanlang</option>
+            <option value="cash">💵 Naqd pul</option>
+            <option value="card">💳 Karta orqali</option>
+            <option value="credit">🏦 Kredit (0%)</option>
+          </select>
+          <div id="checkoutSummary"></div>
+          <button id="confirmOrder">🚀 Buyurtmani tasdiqlash</button>
+        </div>
       </div>
     </div>
     <div class="cartModal" id="favModal">

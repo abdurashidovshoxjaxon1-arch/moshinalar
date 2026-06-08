@@ -144,12 +144,12 @@ button:hover {
   width: 90%;
   margin: 80px auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 35px;
 }
 
 .card {
-  width: 340px;
+  width: 100%;
   background: linear-gradient(145deg, #1a1a1a, #242424);
   padding: 18px;
   border-radius: 25px;
@@ -1162,188 +1162,7 @@ button:hover {
   font-size: 15px;
   margin: 0;
 }
-#partners {
-  padding: 80px 40px;
-  background: #080808;
-}
 
-.partnersWrap {
-  width: 90%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-}
-
-.partnerCard {
-  background: #111;
-  border: 1px solid #1f1f1f;
-  border-radius: 16px;
-  padding: 30px 20px;
-  text-align: center;
-  transition: 0.4s;
-  cursor: pointer;
-}
-
-.partnerCard:hover {
-  border-color: #f0c040;
-  transform: translateY(-8px);
-  box-shadow: 0 10px 30px rgba(240, 192, 64, 0.15);
-}
-
-.partnerLogo {
-  font-size: 22px;
-  font-weight: 900;
-  color: white;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
-  transition: 0.3s;
-}
-
-.partnerCard:hover .partnerLogo {
-  color: #f0c040;
-}
-
-.partnerCard p {
-  font-size: 12px;
-  color: #666;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-#blog {
-  padding: 80px 40px;
-  background: #0a0a0a;
-}
-
-.blogWrap {
-  width: 90%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-
-.blogCard {
-  background: #111;
-  border: 1px solid #1f1f1f;
-  border-radius: 20px;
-  overflow: hidden;
-  transition: 0.4s;
-  display: flex;
-  flex-direction: column;
-}
-
-.blogCard:hover {
-  border-color: #f0c040;
-  transform: translateY(-6px);
-  box-shadow: 0 12px 35px rgba(240, 192, 64, 0.12);
-}
-
-.blogCard.big {
-  grid-column: span 2;
-  flex-direction: row;
-}
-
-.blogImg {
-  background-size: cover;
-  background-position: center;
-  transition: 0.5s;
-  flex-shrink: 0;
-}
-
-.blogCard.big .blogImg {
-  width: 45%;
-  min-height: 320px;
-}
-.blogCard:not(.big) .blogImg {
-  width: 100%;
-  height: 200px;
-}
-.blogCard:hover .blogImg {
-  transform: scale(1.04);
-}
-
-.blogInfo {
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex: 1;
-}
-
-.blogTag {
-  display: inline-block;
-  background: #f0c040;
-  color: #000;
-  font-size: 11px;
-  font-weight: 800;
-  padding: 4px 12px;
-  border-radius: 20px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  width: fit-content;
-}
-
-.blogInfo h2 {
-  font-size: 20px;
-  line-height: 1.4;
-  color: white;
-}
-.blogCard.big .blogInfo h2 {
-  font-size: 26px;
-}
-
-.blogInfo p {
-  font-size: 14px;
-  color: #888;
-  line-height: 1.7;
-}
-
-.blogMeta {
-  display: flex;
-  gap: 16px;
-  font-size: 13px;
-  color: #555;
-  margin-top: auto;
-}
-
-.blogBtn {
-  width: fit-content;
-  padding: 10px 20px;
-  background: transparent;
-  color: #f0c040;
-  border: 1px solid #f0c040;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: 0.3s;
-  letter-spacing: 1px;
-}
-
-.blogBtn:hover {
-  background: #f0c040;
-  color: #000;
-}
-
-@media (max-width: 768px) {
-  #partners,
-  #blog {
-    padding: 50px 16px;
-  }
-  .blogWrap {
-    grid-template-columns: 1fr;
-  }
-  .blogCard.big {
-    grid-column: span 1;
-    flex-direction: column;
-  }
-  .blogCard.big .blogImg {
-    width: 100%;
-    min-height: 200px;
-  }
-}
 @media (max-width: 768px) {
   header {
     position: relative;
@@ -1851,5 +1670,382 @@ button:hover {
   }
   .videoModalBox iframe {
     height: 240px;
+  }
+}
+
+#partners {
+  padding: 80px 40px;
+  background: #080808;
+}
+
+.partnersWrap {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.partnerCard {
+  background: #111;
+  border: 1px solid #1f1f1f;
+  border-radius: 16px;
+  padding: 30px 20px;
+  text-align: center;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.partnerCard:hover {
+  border-color: #f0c040;
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(240, 192, 64, 0.15);
+}
+
+.partnerLogo {
+  font-size: 22px;
+  font-weight: 900;
+  color: white;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+.partnerCard:hover .partnerLogo {
+  color: #f0c040;
+}
+
+.partnerCard p {
+  font-size: 12px;
+  color: #666;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+#blog {
+  padding: 80px 40px;
+  background: #0a0a0a;
+}
+
+.blogWrap {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 24px;
+}
+
+.blogCard {
+  background: #111;
+  border: 1px solid #1f1f1f;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.4s;
+  display: flex;
+  flex-direction: column;
+}
+
+.blogCard:hover {
+  border-color: #f0c040;
+  transform: translateY(-6px);
+  box-shadow: 0 12px 35px rgba(240, 192, 64, 0.12);
+}
+
+.blogCard.big {
+  grid-column: span 2;
+  flex-direction: row;
+}
+
+.blogImg {
+  background-size: cover;
+  background-position: center;
+  transition: 0.5s;
+  flex-shrink: 0;
+}
+
+.blogCard.big .blogImg {
+  width: 45%;
+  min-height: 320px;
+}
+
+.blogCard:not(.big) .blogImg {
+  width: 100%;
+  height: 200px;
+}
+
+.blogCard:hover .blogImg {
+  transform: scale(1.04);
+}
+
+.blogInfo {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.blogTag {
+  display: inline-block;
+  background: #f0c040;
+  color: #000;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.blogInfo h2 {
+  font-size: 20px;
+  line-height: 1.4;
+  color: white;
+}
+
+.blogCard.big .blogInfo h2 {
+  font-size: 26px;
+}
+
+.blogInfo p {
+  font-size: 14px;
+  color: #888;
+  line-height: 1.7;
+}
+
+.blogMeta {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: #555;
+  margin-top: auto;
+}
+
+.blogBtn {
+  width: fit-content;
+  padding: 10px 20px;
+  background: transparent;
+  color: #f0c040;
+  border: 1px solid #f0c040;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  letter-spacing: 1px;
+}
+
+.blogBtn:hover {
+  background: #f0c040;
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  #partners,
+  #blog {
+    padding: 50px 16px;
+  }
+
+  .blogWrap {
+    grid-template-columns: 1fr;
+  }
+
+  .blogCard.big {
+    grid-column: span 1;
+    flex-direction: column;
+  }
+
+  .blogCard.big .blogImg {
+    width: 100%;
+    min-height: 200px;
+  }
+}
+
+.cartBtns {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.cartBtns button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.cartBtns button:first-child {
+  background: #333;
+  color: white;
+}
+.cartBtns button:first-child:hover {
+  background: #444;
+}
+.cartBtns button:last-child {
+  background: #f0c040;
+  color: #000;
+}
+.cartBtns button:last-child:hover {
+  background: #d4a800;
+  transform: scale(1.04);
+}
+
+.checkoutBox {
+  width: 480px !important;
+  text-align: left;
+  position: relative;
+}
+
+.checkoutBox h2 {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.checkoutSubtitle {
+  color: #aaa;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+#closeCheckout {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#closeCheckout:hover {
+  color: white;
+  transform: scale(1.2);
+}
+
+.checkoutForm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.checkoutForm input,
+.checkoutForm select {
+  padding: 14px 18px;
+  background: #2a2a2a;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+  font-family: inherit;
+}
+
+.checkoutForm input:focus,
+.checkoutForm select:focus {
+  box-shadow: 0 0 15px #f0c040;
+}
+
+.checkoutSummaryBox {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkoutRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #ccc;
+}
+
+#confirmOrder {
+  padding: 16px;
+  background: #f0c040;
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#confirmOrder:hover {
+  background: #d4a800;
+  transform: scale(1.03);
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  header {
+    padding: 16px 30px;
+  }
+
+  .cars {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .mainForm,
+  .contactContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .locationWrap {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 55px;
+  }
+
+  .boxWrap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .saleWrap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .videoWrap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .blogWrap {
+    grid-template-columns: 1fr;
+  }
+
+  .blogCard.big {
+    flex-direction: column;
+  }
+  .blogCard.big .blogImg {
+    width: 100%;
+    min-height: 250px;
+  }
+
+  .partnersWrap {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .statsWrap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cartBox,
+  .modalBox {
+    width: 90%;
+  }
+
+  .loginBox {
+    width: 90% !important;
   }
 }
