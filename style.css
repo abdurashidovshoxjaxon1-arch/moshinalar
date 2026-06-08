@@ -12,6 +12,7 @@ body {
   overflow-x: hidden;
 }
 
+/* HEADER */
 header {
   position: sticky;
   top: 0;
@@ -73,6 +74,7 @@ nav a:hover::after {
   cursor: pointer;
 }
 
+/* HERO */
 .hero {
   height: 100vh;
   background:
@@ -107,6 +109,7 @@ nav a:hover::after {
   }
 }
 
+/* BUTTONS */
 button {
   border: none;
   padding: 14px 25px;
@@ -119,6 +122,7 @@ button:hover {
   transform: scale(1.08);
 }
 
+/* SEARCH */
 .searchArea {
   width: 90%;
   margin: 50px auto;
@@ -134,6 +138,7 @@ button:hover {
   border-radius: 10px;
 }
 
+/* TITLE */
 .title {
   text-align: center;
   font-size: 45px;
@@ -144,12 +149,12 @@ button:hover {
   width: 90%;
   margin: 80px auto;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 35px;
 }
 
 .card {
-  width: 100%;
+  width: 456px;
   background: linear-gradient(145deg, #1a1a1a, #242424);
   padding: 18px;
   border-radius: 25px;
@@ -244,6 +249,7 @@ button:hover {
   letter-spacing: 1px;
 }
 
+/* BOX GRID */
 .boxWrap {
   width: 90%;
   margin: auto;
@@ -283,6 +289,7 @@ button:hover {
   transform: translateY(-10px) scale(1.04);
 }
 
+/* CONTACT */
 .contact {
   width: 90%;
   margin: auto;
@@ -303,6 +310,7 @@ button:hover {
   resize: none;
 }
 
+/* MODAL */
 .modal {
   position: fixed;
   top: 0;
@@ -455,6 +463,7 @@ button:hover {
   transform: scale(1.05);
 }
 
+/* PROGRESS BAR */
 .progress {
   position: fixed;
   top: 0;
@@ -465,6 +474,7 @@ button:hover {
   z-index: 99999;
 }
 
+/* FORM */
 .mainForm {
   width: 90%;
   margin: 80px auto;
@@ -538,6 +548,7 @@ button:hover {
   font-weight: bold;
 }
 
+/* LOCATION */
 .locationWrap {
   width: 90%;
   margin: 80px auto;
@@ -580,6 +591,7 @@ button:hover {
   margin-top: 20px;
 }
 
+/* CART */
 .cart {
   cursor: pointer;
   font-size: 25px;
@@ -617,6 +629,7 @@ button:hover {
   border-radius: 10px;
 }
 
+/* GALLERY */
 #gallery .card {
   padding: 12px;
   text-align: center;
@@ -637,6 +650,7 @@ button:hover {
   font-size: 22px;
 }
 
+/* TOP CARS */
 #topCars .box {
   text-align: center;
   overflow: hidden;
@@ -666,6 +680,7 @@ button:hover {
   margin-top: 15px;
 }
 
+/* LOADER */
 #loader {
   position: fixed;
   top: 0;
@@ -758,6 +773,7 @@ button:hover {
   }
 }
 
+/* CONTACT CONTAINER */
 .contactContainer {
   width: 90%;
   margin: 80px auto;
@@ -852,6 +868,7 @@ button:hover {
   transform: scale(1.05);
 }
 
+/* REVIEWS */
 #reviews .box {
   text-align: center;
   padding: 30px;
@@ -879,6 +896,7 @@ button:hover {
   margin-bottom: 15px;
 }
 
+/* WHY */
 #why .box {
   min-height: 230px;
   text-align: center;
@@ -898,6 +916,7 @@ button:hover {
   color: #d7d7d7;
 }
 
+/* FAVORITE */
 #favoriteBtn {
   font-size: 25px;
   cursor: pointer;
@@ -921,6 +940,7 @@ button:hover {
   transform: scale(1.1);
 }
 
+/* STATS */
 .statsWrap {
   width: 90%;
   margin: 80px auto;
@@ -951,6 +971,7 @@ button:hover {
   color: #ddd;
 }
 
+/* THEME */
 #themeBtn {
   padding: 10px 15px;
   border: none;
@@ -1081,6 +1102,7 @@ button:hover {
   }
 }
 
+/* FAQ */
 #faqSection {
   padding: 80px 40px;
   background: #0a0a0a;
@@ -1163,6 +1185,7 @@ button:hover {
   margin: 0;
 }
 
+/* ===== MEDIA QUERIES ===== */
 @media (max-width: 768px) {
   header {
     position: relative;
@@ -1303,6 +1326,7 @@ button:hover {
   }
 }
 
+/* LOGIN */
 #loginBtn {
   background: #f0c040;
   color: #000 !important;
@@ -1418,6 +1442,7 @@ button:hover {
   transform: scale(1.2);
 }
 
+/* ===== CHEGIRMALAR ===== */
 #chegirmalar {
   padding: 80px 40px;
   background: #0a0a0a;
@@ -1549,6 +1574,7 @@ button:hover {
   transform: scale(1.03);
 }
 
+/* ===== VIDEO GALEREYA ===== */
 #videoGallery {
   padding: 80px 40px;
   background: #080808;
@@ -1673,6 +1699,7 @@ button:hover {
   }
 }
 
+/* ===== HAMKORLAR ===== */
 #partners {
   padding: 80px 40px;
   background: #080808;
@@ -1722,6 +1749,7 @@ button:hover {
   text-transform: uppercase;
 }
 
+/* ===== BLOG ===== */
 #blog {
   padding: 80px 40px;
   background: #0a0a0a;
