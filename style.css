@@ -1,15 +1,35 @@
+:root {
+  --gold: #f0c040;
+  --gold-dark: #d4a800;
+  --bg: #0f0f0f;
+  --bg2: #0a0a0a;
+  --card: #111111;
+  --card2: #1a1a1a;
+  --card3: #222222;
+  --border: #1f1f1f;
+  --text: #ffffff;
+  --muted: #888888;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --transition: 0.3s ease;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --shadow-gold: 0 10px 30px rgba(240, 192, 64, 0.2);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
   scroll-behavior: smooth;
 }
 
 body {
-  background: #0f0f0f;
-  color: white;
+  background: var(--bg);
+  color: var(--text);
   overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* HEADER */
@@ -145,16 +165,17 @@ button:hover {
   margin: 80px 0;
 }
 
+/* CARDS */
 .cars {
   width: 90%;
   margin: 80px auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 35px;
 }
 
 .card {
-  width: 456px;
+  width: 433px;
   background: linear-gradient(145deg, #1a1a1a, #242424);
   padding: 18px;
   border-radius: 25px;
@@ -2076,4 +2097,242 @@ button:hover {
   .loginBox {
     width: 90% !important;
   }
+}
+
+.reveal {
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+}
+
+.reveal-up {
+  transform: translateY(80px);
+}
+.reveal-up.visible {
+  transform: translateY(0);
+}
+
+.reveal-right {
+  transform: translateX(-80px);
+}
+.reveal-right.visible {
+  transform: translateX(0);
+}
+
+.reveal-left {
+  transform: translateX(80px);
+}
+.reveal-left.visible {
+  transform: translateX(0);
+}
+
+.reveal-zoom {
+  transform: scale(0.8);
+}
+.reveal-zoom.visible {
+  transform: scale(1);
+}
+
+.reveal-fade {
+  opacity: 0;
+}
+.reveal-fade.visible {
+  opacity: 1;
+}
+
+.reveal-rotate {
+  transform: rotate(-5deg) scale(0.9);
+}
+.reveal-rotate.visible {
+  transform: rotate(0) scale(1);
+}
+
+.reveal-flip {
+  transform: perspective(600px) rotateX(30deg);
+}
+.reveal-flip.visible {
+  transform: perspective(600px) rotateX(0);
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.contactDetail {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  background: #1a1a1a;
+  border-radius: 12px;
+  border-left: 3px solid #f0c040;
+  transition: 0.3s;
+}
+
+.contactDetail:hover {
+  background: #222;
+  transform: translateX(6px);
+}
+
+.contactDetail span {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.contactDetail strong {
+  display: block;
+  font-size: 13px;
+  color: #f0c040;
+  margin-bottom: 2px;
+}
+
+.contactDetail p {
+  font-size: 14px;
+  color: #ccc;
+  margin: 0;
+}
+
+.ratingForm {
+  background: #2a2a2a;
+  border-radius: 12px;
+  padding: 14px 18px;
+}
+
+.ratingForm p {
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+
+.ratingForm .stars {
+  display: flex;
+  gap: 8px;
+}
+
+.ratingForm .stars span {
+  font-size: 28px;
+  color: #444;
+  cursor: pointer;
+  transition: 0.2s;
+  user-select: none;
+}
+
+.ratingForm .stars span.active,
+.ratingForm .stars span:hover {
+  color: #f0c040;
+  transform: scale(1.2);
+}
+
+.lightMode .contactDetail {
+  background: #f0f0f0;
+  border-left-color: #d4a800;
+}
+.lightMode .contactDetail:hover {
+  background: #e8e8e8;
+}
+.lightMode .contactDetail strong {
+  color: #d4a800;
+}
+.lightMode .contactDetail p {
+  color: #555;
+}
+.lightMode .ratingForm {
+  background: #e8e8e8;
+}
+.lightMode .ratingForm p {
+  color: #666;
+}
+.lightMode .ratingForm .stars span {
+  color: #bbb;
+}
+.lightMode .rightForm input,
+.lightMode .rightForm textarea,
+.lightMode .rightForm select {
+  background: #f0f0f0;
+  color: #111;
+  border: 1px solid #ddd;
+}
+.lightMode .leftForm {
+  background: white;
+  color: #111;
+}
+.lightMode .leftForm p {
+  color: #555;
+}
+
+@keyframes toastIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toastOut {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+::selection {
+  background: var(--gold);
+  color: #000;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #111;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-dark);
+}
+
+.card {
+  cursor: pointer;
+}
+
+button {
+  font-family: "Inter", Arial, sans-serif;
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 0.6;
+}
+
+img {
+  loading: lazy;
+}
+
+.title {
+  background: linear-gradient(135deg, #fff 0%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.lightMode .title {
+  background: linear-gradient(135deg, #111 0%, var(--gold-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

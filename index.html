@@ -3,7 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AUTO CITY</title>
+    <meta
+      name="description"
+      content="AUTO CITY — Toshkentdagi eng yaxshi avtomobil savdo platformasi. BMW, Ferrari, Mercedes, Tesla va boshqa premium mashinalar."
+    />
+    <meta
+      name="keywords"
+      content="avtomobil, mashina, BMW, Ferrari, Mercedes, Tesla, Toshkent, sotib olish"
+    />
+    <meta name="author" content="AUTO CITY" />
+    <meta property="og:title" content="AUTO CITY — Premium Avtomobillar" />
+    <meta
+      property="og:description"
+      content="Dunyo brendlarining eng yaxshi sport va premium mashinalar"
+    />
+    <title>AUTO CITY — Premium Avtomobillar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -39,8 +59,9 @@
         <a href="#cars">Mashinalar</a>
         <a href="#chegirmalar">Aksiyalar</a>
         <a href="#gallery">Galereya</a>
-        <a href="#videoGallery">Video</a>
+        <a href="#blog">Blog</a>
         <a href="#reviews">Sharhlar</a>
+        <a href="#partners">Hamkorlar</a>
         <a href="#contact">Aloqa</a>
         <a href="#location">Lokatsiya</a>
         <a href="#" id="loginBtn">🔐 Login</a>
@@ -52,6 +73,7 @@
       </div>
     </header>
 
+    <!-- LOGIN MODAL -->
     <div class="modal" id="loginModal">
       <div class="modalBox loginBox">
         <h2>🔐 Kirish</h2>
@@ -232,7 +254,7 @@
 
       <div class="card" data-brand="BMW">
         <img
-          src="https://hesucar.com/wp-content/uploads/2025/06/bmw-x7-2.jpg"
+          src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800"
         />
         <h2
           data-desc="BMW X7 — flagman SUV. 7 o'rinli keng salon, premium ichki dizayn va kuchli dvigatel."
@@ -272,7 +294,7 @@
 
       <div class="card" data-brand="Lamborghini">
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT1sJJnmA-3hAG6VNqWaPBX5lcNZ5DMYJ-T5Oir90ZJGT-m9HCEhHMSow&s=10"
+          src="https://www.rollsroyceofgreenwich.com/imagetag/6446/20/f/Used-2021-Lamborghini-Huracan-LP-610-2-EVO-Spyder.jpg"
         />
         <h2
           data-desc="Lamborghini Huracan — italyan supercar. Agressiv dizayn va V10 dvigateli bilan hayratlanarli."
@@ -332,7 +354,7 @@
 
       <div class="card" data-brand="Audi">
         <img
-          src="https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w=800"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST5K_XE1QgYL2hzTXs6gnj6EkI84kD1FpM4NlV9da1ZA&s=10"
         />
         <h2
           data-desc="Audi Q8 — premium fastback SUV. Sport dizayn va qulay salon uyg'unligi."
@@ -392,7 +414,7 @@
 
       <div class="card" data-brand="Mercedes">
         <img
-          src="https://www.alphadrivesupercarhire.co.uk/wp-content/uploads/2023/04/Mercedez-AMG-G63-Matte-Black-front-side-view-1024x683.jpg"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT41LnonwSY4249boEqAwNEJTPvreN81_ndD5pWlIQDFrKsnj6nGSmgJSw&s=10"
         />
         <h2
           data-desc="Mercedes-AMG G63 — legendar G-Class. Yo'l tanlamaydigan kuch va hashamat kombinatsiyasi."
@@ -432,7 +454,7 @@
 
       <div class="card" data-brand="Bugatti">
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW_-pbwqdzfbPHCy0sZlCzCv9mNuYq_uv1rzzKgNtoV3msFdSRHFrmBhRM&s=10"
+          src="https://techrecipe.co.kr/wp-content/uploads/2019/09/190903_BUGATTI-CHIRON_00.jpg"
         />
         <h2
           data-desc="Bugatti Chiron — dunyo eng tez avtomobili. Har bir detal qo'lda ishlanib, mukammal qilingan."
@@ -492,7 +514,7 @@
 
       <div class="card" data-brand="McLaren">
         <img
-          src="https://images.unsplash.com/photo-1621135802920-133df287f89c?w=800"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBljRDyGineWe-aQESdA0NVtFmWGOOIL45Qoyqa4MsttYIfmtdqi5ArqEM&s=10"
         />
         <h2
           data-desc="McLaren 720S — F1 texnologiyasi asosidagi supercar. Karbon tana va ajoyib aerodinamika."
@@ -509,9 +531,10 @@
           <button class="fav">🤍</button>
         </div>
       </div>
+
       <div class="card" data-brand="Jaguar">
         <img
-          src="https://www.aelita.ua/wp-content/uploads/2024/06/Jag_F-TYPE-scaled.jpg"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6qcyy8u--m1FQGUS_YulzbSxmC-nK-wWjbVbgpaX7le1FdKChx1waE3Gb&s=10"
         />
         <h2
           data-desc="Jaguar F-Type — britaniya sport avtomobili. Nafis dizayn va kuchli V8 dvigateli bilan maftunkor yurish ta'sirini beradi."
@@ -569,7 +592,7 @@
         </div>
       </div>
     </section>
-    <section id="services">
+    <section id="services" class="reveal reveal-up">
       <h1 class="title">Bizning Xizmatlar</h1>
 
       <div class="boxWrap">
@@ -618,7 +641,7 @@
       </div>
     </section>
 
-    <section id="brands">
+    <section id="brands" class="reveal reveal-right">
       <h1 class="title">Mashhur Brendlar</h1>
 
       <div class="boxWrap">
@@ -664,7 +687,7 @@
       </div>
     </section>
 
-    <section id="gallery">
+    <section id="gallery" class="reveal reveal-zoom">
       <h1 class="title">Avtomobil Galereyasi</h1>
 
       <div class="cars">
@@ -719,7 +742,7 @@
 
         <div class="card">
           <img
-            src="https://hesucar.com/wp-content/uploads/2025/06/bmw-x7-2.jpg"
+            src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800"
           />
           <h2>BMW X7</h2>
         </div>
@@ -733,14 +756,14 @@
 
         <div class="card">
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT1sJJnmA-3hAG6VNqWaPBX5lcNZ5DMYJ-T5Oir90ZJGT-m9HCEhHMSow&s=10"
+            src="https://www.rollsroyceofgreenwich.com/imagetag/6446/20/f/Used-2021-Lamborghini-Huracan-LP-610-2-EVO-Spyder.jpg"
           />
           <h2>Lamborghini Huracan</h2>
         </div>
 
         <div class="card">
           <img
-            src="https://www.alphadrivesupercarhire.co.uk/wp-content/uploads/2023/04/Mercedez-AMG-G63-Matte-Black-front-side-view-1024x683.jpg"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT41LnonwSY4249boEqAwNEJTPvreN81_ndD5pWlIQDFrKsnj6nGSmgJSw&s=10"
           />
           <h2>Mercedes G63</h2>
         </div>
@@ -753,7 +776,7 @@
         </div>
       </div>
     </section>
-    <section id="topCars">
+    <section id="topCars" class="reveal reveal-left">
       <h1 class="title">Eng Ko'p Sotilgan Mashinalar</h1>
 
       <div class="boxWrap">
@@ -807,7 +830,7 @@
       </div>
     </section>
 
-    <section id="reviews">
+    <section id="reviews" class="reveal reveal-fade">
       <h1 class="title">Mijozlar Fikrlari</h1>
 
       <div class="boxWrap">
@@ -853,7 +876,7 @@
         </div>
       </div>
     </section>
-    <section id="why">
+    <section id="why" class="reveal reveal-up">
       <h1 class="title">Nega Aynan AUTO CITY?</h1>
 
       <div class="boxWrap">
@@ -896,14 +919,15 @@
         </div>
       </div>
     </section>
-    <section id="chegirmalar">
+    <!-- CHEGIRMALAR SECTION -->
+    <section id="chegirmalar" class="reveal reveal-zoom">
       <h1 class="title">🔥 Aksiyalar va Chegirmalar</h1>
       <p class="faqSubtitle">Cheklangan vaqt! Fursatni boy bermang</p>
       <div class="saleWrap">
         <div class="saleCard">
           <div class="saleBadge">-15%</div>
           <img
-            src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800"
+            src="https://r44performance.com/cdn/shop/files/BMW-F82-M4-Parts-Modifications-Accessories-MOBILE-3.jpg?v=1737547484&width=3000"
           />
           <div class="saleInfo">
             <h2>BMW M4</h2>
@@ -974,7 +998,9 @@
         </div>
       </div>
     </section>
-    <section id="videoGallery">
+
+    <!-- VIDEO GALEREYA SECTION -->
+    <section id="videoGallery" class="reveal reveal-right">
       <h1 class="title">🎬 Video Galereya</h1>
       <p class="faqSubtitle">Mashinalarni harakatda tomosha qiling</p>
       <div class="videoWrap">
@@ -1034,6 +1060,8 @@
           <p>Dunyoning eng tez mashinasi</p>
         </div>
       </div>
+
+      <!-- Video modal -->
       <div class="modal" id="videoModal">
         <div class="videoModalBox">
           <button id="closeVideo">✕</button>
@@ -1056,7 +1084,7 @@
       </div>
     </section>
 
-    <section id="stats">
+    <section id="stats" class="reveal reveal-flip">
       <h1 class="title">AUTO CITY Statistikasi</h1>
 
       <div class="statsWrap">
@@ -1081,7 +1109,7 @@
         </div>
       </div>
     </section>
-    <section id="contact">
+    <section id="contact" class="reveal reveal-up">
       <h1 class="title">Biz bilan bog'laning</h1>
 
       <div class="contactContainer">
@@ -1123,7 +1151,7 @@
         </div>
       </div>
     </section>
-    <section id="location">
+    <section id="location" class="reveal reveal-left">
       <h1 class="title">Bizning Lokatsiya</h1>
 
       <div class="locationWrap">
@@ -1180,7 +1208,8 @@
         </div>
       </div>
     </div>
-    <section id="partners">
+    <!-- HAMKORLAR -->
+    <section id="partners" class="reveal reveal-zoom">
       <h1 class="title">🤝 Bizning Hamkorlar</h1>
       <p class="faqSubtitle">Dunyo brendlari bilan ishlaymiz</p>
       <div class="partnersWrap">
@@ -1219,7 +1248,8 @@
       </div>
     </section>
 
-    <section id="blog">
+    <!-- BLOG -->
+    <section id="blog" class="reveal reveal-right">
       <h1 class="title">📰 Yangiliklar</h1>
       <p class="faqSubtitle">Avtomobil dunyosidagi eng so'nggi xabarlar</p>
       <div class="blogWrap">
@@ -1310,7 +1340,8 @@
         </div>
       </div>
     </section>
-    <section id="faqSection">
+
+    <section id="faqSection" class="reveal reveal-up">
       <h1 class="title">Ko'p So'raladigan Savollar</h1>
       <p class="faqSubtitle">Sizda savol bormi? Biz javob beramiz!</p>
       <div class="faqList">
@@ -1394,49 +1425,82 @@
         </div>
       </div>
     </section>
-    <section id="formSection">
-      <h1 class="title">Ro'yxatdan o'tish</h1>
+    <section id="formSection" class="reveal reveal-fade">
+      <h1 class="title">📬 Aloqa / Murojaat</h1>
 
       <div class="mainForm">
         <div class="leftForm">
-          <h2>Auto City ga xush kelibsiz</h2>
-
+          <h2>Biz bilan bog'laning</h2>
           <p>
-            Yangi mashinalar, chegirmalar va maxsus takliflarni olish uchun
-            ro'yxatdan o'ting.
+            Savol, taklif yoki shikoyatingiz bormi? Xabar yuboring — 24 soat
+            ichida javob beramiz.
           </p>
 
+          <div class="contactDetails">
+            <div class="contactDetail">
+              <span>📞</span>
+              <div>
+                <strong>Telefon</strong>
+                <p>+998 71 123 45 67</p>
+              </div>
+            </div>
+            <div class="contactDetail">
+              <span>📧</span>
+              <div>
+                <strong>Email</strong>
+                <p>autocity@gmail.com</p>
+              </div>
+            </div>
+            <div class="contactDetail">
+              <span>📍</span>
+              <div>
+                <strong>Manzil</strong>
+                <p>Toshkent, Chilonzor, 7-mavze</p>
+              </div>
+            </div>
+            <div class="contactDetail">
+              <span>🕐</span>
+              <div>
+                <strong>Ish vaqti</strong>
+                <p>Dush–Shan: 9:00 – 18:00</p>
+              </div>
+            </div>
+          </div>
+
           <img
-            src="https://cdn.myportfolio.com/8b47359d-caf7-4fda-a718-003adff6f65d/8837f1b8-77ed-495e-b091-8fad5784dbbc_rw_1920.jpg?h=6a70f74fcf58cf0afb5db49dbec8ef05"
+            src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800"
           />
         </div>
 
         <div class="rightForm">
-          <input id="fullname" type="text" placeholder="Ism" />
-
-          <input id="phone" type="number" placeholder="Telefon" />
-
-          <input id="email" type="email" placeholder="Email" />
-
-          <input id="password" type="password" placeholder="Parol" />
-
+          <input id="fullname" type="text" placeholder="👤 To'liq ismingiz" />
+          <input id="phone" type="tel" placeholder="📞 Telefon raqamingiz" />
+          <input id="email" type="email" placeholder="📧 Email manzilingiz" />
           <select id="carSelect">
-            <option>Mashina tanlang</option>
-
-            <option>BMW</option>
-
-            <option>Mercedes</option>
-
-            <option>Audi</option>
-
-            <option>Ferrari</option>
-
-            <option>Tesla</option>
+            <option value="">🚗 Mavzu tanlang</option>
+            <option>Mashina haqida savol</option>
+            <option>Test drive buyurtma</option>
+            <option>Kredit va to'lov</option>
+            <option>Trade-in (almashtirish)</option>
+            <option>Shikoyat</option>
+            <option>Boshqa</option>
           </select>
-
-          <textarea id="message" placeholder="Xabar yozing"></textarea>
-
-          <button id="sendBtn">Jo'natish</button>
+          <div class="ratingForm">
+            <p>Xizmatimizni baholang:</p>
+            <div class="stars" id="formStars">
+              <span data-val="1">★</span>
+              <span data-val="2">★</span>
+              <span data-val="3">★</span>
+              <span data-val="4">★</span>
+              <span data-val="5">★</span>
+            </div>
+            <input type="hidden" id="formRating" value="0" />
+          </div>
+          <textarea
+            id="message"
+            placeholder="✍️ Xabaringizni yozing..."
+          ></textarea>
+          <button id="sendBtn">🚀 Yuborish</button>
         </div>
       </div>
     </section>
