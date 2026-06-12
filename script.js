@@ -1,5 +1,11 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+} from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCi4gwTByWTguCIZEk-Xuu_tFhgPaudNWg",
@@ -7,7 +13,7 @@ const firebaseConfig = {
   projectId: "war1pvc",
   storageBucket: "war1pvc.firebasestorage.app",
   messagingSenderId: "667003577539",
-  appId: "1:667003577539:web:ab03ffd094e3840d40ae76"
+  appId: "1:667003577539:web:ab03ffd094e3840d40ae76",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -74,16 +80,25 @@ function renderCart() {
   total.innerHTML = "Jami: " + sum.toLocaleString() + " so'm";
 }
 
-window.removeFromCart = function(index) {
+window.removeFromCart = function (index) {
   products.splice(index, 1);
   count--;
   cart.innerHTML = count;
   renderCart();
 };
 
-if (cartBtn) cartBtn.onclick = () => { cartModal.style.display = "flex"; };
-if (closeCart) closeCart.onclick = () => { cartModal.style.display = "none"; };
-if (cartModal) cartModal.onclick = (e) => { if (e.target == cartModal) cartModal.style.display = "none"; };
+if (cartBtn)
+  cartBtn.onclick = () => {
+    cartModal.style.display = "flex";
+  };
+if (closeCart)
+  closeCart.onclick = () => {
+    cartModal.style.display = "none";
+  };
+if (cartModal)
+  cartModal.onclick = (e) => {
+    if (e.target == cartModal) cartModal.style.display = "none";
+  };
 
 let checkoutModal = document.querySelector("#checkoutModal");
 let checkoutBtn = document.querySelector("#checkoutBtn");
@@ -92,7 +107,10 @@ let confirmOrder = document.querySelector("#confirmOrder");
 
 if (checkoutBtn) {
   checkoutBtn.onclick = () => {
-    if (products.length === 0) { alert("Savat bo'sh!"); return; }
+    if (products.length === 0) {
+      alert("Savat bo'sh!");
+      return;
+    }
     let sum = products.reduce((a, p) => a + p.price, 0);
     document.querySelector("#checkoutSummary").innerHTML = `
       <div class="checkoutSummaryBox">
@@ -151,7 +169,9 @@ if (confirmOrder) {
       document.querySelector("#checkoutPayment").value = "";
       confirmOrder.innerHTML = "🚀 Buyurtmani tasdiqlash";
 
-      alert(`✅ Buyurtma qabul qilindi!\n\nIsm: ${name}\nTelefon: ${phone}\nManzil: ${address}\n\nTez orada siz bilan bog'lanamiz!`);
+      alert(
+        `✅ Buyurtma qabul qilindi!\n\nIsm: ${name}\nTelefon: ${phone}\nManzil: ${address}\n\nTez orada siz bilan bog'lanamiz!`,
+      );
     }, 1500);
   };
 }
@@ -178,7 +198,9 @@ document.querySelectorAll(".add").forEach((btn) => {
 document.querySelectorAll(".buy").forEach((btn) => {
   btn.onclick = () => {
     btn.innerHTML = "Buyurtma qabul";
-    setTimeout(() => { btn.innerHTML = "Sotib olish"; }, 2000);
+    setTimeout(() => {
+      btn.innerHTML = "Sotib olish";
+    }, 2000);
     alert("Buyurtma qabul qilindi");
   };
 });
@@ -197,7 +219,12 @@ document.querySelectorAll(".view").forEach((btn) => {
     modalBadge.innerHTML = ps[1] ? ps[1].innerHTML : "";
     modalDesc.innerHTML = h2.dataset.desc || "";
     let specs = h2.dataset.specs || "";
-    modalSpecs.innerHTML = specs ? specs.split("|").map(s => `<span>${s.trim()}</span>`).join("") : "";
+    modalSpecs.innerHTML = specs
+      ? specs
+          .split("|")
+          .map((s) => `<span>${s.trim()}</span>`)
+          .join("")
+      : "";
   };
 });
 
@@ -240,7 +267,10 @@ let filter = document.querySelector("#filter");
 if (filter) {
   filter.onchange = () => {
     cards.forEach((card) => {
-      card.style.display = (filter.value == "all" || card.dataset.brand == filter.value) ? "block" : "none";
+      card.style.display =
+        filter.value == "all" || card.dataset.brand == filter.value
+          ? "block"
+          : "none";
     });
   };
 }
@@ -257,19 +287,24 @@ document.body.append(progress);
 
 window.addEventListener("scroll", () => {
   let scroll = document.documentElement.scrollTop;
-  let h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  let h =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
   progress.style.width = (scroll / h) * 100 + "%";
 });
 
 setInterval(() => {
   let logo = document.querySelector(".logo");
-  if (logo) logo.style.color = `rgb(${Math.random()*255},${Math.random()*255},${Math.random()*255})`;
+  if (logo)
+    logo.style.color = `rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255})`;
 }, 1500);
 
 document.querySelectorAll("nav a").forEach((link) => {
   link.onclick = () => {
     link.style.scale = "1.2";
-    setTimeout(() => { link.style.scale = "1"; }, 300);
+    setTimeout(() => {
+      link.style.scale = "1";
+    }, 300);
   };
 });
 
@@ -289,12 +324,16 @@ if (sendBtn) {
     sendBtn.innerHTML = "Yuborilmoqda...";
 
     setTimeout(() => {
-      alert(`✅ Xabaringiz yuborildi!\n\nIsm: ${fullname.value}\nBaholash: ${"★".repeat(parseInt(rating)) || "Baholanmadi"}\n\nTez orada siz bilan bog'lanamiz!`);
+      alert(
+        `✅ Xabaringiz yuborildi!\n\nIsm: ${fullname.value}\nBaholash: ${"★".repeat(parseInt(rating)) || "Baholanmadi"}\n\nTez orada siz bilan bog'lanamiz!`,
+      );
       fullname.value = phone.value = email.value = "";
       document.querySelector("#message").value = "";
       document.querySelector("#carSelect").value = "";
       document.querySelector("#formRating").value = "0";
-      document.querySelectorAll("#formStars span").forEach(s => s.classList.remove("active"));
+      document
+        .querySelectorAll("#formStars span")
+        .forEach((s) => s.classList.remove("active"));
       sendBtn.innerHTML = "🚀 Yuborish";
     }, 1200);
   };
@@ -325,7 +364,10 @@ document.querySelectorAll("#formStars span").forEach((star) => {
 });
 
 let locationBtn = document.querySelector("#locationBtn");
-if (locationBtn) locationBtn.onclick = () => { window.open("https://maps.google.com/?q=Tashkent"); };
+if (locationBtn)
+  locationBtn.onclick = () => {
+    window.open("https://maps.google.com/?q=Tashkent");
+  };
 
 document.querySelectorAll(".fav").forEach((btn) => {
   btn.onclick = (e) => {
@@ -348,14 +390,28 @@ document.querySelectorAll(".fav").forEach((btn) => {
 });
 
 function showFavCars() {
-  if (favCars.length == 0) { favItems.innerHTML = "Hozircha sevimli mashina yo'q"; return; }
+  if (favCars.length == 0) {
+    favItems.innerHTML = "Hozircha sevimli mashina yo'q";
+    return;
+  }
   favItems.innerHTML = "";
-  favCars.forEach((car) => { favItems.innerHTML += `<div class="cartItem"><p>${car}</p></div>`; });
+  favCars.forEach((car) => {
+    favItems.innerHTML += `<div class="cartItem"><p>${car}</p></div>`;
+  });
 }
 
-if (favoriteBtn) favoriteBtn.onclick = () => { favModal.style.display = "flex"; };
-if (closeFav) closeFav.onclick = () => { favModal.style.display = "none"; };
-if (favModal) favModal.onclick = (e) => { if (e.target == favModal) favModal.style.display = "none"; };
+if (favoriteBtn)
+  favoriteBtn.onclick = () => {
+    favModal.style.display = "flex";
+  };
+if (closeFav)
+  closeFav.onclick = () => {
+    favModal.style.display = "none";
+  };
+if (favModal)
+  favModal.onclick = (e) => {
+    if (e.target == favModal) favModal.style.display = "none";
+  };
 
 let contactBtn = document.querySelector("#contactBtn");
 if (contactBtn) {
@@ -364,7 +420,10 @@ if (contactBtn) {
     let phone = document.querySelector("#phoneContact");
     let email = document.querySelector("#emailContact");
     let messageContact = document.querySelector("#messageContact");
-    if (!name.value || !phone.value || !email.value) { alert("Iltimos formani to'ldiring"); return; }
+    if (!name.value || !phone.value || !email.value) {
+      alert("Iltimos formani to'ldiring");
+      return;
+    }
     alert("Xabaringiz muvaffaqiyatli yuborildi");
     name.value = phone.value = email.value = "";
     if (messageContact) messageContact.value = "";
@@ -373,7 +432,10 @@ if (contactBtn) {
 
 let menuBtn = document.querySelector("#menuBtn");
 let nav = document.querySelector("#nav");
-if (menuBtn) menuBtn.onclick = () => { nav.classList.toggle("active"); };
+if (menuBtn)
+  menuBtn.onclick = () => {
+    nav.classList.toggle("active");
+  };
 
 let statBox = document.querySelectorAll(".statBox");
 window.addEventListener("scroll", () => {
@@ -389,7 +451,9 @@ let themeBtn = document.querySelector("#themeBtn");
 if (themeBtn) {
   themeBtn.onclick = () => {
     document.body.classList.toggle("lightMode");
-    themeBtn.innerHTML = document.body.classList.contains("lightMode") ? "☀️" : "🌙";
+    themeBtn.innerHTML = document.body.classList.contains("lightMode")
+      ? "☀️"
+      : "🌙";
   };
 }
 
@@ -397,7 +461,9 @@ document.querySelectorAll(".faqQuestion").forEach((question) => {
   question.onclick = () => {
     let item = question.closest(".faqItem");
     let isOpen = item.classList.contains("open");
-    document.querySelectorAll(".faqItem").forEach((el) => el.classList.remove("open"));
+    document
+      .querySelectorAll(".faqItem")
+      .forEach((el) => el.classList.remove("open"));
     if (!isOpen) item.classList.add("open");
   };
 });
@@ -430,23 +496,45 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-if (closeLogin) closeLogin.onclick = () => { loginModal.style.display = "none"; document.body.style.overflow = ""; };
-if (loginModal) loginModal.onclick = (e) => { if (e.target == loginModal) { loginModal.style.display = "none"; document.body.style.overflow = ""; } };
-if (toRegister) toRegister.onclick = () => { loginFormEl.style.display = "none"; registerFormEl.style.display = "flex"; };
-if (toLogin) toLogin.onclick = () => { registerFormEl.style.display = "none"; loginFormEl.style.display = "flex"; };
+if (closeLogin)
+  closeLogin.onclick = () => {
+    loginModal.style.display = "none";
+    document.body.style.overflow = "";
+  };
+if (loginModal)
+  loginModal.onclick = (e) => {
+    if (e.target == loginModal) {
+      loginModal.style.display = "none";
+      document.body.style.overflow = "";
+    }
+  };
+if (toRegister)
+  toRegister.onclick = () => {
+    loginFormEl.style.display = "none";
+    registerFormEl.style.display = "flex";
+  };
+if (toLogin)
+  toLogin.onclick = () => {
+    registerFormEl.style.display = "none";
+    loginFormEl.style.display = "flex";
+  };
 
 if (loginSubmit) {
   loginSubmit.onclick = async () => {
     let email = document.querySelector("#loginEmail").value.trim();
     let password = document.querySelector("#loginPassword").value;
-    if (!email || !password) { alert("Email va parolni kiriting!"); return; }
+    if (!email || !password) {
+      alert("Email va parolni kiriting!");
+      return;
+    }
     try {
       loginSubmit.innerHTML = "Kirilmoqda...";
       await signInWithEmailAndPassword(auth, email, password);
       loginModal.style.display = "none";
       document.body.style.overflow = "";
     } catch (err) {
-      if (err.code === "auth/invalid-credential") alert("Email yoki parol noto'g'ri!");
+      if (err.code === "auth/invalid-credential")
+        alert("Email yoki parol noto'g'ri!");
       else alert("Xato: " + err.message);
     } finally {
       loginSubmit.innerHTML = "Kirish";
@@ -459,8 +547,14 @@ if (registerSubmit) {
     let name = document.querySelector("#regName").value.trim();
     let email = document.querySelector("#regEmail").value.trim();
     let password = document.querySelector("#regPassword").value;
-    if (!name || !email || !password) { alert("Barcha maydonlarni to'ldiring!"); return; }
-    if (password.length < 6) { alert("Parol kamida 6 ta belgi!"); return; }
+    if (!name || !email || !password) {
+      alert("Barcha maydonlarni to'ldiring!");
+      return;
+    }
+    if (password.length < 6) {
+      alert("Parol kamida 6 ta belgi!");
+      return;
+    }
     try {
       registerSubmit.innerHTML = "Ro'yxatdan o'tilmoqda...";
       await createUserWithEmailAndPassword(auth, email, password);
@@ -468,7 +562,8 @@ if (registerSubmit) {
       document.body.style.overflow = "";
       alert("Xush kelibsiz, " + name + "!");
     } catch (err) {
-      if (err.code === "auth/email-already-in-use") alert("Bu email allaqachon ro'yxatdan o'tgan!");
+      if (err.code === "auth/email-already-in-use")
+        alert("Bu email allaqachon ro'yxatdan o'tgan!");
       else alert("Xato: " + err.message);
     } finally {
       registerSubmit.innerHTML = "Ro'yxatdan o'tish";
@@ -484,7 +579,10 @@ document.querySelectorAll(".saleTimer").forEach((timer) => {
   function update() {
     let now = new Date();
     let diff = endDate - now;
-    if (diff <= 0) { span.innerHTML = "Tugadi!"; return; }
+    if (diff <= 0) {
+      span.innerHTML = "Tugadi!";
+      return;
+    }
     let d = Math.floor(diff / 86400000);
     let h = Math.floor((diff % 86400000) / 3600000);
     let m = Math.floor((diff % 3600000) / 60000);
@@ -499,7 +597,9 @@ document.querySelectorAll(".saleTimer").forEach((timer) => {
 document.querySelectorAll(".saleBuy").forEach((btn) => {
   btn.onclick = () => {
     btn.innerHTML = "Buyurtma qabul ✅";
-    setTimeout(() => { btn.innerHTML = "Sotib olish"; }, 2000);
+    setTimeout(() => {
+      btn.innerHTML = "Sotib olish";
+    }, 2000);
     alert("Buyurtma qabul qilindi!");
   };
 });
@@ -542,16 +642,21 @@ document.querySelectorAll(".blogBtn").forEach((btn) => {
   };
 });
 
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.1 },
+);
 
-document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+document
+  .querySelectorAll(".reveal")
+  .forEach((el) => revealObserver.observe(el));
 
 function showToast(msg, type = "success") {
   let existing = document.querySelector(".toast-notif");
@@ -578,14 +683,14 @@ function showToast(msg, type = "success") {
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
-    document.querySelectorAll(".modal, .cartModal").forEach(m => {
+    document.querySelectorAll(".modal, .cartModal").forEach((m) => {
       m.style.display = "none";
     });
     document.body.style.overflow = "";
   }
 });
 
-document.querySelectorAll(".card").forEach(card => {
+document.querySelectorAll(".card").forEach((card) => {
   card.addEventListener("mouseenter", () => {
     card.style.zIndex = "10";
   });
@@ -593,3 +698,79 @@ document.querySelectorAll(".card").forEach(card => {
     card.style.zIndex = "";
   });
 });
+const chatBtn = document.querySelector("#chatBtn");
+const chatBox = document.querySelector("#chatBox");
+const closeChat = document.querySelector("#closeChat");
+const chatSend = document.querySelector("#chatSend");
+const chatInputField = document.querySelector("#chatInputField");
+const chatMessages = document.querySelector("#chatMessages");
+
+const botReplies = {
+  narx: "Mashinalarimiz narxi 85,000$ dan 2,500,000$ gacha. Qaysi brend qiziqtiradi? 😊",
+  "test drive":
+    "Test drive uchun +998 71 123 45 67 ga qo'ng'iroq qiling yoki formani to'ldiring. 🚗",
+  kredit:
+    "Kredit 0% foiz bilan 12 oydan 48 oygacha. Boshlang'ich to'lov 10% dan. 💳",
+  yetkazish: "Toshkent bo'ylab yetkazish bepul! Viloyatlarga alohida narx. 🚚",
+  kafolat: "Barcha yangi mashinalar 3 yillik kafolat bilan keladi. 🛡",
+  salom: "Salom! Sizga qanday yordam bera olaman? 😊",
+  rahmat: "Iltimos! Xizmatimizdan mamnun bo'lsangiz baholash qoldiring. ⭐",
+};
+
+function botTyping() {
+  let typing = document.createElement("div");
+  typing.className = "chatMsg bot typing";
+  typing.innerHTML = `<div class="msgAvatar">AC</div><div class="msgBubble">yozmoqda...</div>`;
+  chatMessages.appendChild(typing);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+  return typing;
+}
+
+function addMsg(text, type) {
+  let msg = document.createElement("div");
+  msg.className = `chatMsg ${type}`;
+  msg.innerHTML =
+    type === "bot"
+      ? `<div class="msgAvatar">AC</div><div class="msgBubble">${text}</div>`
+      : `<div class="msgBubble">${text}</div><div class="msgAvatar">👤</div>`;
+  chatMessages.appendChild(msg);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function getBotReply(text) {
+  let lower = text.toLowerCase();
+  for (let key in botReplies) {
+    if (lower.includes(key)) return botReplies[key];
+  }
+  return "Tushundim! Mutaxassisimiz tez orada siz bilan bog'lanadi. 📞 +998 71 123 45 67";
+}
+
+function sendMsg(text) {
+  if (!text.trim()) return;
+  addMsg(text, "user");
+  chatInputField.value = "";
+  let typing = botTyping();
+  setTimeout(() => {
+    typing.remove();
+    addMsg(getBotReply(text), "bot");
+  }, 1200);
+}
+
+if (chatBtn)
+  chatBtn.onclick = () => {
+    chatBox.style.display = chatBox.style.display === "flex" ? "none" : "flex";
+  };
+
+if (closeChat)
+  closeChat.onclick = () => {
+    chatBox.style.display = "none";
+  };
+if (chatSend) chatSend.onclick = () => sendMsg(chatInputField.value);
+if (chatInputField)
+  chatInputField.onkeydown = (e) => {
+    if (e.key === "Enter") sendMsg(chatInputField.value);
+  };
+
+window.quickMsg = function (text) {
+  sendMsg(text);
+};

@@ -1010,7 +1010,7 @@
             data-video="https://www.youtube.com/embed/E7OLBAfSLp0?si=4LD1aSh8_p8SzZGS&autoplay=1&rel=0"
           >
             <img
-              src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800"
+              src="https://r44performance.com/cdn/shop/files/BMW-F82-M4-Parts-Modifications-Accessories-MOBILE-3.jpg?v=1737547484&width=3000"
             />
             <div class="playBtn">▶</div>
           </div>
@@ -1555,6 +1555,41 @@
         <div id="favItems">Hozircha bo'sh</div>
 
         <button id="closeFav">Yopish</button>
+      </div>
+    </div>
+    <div id="chatBtn">💬 <span>Yordam kerakmi?</span></div>
+
+    <div id="chatBox">
+      <div class="chatHeader">
+        <div class="chatAgent">
+          <div class="agentAvatar">AC</div>
+          <div>
+            <strong>AUTO CITY Support</strong>
+            <p>🟢 Online</p>
+          </div>
+        </div>
+        <button id="closeChat">✕</button>
+      </div>
+      <div class="chatMessages" id="chatMessages">
+        <div class="chatMsg bot">
+          <div class="msgAvatar">AC</div>
+          <div class="msgBubble">
+            Salom! 👋 AUTO CITY ga xush kelibsiz. Sizga qanday yordam bera
+            olaman?
+          </div>
+        </div>
+      </div>
+      <div class="chatQuick">
+        <button onclick="quickMsg('Mashina narxlari haqida')">
+          💰 Narxlar
+        </button>
+        <button onclick="quickMsg('Test drive buyurtma')">🚗 Test drive</button>
+        <button onclick="quickMsg('Kredit shartlari')">💳 Kredit</button>
+        <button onclick="quickMsg('Yetkazib berish')">🚚 Yetkazish</button>
+      </div>
+      <div class="chatInput">
+        <input id="chatInputField" type="text" placeholder="Xabar yozing..." />
+        <button id="chatSend">➤</button>
       </div>
     </div>
     <script type="module" src="script.js"></script>
