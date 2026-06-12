@@ -170,12 +170,12 @@ button:hover {
   width: 90%;
   margin: 80px auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 35px;
 }
 
 .card {
-  width: 433px;
+  width: 100%;
   background: linear-gradient(145deg, #1a1a1a, #242424);
   padding: 18px;
   border-radius: 25px;
@@ -2336,6 +2336,7 @@ img {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
 #chatBtn {
   position: fixed;
   bottom: 30px;
@@ -2473,6 +2474,7 @@ img {
   align-items: flex-end;
   gap: 8px;
 }
+
 .chatMsg.user {
   flex-direction: row-reverse;
 }
@@ -2509,12 +2511,14 @@ img {
   color: #ddd;
   border-bottom-left-radius: 4px;
 }
+
 .chatMsg.user .msgBubble {
   background: var(--gold);
   color: #000;
   font-weight: 600;
   border-bottom-right-radius: 4px;
 }
+
 .typing .msgBubble {
   background: #1f1f1f;
   color: #888;
@@ -2616,6 +2620,9 @@ img {
   color: #444;
   border-color: #ddd;
 }
+.lightMode .chatMessages::-webkit-scrollbar-thumb {
+  background: #ccc;
+}
 
 @media (max-width: 768px) {
   #chatBox {
@@ -2629,4 +2636,230 @@ img {
   #chatBtn {
     padding: 14px 18px;
   }
+}
+
+#cookieBanner {
+  position: fixed;
+  bottom: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 900px;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 20px;
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  z-index: 99999;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+  transition: bottom 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#cookieBanner.show {
+  bottom: 24px;
+}
+
+.cookieLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cookieIcon {
+  font-size: 36px;
+  flex-shrink: 0;
+}
+
+.cookieLeft strong {
+  display: block;
+  font-size: 15px;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.cookieLeft p {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+}
+
+.cookieBtns {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.cookieBtns button {
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: "Inter", sans-serif;
+}
+
+#cookieDecline {
+  background: #2a2a2a;
+  color: #aaa;
+}
+
+#cookieDecline:hover {
+  background: #333;
+  color: white;
+}
+
+#cookieAccept {
+  background: var(--gold);
+  color: #000;
+}
+
+#cookieAccept:hover {
+  background: var(--gold-dark);
+  transform: scale(1.05);
+}
+
+.lightMode #cookieBanner {
+  background: white;
+  border-color: #ddd;
+}
+.lightMode .cookieLeft strong {
+  color: #111;
+}
+.lightMode #cookieDecline {
+  background: #eee;
+  color: #555;
+}
+
+button {
+  position: relative;
+  overflow: hidden;
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.5s ease,
+    height 0.5s ease,
+    opacity 0.5s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+button:active::after {
+  width: 300px;
+  height: 300px;
+  opacity: 1;
+  transition: 0s;
+}
+
+.buy,
+.add,
+.view {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    letter-spacing 0.3s ease !important;
+}
+
+.buy:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+}
+.add:hover {
+  box-shadow: 0 6px 20px rgba(240, 192, 64, 0.3);
+}
+.view:hover {
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
+}
+
+.saleBuy,
+.blogBtn,
+.btnPrimary,
+#sendBtn,
+#loginSubmit,
+#registerSubmit,
+#confirmOrder,
+#checkoutBtn {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease !important;
+}
+
+.saleBuy:hover,
+#sendBtn:hover,
+#loginSubmit:hover,
+#registerSubmit:hover {
+  box-shadow: 0 8px 25px rgba(240, 192, 64, 0.35);
+  transform: translateY(-2px) scale(1.02) !important;
+}
+
+#cartBtn:hover,
+#favoriteBtn:hover {
+  transform: scale(1.15) rotate(-5deg);
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  #cookieBanner {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  .cookieLeft {
+    flex-direction: column;
+    text-align: center;
+  }
+  .cookieBtns {
+    width: 100%;
+  }
+  .cookieBtns button {
+    flex: 1;
+  }
+}
+
+@keyframes rippleAnim {
+  to {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+.passWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.passWrap input {
+  width: 100%;
+  padding-right: 46px;
+}
+
+.eyeBtn {
+  position: absolute;
+  right: 14px;
+  font-size: 18px;
+  cursor: pointer;
+  user-select: none;
+  opacity: 0.6;
+  transition: 0.2s;
+}
+
+.eyeBtn:hover {
+  opacity: 1;
+  transform: scale(1.2);
 }

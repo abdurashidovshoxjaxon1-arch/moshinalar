@@ -105,23 +105,39 @@ let checkoutBtn = document.querySelector("#checkoutBtn");
 let closeCheckout = document.querySelector("#closeCheckout");
 let confirmOrder = document.querySelector("#confirmOrder");
 
+function requireAuth(callback) {
+  if (auth.currentUser) {
+    callback();
+  } else {
+    cartModal.style.display = "none";
+    checkoutModal.style.display = "none";
+    loginModal.style.display = "flex";
+    document.body.style.overflow = "hidden";
+    loginFormEl.style.display = "flex";
+    registerFormEl.style.display = "none";
+    showToast("⚠️ Sotib olish uchun tizimga kiring!", "error");
+  }
+}
+
 if (checkoutBtn) {
   checkoutBtn.onclick = () => {
     if (products.length === 0) {
       alert("Savat bo'sh!");
       return;
     }
-    let sum = products.reduce((a, p) => a + p.price, 0);
-    document.querySelector("#checkoutSummary").innerHTML = `
-      <div class="checkoutSummaryBox">
-        <div class="checkoutRow"><span>Mahsulotlar soni</span><span>${products.length} ta</span></div>
-        <div class="checkoutRow"><span>Jami summa</span><span style="color:#f0c040;font-weight:bold;">${sum.toLocaleString()} so'm</span></div>
-        <div class="checkoutRow"><span>Yetkazish</span><span style="color:green;">Bepul 🚚</span></div>
-      </div>
-    `;
-    cartModal.style.display = "none";
-    checkoutModal.style.display = "flex";
-    document.body.style.overflow = "hidden";
+    requireAuth(() => {
+      let sum = products.reduce((a, p) => a + p.price, 0);
+      document.querySelector("#checkoutSummary").innerHTML = `
+        <div class="checkoutSummaryBox">
+          <div class="checkoutRow"><span>Mahsulotlar soni</span><span>${products.length} ta</span></div>
+          <div class="checkoutRow"><span>Jami summa</span><span style="color:#f0c040;font-weight:bold;">${sum.toLocaleString()} so'm</span></div>
+          <div class="checkoutRow"><span>Yetkazish</span><span style="color:green;">Bepul 🚚</span></div>
+        </div>
+      `;
+      cartModal.style.display = "none";
+      checkoutModal.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    });
   };
 }
 
@@ -197,11 +213,13 @@ document.querySelectorAll(".add").forEach((btn) => {
 
 document.querySelectorAll(".buy").forEach((btn) => {
   btn.onclick = () => {
-    btn.innerHTML = "Buyurtma qabul";
-    setTimeout(() => {
-      btn.innerHTML = "Sotib olish";
-    }, 2000);
-    alert("Buyurtma qabul qilindi");
+    requireAuth(() => {
+      btn.innerHTML = "Buyurtma qabul";
+      setTimeout(() => {
+        btn.innerHTML = "Sotib olish";
+      }, 2000);
+      alert("Buyurtma qabul qilindi");
+    });
   };
 });
 
@@ -230,9 +248,11 @@ document.querySelectorAll(".view").forEach((btn) => {
 
 if (modalBuyBtn) {
   modalBuyBtn.onclick = () => {
-    modal.style.display = "none";
-    document.body.style.overflow = "";
-    alert("Buyurtma qabul qilindi! Tez orada siz bilan bog'lanamiz.");
+    requireAuth(() => {
+      modal.style.display = "none";
+      document.body.style.overflow = "";
+      alert("Buyurtma qabul qilindi! Tez orada siz bilan bog'lanamiz.");
+    });
   };
 }
 
@@ -596,11 +616,13 @@ document.querySelectorAll(".saleTimer").forEach((timer) => {
 
 document.querySelectorAll(".saleBuy").forEach((btn) => {
   btn.onclick = () => {
-    btn.innerHTML = "Buyurtma qabul ✅";
-    setTimeout(() => {
-      btn.innerHTML = "Sotib olish";
-    }, 2000);
-    alert("Buyurtma qabul qilindi!");
+    requireAuth(() => {
+      btn.innerHTML = "Buyurtma qabul ✅";
+      setTimeout(() => {
+        btn.innerHTML = "Sotib olish";
+      }, 2000);
+      alert("Buyurtma qabul qilindi!");
+    });
   };
 });
 
@@ -698,6 +720,7 @@ document.querySelectorAll(".card").forEach((card) => {
     card.style.zIndex = "";
   });
 });
+
 const chatBtn = document.querySelector("#chatBtn");
 const chatBox = document.querySelector("#chatBox");
 const closeChat = document.querySelector("#closeChat");
@@ -708,10 +731,11 @@ const chatMessages = document.querySelector("#chatMessages");
 const botReplies = {
   narx: "Mashinalarimiz narxi 85,000$ dan 2,500,000$ gacha. Qaysi brend qiziqtiradi? 😊",
   "test drive":
-    "Test drive uchun +998 71 123 45 67 ga qo'ng'iroq qiling yoki formani to'ldiring. 🚗",
+    "Test drive uchun +998 71 123 45 67 ga qo'ng'iroq qiling yoki formani to'ldiring. Biz 24 soat ichida bog'lanamiz! 🚗",
   kredit:
-    "Kredit 0% foiz bilan 12 oydan 48 oygacha. Boshlang'ich to'lov 10% dan. 💳",
-  yetkazish: "Toshkent bo'ylab yetkazish bepul! Viloyatlarga alohida narx. 🚚",
+    "Kredit 0% foiz bilan 12 oydan 48 oygacha beriladi. Boshlang'ich to'lov 10% dan. 💳",
+  yetkazish:
+    "Toshkent bo'ylab yetkazish mutlaqo bepul! Viloyatlarga alohida narx. 🚚",
   kafolat: "Barcha yangi mashinalar 3 yillik kafolat bilan keladi. 🛡",
   salom: "Salom! Sizga qanday yordam bera olaman? 😊",
   rahmat: "Iltimos! Xizmatimizdan mamnun bo'lsangiz baholash qoldiring. ⭐",
@@ -749,6 +773,7 @@ function sendMsg(text) {
   if (!text.trim()) return;
   addMsg(text, "user");
   chatInputField.value = "";
+
   let typing = botTyping();
   setTimeout(() => {
     typing.remove();
@@ -765,12 +790,63 @@ if (closeChat)
   closeChat.onclick = () => {
     chatBox.style.display = "none";
   };
+
 if (chatSend) chatSend.onclick = () => sendMsg(chatInputField.value);
-if (chatInputField)
+
+if (chatInputField) {
   chatInputField.onkeydown = (e) => {
     if (e.key === "Enter") sendMsg(chatInputField.value);
   };
+}
 
 window.quickMsg = function (text) {
   sendMsg(text);
 };
+
+if (!localStorage.getItem("cookieAccepted")) {
+  setTimeout(() => {
+    document.getElementById("cookieBanner").classList.add("show");
+  }, 2500);
+}
+
+document.getElementById("cookieAccept")?.addEventListener("click", () => {
+  localStorage.setItem("cookieAccepted", "true");
+  document.getElementById("cookieBanner").style.bottom = "-200px";
+  setTimeout(() => document.getElementById("cookieBanner").remove(), 600);
+});
+
+document.getElementById("cookieDecline")?.addEventListener("click", () => {
+  document.getElementById("cookieBanner").style.bottom = "-200px";
+  setTimeout(() => document.getElementById("cookieBanner").remove(), 600);
+});
+
+document.querySelectorAll("button").forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    let ripple = document.createElement("span");
+    let rect = btn.getBoundingClientRect();
+    let size = Math.max(rect.width, rect.height);
+    ripple.style.cssText = `
+      position: absolute;
+      width: ${size}px; height: ${size}px;
+      top: ${e.clientY - rect.top - size / 2}px;
+      left: ${e.clientX - rect.left - size / 2}px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 50%;
+      transform: scale(0);
+      animation: rippleAnim 0.5s ease;
+      pointer-events: none;
+    `;
+    btn.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 500);
+  });
+});
+function togglePass(id, eye) {
+  let input = document.getElementById(id);
+  if (input.type === "password") {
+    input.type = "text";
+    eye.innerHTML = "🙈";
+  } else {
+    input.type = "password";
+    eye.innerHTML = "👁";
+  }
+}

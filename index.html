@@ -59,8 +59,8 @@
         <a href="#cars">Mashinalar</a>
         <a href="#chegirmalar">Aksiyalar</a>
         <a href="#gallery">Galereya</a>
+        <a href="#videoGallery">Video</a>
         <a href="#blog">Blog</a>
-        <a href="#reviews">Sharhlar</a>
         <a href="#partners">Hamkorlar</a>
         <a href="#contact">Aloqa</a>
         <a href="#location">Lokatsiya</a>
@@ -84,7 +84,12 @@
             id="loginEmail"
             placeholder="📧 Email manzilingiz"
           />
-          <input type="password" id="loginPassword" placeholder="🔒 Parol" />
+          <div class="passWrap">
+            <input type="password" id="loginPassword" placeholder="🔒 Parol" />
+            <span class="eyeBtn" onclick="togglePass('loginPassword', this)"
+              >👁</span
+            >
+          </div>
           <button id="loginSubmit">Kirish</button>
           <p class="loginSwitch">
             Akkauntingiz yo'qmi? <span id="toRegister">Ro'yxatdan o'ting</span>
@@ -134,7 +139,7 @@
     <section class="cars">
       <div class="card" data-brand="BMW">
         <img
-          src="https://r44performance.com/cdn/shop/files/BMW-F82-M4-Parts-Modifications-Accessories-MOBILE-3.jpg?v=1737547484&width=3000"
+          src="https://mediapool.bmwgroup.com/cache/P9/202010/P90403620/P90403620-bmw-m4-competition-x-kith-10-2020-2002px.jpg"
         />
         <h2
           data-desc="BMW M4 — yuqori samarali sport sedan. Keskin burchaklar va aggressive dizayn bilan ajralib turadi."
@@ -294,7 +299,7 @@
 
       <div class="card" data-brand="Lamborghini">
         <img
-          src="https://www.rollsroyceofgreenwich.com/imagetag/6446/20/f/Used-2021-Lamborghini-Huracan-LP-610-2-EVO-Spyder.jpg"
+          src="https://www.exoticcarhacks.com/wp-content/uploads/2024/02/D-8WJU7I-scaled.jpeg"
         />
         <h2
           data-desc="Lamborghini Huracan — italyan supercar. Agressiv dizayn va V10 dvigateli bilan hayratlanarli."
@@ -354,7 +359,7 @@
 
       <div class="card" data-brand="Audi">
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST5K_XE1QgYL2hzTXs6gnj6EkI84kD1FpM4NlV9da1ZA&s=10"
+          src="https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w=800"
         />
         <h2
           data-desc="Audi Q8 — premium fastback SUV. Sport dizayn va qulay salon uyg'unligi."
@@ -414,7 +419,7 @@
 
       <div class="card" data-brand="Mercedes">
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT41LnonwSY4249boEqAwNEJTPvreN81_ndD5pWlIQDFrKsnj6nGSmgJSw&s=10"
+          src="https://renty.ae/cdn-cgi/image/format=auto,fit=contain,width=816,height=516,sharpen=0/https://renty.ae/uploads/car/photo/l/black_mercedes-g-amg_2025_6086_main_100742ee344f7334dd1799c6d53816d5.jpg"
         />
         <h2
           data-desc="Mercedes-AMG G63 — legendar G-Class. Yo'l tanlamaydigan kuch va hashamat kombinatsiyasi."
@@ -454,7 +459,7 @@
 
       <div class="card" data-brand="Bugatti">
         <img
-          src="https://techrecipe.co.kr/wp-content/uploads/2019/09/190903_BUGATTI-CHIRON_00.jpg"
+          src="https://bugatti-newsroom.imgix.net/93471544-a546-4b8b-a4a6-f8ac327a23aa/01%20BUGATTI_Chiron-Profilee_auction?auto=format,compress&cs=srgb&sharp=10&w=380&dpr=2.625"
         />
         <h2
           data-desc="Bugatti Chiron — dunyo eng tez avtomobili. Har bir detal qo'lda ishlanib, mukammal qilingan."
@@ -514,7 +519,7 @@
 
       <div class="card" data-brand="McLaren">
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBljRDyGineWe-aQESdA0NVtFmWGOOIL45Qoyqa4MsttYIfmtdqi5ArqEM&s=10"
+          src="https://images.unsplash.com/photo-1621135802920-133df287f89c?w=800"
         />
         <h2
           data-desc="McLaren 720S — F1 texnologiyasi asosidagi supercar. Karbon tana va ajoyib aerodinamika."
@@ -534,7 +539,7 @@
 
       <div class="card" data-brand="Jaguar">
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6qcyy8u--m1FQGUS_YulzbSxmC-nK-wWjbVbgpaX7le1FdKChx1waE3Gb&s=10"
+          src="https://images.hgmsites.net/lrg/2024-jaguar-f-type-convertible-p450-r-dynamic-rwd-angular-front-exterior-view_100912077_l.webp"
         />
         <h2
           data-desc="Jaguar F-Type — britaniya sport avtomobili. Nafis dizayn va kuchli V8 dvigateli bilan maftunkor yurish ta'sirini beradi."
@@ -693,7 +698,7 @@
       <div class="cars">
         <div class="card">
           <img
-            src="https://r44performance.com/cdn/shop/files/BMW-F82-M4-Parts-Modifications-Accessories-MOBILE-3.jpg?v=1737547484&width=3000"
+            src="https://mediapool.bmwgroup.com/cache/P9/202010/P90403620/P90403620-bmw-m4-competition-x-kith-10-2020-2002px.jpg"
           />
           <h2>BMW M4</h2>
         </div>
@@ -756,14 +761,14 @@
 
         <div class="card">
           <img
-            src="https://www.rollsroyceofgreenwich.com/imagetag/6446/20/f/Used-2021-Lamborghini-Huracan-LP-610-2-EVO-Spyder.jpg"
+            src="https://www.exoticcarhacks.com/wp-content/uploads/2024/02/D-8WJU7I-scaled.jpeg"
           />
           <h2>Lamborghini Huracan</h2>
         </div>
 
         <div class="card">
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT41LnonwSY4249boEqAwNEJTPvreN81_ndD5pWlIQDFrKsnj6nGSmgJSw&s=10"
+            src="https://renty.ae/cdn-cgi/image/format=auto,fit=contain,width=816,height=516,sharpen=0/https://renty.ae/uploads/car/photo/l/black_mercedes-g-amg_2025_6086_main_100742ee344f7334dd1799c6d53816d5.jpg"
           />
           <h2>Mercedes G63</h2>
         </div>
@@ -782,7 +787,7 @@
       <div class="boxWrap">
         <div class="box">
           <img
-            src="https://r44performance.com/cdn/shop/files/BMW-F82-M4-Parts-Modifications-Accessories-MOBILE-3.jpg?v=1737547484&width=3000"
+            src="https://mediapool.bmwgroup.com/cache/P9/202010/P90403620/P90403620-bmw-m4-competition-x-kith-10-2020-2002px.jpg"
           />
 
           <h2>BMW M4</h2>
@@ -927,7 +932,7 @@
         <div class="saleCard">
           <div class="saleBadge">-15%</div>
           <img
-            src="https://r44performance.com/cdn/shop/files/BMW-F82-M4-Parts-Modifications-Accessories-MOBILE-3.jpg?v=1737547484&width=3000"
+            src="https://mediapool.bmwgroup.com/cache/P9/202010/P90403620/P90403620-bmw-m4-competition-x-kith-10-2020-2002px.jpg"
           />
           <div class="saleInfo">
             <h2>BMW M4</h2>
@@ -1010,7 +1015,7 @@
             data-video="https://www.youtube.com/embed/E7OLBAfSLp0?si=4LD1aSh8_p8SzZGS&autoplay=1&rel=0"
           >
             <img
-              src="https://r44performance.com/cdn/shop/files/BMW-F82-M4-Parts-Modifications-Accessories-MOBILE-3.jpg?v=1737547484&width=3000"
+              src="https://mediapool.bmwgroup.com/cache/P9/202010/P90403620/P90403620-bmw-m4-competition-x-kith-10-2020-2002px.jpg"
             />
             <div class="playBtn">▶</div>
           </div>
@@ -1557,6 +1562,8 @@
         <button id="closeFav">Yopish</button>
       </div>
     </div>
+    <script type="module" src="script.js"></script>
+
     <div id="chatBtn">💬 <span>Yordam kerakmi?</span></div>
 
     <div id="chatBox">
@@ -1570,6 +1577,7 @@
         </div>
         <button id="closeChat">✕</button>
       </div>
+
       <div class="chatMessages" id="chatMessages">
         <div class="chatMsg bot">
           <div class="msgAvatar">AC</div>
@@ -1579,6 +1587,7 @@
           </div>
         </div>
       </div>
+
       <div class="chatQuick">
         <button onclick="quickMsg('Mashina narxlari haqida')">
           💰 Narxlar
@@ -1587,11 +1596,28 @@
         <button onclick="quickMsg('Kredit shartlari')">💳 Kredit</button>
         <button onclick="quickMsg('Yetkazib berish')">🚚 Yetkazish</button>
       </div>
+
       <div class="chatInput">
         <input id="chatInputField" type="text" placeholder="Xabar yozing..." />
         <button id="chatSend">➤</button>
       </div>
     </div>
-    <script type="module" src="script.js"></script>
+
+    <div id="cookieBanner">
+      <div class="cookieLeft">
+        <span class="cookieIcon">🍪</span>
+        <div>
+          <strong>Cookie fayllari haqida</strong>
+          <p>
+            Saytimiz sizga eng yaxshi tajribani taqdim etish uchun cookie lardan
+            foydalanadi.
+          </p>
+        </div>
+      </div>
+      <div class="cookieBtns">
+        <button id="cookieDecline">Rad etish</button>
+        <button id="cookieAccept">Qabul qilish ✓</button>
+      </div>
+    </div>
   </body>
 </html>
